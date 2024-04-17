@@ -24,7 +24,7 @@ public class PropertiesController {
         
         String parent_dir = System.getProperty("user.dir");
         
-        try (FileReader reader = new FileReader(parent_dir + "\\src\\management\\configs\\db.properties")) {
+        try (FileReader reader = new FileReader(parent_dir + "/src/management/configs/db.properties")) {
             prop.load(reader);
         } catch (IOException e) {
             System.err.println("Error loading properties: " + e.getMessage());

@@ -37,17 +37,17 @@ public class InputDetailJFrame extends javax.swing.JFrame {
         addButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(600, 650));
-        setPreferredSize(new java.awt.Dimension(605, 650));
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        allPanel.setMinimumSize(new java.awt.Dimension(600, 700));
-        allPanel.setPreferredSize(new java.awt.Dimension(600, 700));
+        allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inputDetailTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,7 +63,7 @@ public class InputDetailJFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(inputDetailTable);
 
-        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 600, 360));
+        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 680, 410));
 
         inputHistoryComboBox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         inputHistoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -72,48 +72,58 @@ public class InputDetailJFrame extends javax.swing.JFrame {
                 inputHistoryComboBoxActionPerformed(evt);
             }
         });
-        allPanel.add(inputHistoryComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 120, 50));
+        allPanel.add(inputHistoryComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 160, 40));
 
-        deleteButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deleteButton.setBackground(new java.awt.Color(204, 204, 204));
+        deleteButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         deleteButton.setText("Xóa");
+        deleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deleteButtonMouseClicked(evt);
             }
         });
-        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 120, 50));
+        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 40));
 
-        addButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addButton.setBackground(new java.awt.Color(204, 204, 204));
+        addButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         addButton.setText("Thêm");
+        addButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addButtonMouseClicked(evt);
             }
         });
-        allPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 140, 50));
+        allPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, 40));
 
-        refreshButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refreshButton.setBackground(new java.awt.Color(204, 204, 204));
+        refreshButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         refreshButton.setText("Làm mới");
+        refreshButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 refreshButtonMouseClicked(evt);
             }
         });
-        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 140, 50));
+        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 150, 40));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel2.setText("Quản lý ");
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("QUẢN LÝ NHẬP KHO");
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel3.setText("Nhập kho");
-        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton1.setText("xem");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        allPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 150, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Thiết kế chưa có tên (9).png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 600, 620));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputDetailJFrame.png"))); // NOI18N
+        jLabel1.setMinimumSize(new java.awt.Dimension(680, 720));
+        jLabel1.setPreferredSize(new java.awt.Dimension(680, 720));
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 720));
 
-        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,9 +188,9 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton;
     private javax.swing.JTable inputDetailTable;
     private javax.swing.JComboBox<String> inputHistoryComboBox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshButton;
     // End of variables declaration//GEN-END:variables

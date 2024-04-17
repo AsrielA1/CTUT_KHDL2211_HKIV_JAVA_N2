@@ -40,48 +40,58 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(610, 620));
-        setPreferredSize(new java.awt.Dimension(610, 620));
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        allPanel.setMinimumSize(new java.awt.Dimension(620, 700));
-        allPanel.setPreferredSize(new java.awt.Dimension(600, 600));
+        allPanel.setMinimumSize(new java.awt.Dimension(700, 730));
+        allPanel.setPreferredSize(new java.awt.Dimension(700, 730));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setMinimumSize(new java.awt.Dimension(600, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(690, 750));
+        jPanel1.setPreferredSize(new java.awt.Dimension(690, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 320, 50));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 320, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Mã kho");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 160, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 160, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Sức chứa");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 320, 50));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 320, 50));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("Ghi chú");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 320, 150));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 320, 150));
 
+        confirmButton.setBackground(new java.awt.Color(204, 204, 204));
+        confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         confirmButton.setText("Xác nhận");
-        jPanel1.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 520, 160, 60));
+        confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, 150, 40));
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton2.setText("Hủy");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 160, 60));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 640, 150, 40));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel5.setText("Chi Tiết        Kho");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 390, -1));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel5.setText("CHI TIẾT KHO");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 410, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Thiết kế chưa có tên (4).png")); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 600, 710));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Thiết kế/storage.Jframe/Updatestorage.png"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(680, 730));
+        jLabel4.setMinimumSize(new java.awt.Dimension(680, 730));
+        jLabel4.setPreferredSize(new java.awt.Dimension(680, 720));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
-        allPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 720));
+        allPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
-        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

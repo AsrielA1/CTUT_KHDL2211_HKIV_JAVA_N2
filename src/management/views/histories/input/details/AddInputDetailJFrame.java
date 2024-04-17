@@ -40,65 +40,71 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(610, 630));
-        setPreferredSize(new java.awt.Dimension(600, 660));
+        setMinimumSize(new java.awt.Dimension(690, 760));
+        setPreferredSize(new java.awt.Dimension(690, 760));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        confirmButton.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        confirmButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-update-30.png")); // NOI18N
+        confirmButton.setBackground(new java.awt.Color(204, 204, 204));
+        confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         confirmButton.setText("Xác nhận");
+        confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confirmButtonMouseClicked(evt);
             }
         });
-        getContentPane().add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 580, 140, 40));
+        getContentPane().add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 670, 140, 40));
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        cancelButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-cancel-30.png")); // NOI18N
+        cancelButton.setBackground(new java.awt.Color(204, 204, 204));
+        cancelButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         cancelButton.setText("Hủy");
-        getContentPane().add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, 140, 40));
+        cancelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 140, 40));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("Ghi chú");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 170, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 170, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Khối Lượng");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 170, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Chi phí theo đơn vị");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 170, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Mã kho");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 110, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 110, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Mã nhập kho");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 210, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 20));
 
         storageIdChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(storageIdChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 350, 40));
+        getContentPane().add(storageIdChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 330, 40));
 
         inputIdChooser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(inputIdChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 350, 40));
-        getContentPane().add(costPerWeightTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, 350, 30));
-        getContentPane().add(inputDetailNoteTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 350, 110));
-        getContentPane().add(inputWeightTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 350, 30));
+        getContentPane().add(inputIdChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 330, 40));
+        getContentPane().add(costPerWeightTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 330, 40));
+        getContentPane().add(inputDetailNoteTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 570, 330, 40));
+        getContentPane().add(inputWeightTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, 330, 40));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 2, 48)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Chi Tiết ");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 2, 48)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nhập Kho");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Thiết kế chưa có tên (7).png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/AddInputDetailJFrame.png"))); // NOI18N
         jLabel6.setToolTipText("");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 630));
+        jLabel6.setMinimumSize(new java.awt.Dimension(680, 750));
+        jLabel6.setPreferredSize(new java.awt.Dimension(680, 750));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

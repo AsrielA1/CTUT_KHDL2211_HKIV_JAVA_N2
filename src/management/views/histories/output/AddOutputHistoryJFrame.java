@@ -16,124 +16,90 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         allPanel = new javax.swing.JPanel();
-        informationPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        outputIdTF = new javax.swing.JTextField();
-        outputTimeTF = new javax.swing.JTextField();
-        outputNoteTF = new javax.swing.JTextField();
-        dateChosser = new com.toedter.calendar.JDateChooser();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        outputNoteTF = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        outputTimeTF = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        dateChosser = new com.toedter.calendar.JDateChooser();
+        outputIdTF = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Mã xuất kho");
+        allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
+        allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Ngày xuất");
-
-        jLabel3.setText("Thời gian xuất");
-
-        jLabel4.setText("Ghi chú");
-
-        javax.swing.GroupLayout informationPanelLayout = new javax.swing.GroupLayout(informationPanel);
-        informationPanel.setLayout(informationPanelLayout);
-        informationPanelLayout.setHorizontalGroup(
-            informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(informationPanelLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, informationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(43, 43, 43)
-                        .addComponent(outputNoteTF, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(informationPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(outputTimeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(informationPanelLayout.createSequentialGroup()
-                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(outputIdTF)
-                            .addComponent(dateChosser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(89, Short.MAX_VALUE))
-        );
-        informationPanelLayout.setVerticalGroup(
-            informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(informationPanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(outputIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(dateChosser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(outputTimeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(informationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(outputNoteTF, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-
+        confirmButton.setBackground(new java.awt.Color(204, 204, 204));
+        confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         confirmButton.setText("Xác nhận");
+        confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confirmButtonMouseClicked(evt);
             }
         });
+        allPanel.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 660, 150, 50));
 
+        cancelButton.setBackground(new java.awt.Color(204, 204, 204));
+        cancelButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         cancelButton.setText("Hủy");
+        cancelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancelButtonMouseClicked(evt);
             }
         });
+        allPanel.add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 660, 150, 50));
+        allPanel.add(outputNoteTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 330, 134));
 
-        javax.swing.GroupLayout allPanelLayout = new javax.swing.GroupLayout(allPanel);
-        allPanel.setLayout(allPanelLayout);
-        allPanelLayout.setHorizontalGroup(
-            allPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(informationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, allPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(confirmButton)
-                .addGap(43, 43, 43)
-                .addComponent(cancelButton)
-                .addGap(95, 95, 95))
-        );
-        allPanelLayout.setVerticalGroup(
-            allPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(allPanelLayout.createSequentialGroup()
-                .addComponent(informationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
-                .addGroup(allPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmButton)
-                    .addComponent(cancelButton))
-                .addGap(0, 101, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setText("Ghi chú");
+        allPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 469, -1, 50));
+        allPanel.add(outputTimeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 330, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(allPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(allPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setText("Thời gian xuất");
+        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 309, -1, 50));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setText("Ngày xuất");
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 389, -1, 50));
+        allPanel.add(dateChosser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 330, 50));
+        allPanel.add(outputIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 330, 50));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setText("Mã xuất kho");
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 219, -1, 50));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("CHI TIẾT ");
+        allPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("LỊCH SỬ XUẤT KHO");
+        allPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Output.Jframe/AddInputHistoryJFrame.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jLabel5.setMinimumSize(new java.awt.Dimension(680, 720));
+        jLabel5.setPreferredSize(new java.awt.Dimension(680, 720));
+        allPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,12 +153,14 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton confirmButton;
     private com.toedter.calendar.JDateChooser dateChosser;
-    private javax.swing.JPanel informationPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField outputIdTF;
     private javax.swing.JTextField outputNoteTF;
     private javax.swing.JTextField outputTimeTF;

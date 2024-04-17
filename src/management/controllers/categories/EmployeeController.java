@@ -17,7 +17,6 @@ import management.configs.PropertiesController;
 interface IEmployeeController{
     void setEditable(JTextField employeeNameTF, JTextField employeeNumberTF, JTextField employeeNoteTF, boolean b);
     void showSingleEmployee(String employeeId, JTextField employeeIdTF, JTextField employeeNameTF, JTextField employeeNumberTF, JTextField employeeNoteTF);
-    void showSingleEmployee(UpdateEmployeeJFrame frame, String employeeId);
     void showAllEmployee(JTable employeeTable);
     void addEmployeeData(JTextField TFemployeeId, JTextField TFpassword, JTextField TFemployeeName, JTextField TFemployeeNumber, JTextField TFemployeeNote);
     void hideEmployeeData(String employeeId);
@@ -110,37 +109,6 @@ public class EmployeeController implements IEmployeeController{
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.EmployeeController.showAllEmployee\n" + e);
         }
-    }
-    
-    @Override 
-    public void showSingleEmployee(UpdateEmployeeJFrame frame, String employeeId){
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
-        try {
-            Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-            
-            stmt = connection.createStatement();
-            query = "SELECT ho_ten, so_dienthoai, ghi_chu FROM nhan_vien WHERE ma_nhanvien = '" + employeeId + "'";
-            rs = stmt.executeQuery(query);
-            
-            while (rs.next()){
-                String employeeName = String.valueOf(rs.getString(1));
-                String employeeNumber = String.valueOf(rs.getString(2));
-                String employeeNote = String.valueOf(rs.getString(3));
-                
-                frame.showSingleEmployee(employeeId, employeeName, employeeNumber, employeeNote);
-            }
-            
-            
-        }
-        catch (Exception e){
-            System.out.println("Error in management.controllers.categories.EmployeeController.showSingleEmployee\n" + e);
-        }
-        
     }
     
     @Override

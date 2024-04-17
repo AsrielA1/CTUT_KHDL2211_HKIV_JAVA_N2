@@ -25,20 +25,21 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         outputHistoryTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         viewDetailButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(0, 730));
-        setPreferredSize(new java.awt.Dimension(600, 700));
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         outputHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -54,58 +55,59 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(outputHistoryTable);
 
-        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 600, 360));
+        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 680, 400));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-update-30.png")); // NOI18N
-        jButton1.setText("Xác nhận");
-        allPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, 120, 40));
+        jButton1.setText("TÌM");
+        allPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-cancel-30.png")); // NOI18N
-        jButton2.setText("Hủy");
-        allPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 120, 40));
-
-        jButton3.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-delete-24.png")); // NOI18N
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton3.setText("Xóa");
-        allPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 150, 50));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        allPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 50));
 
-        refreshButton.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        refreshButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-reset-24.png")); // NOI18N
+        refreshButton.setBackground(new java.awt.Color(204, 204, 204));
+        refreshButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         refreshButton.setText("Làm mới");
+        refreshButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 refreshButtonMouseClicked(evt);
             }
         });
-        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 150, 50));
+        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, 50));
 
-        addButton.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        addButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-add-properties-24.png")); // NOI18N
+        addButton.setBackground(new java.awt.Color(204, 204, 204));
+        addButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         addButton.setText("Thêm");
+        addButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addButtonMouseClicked(evt);
             }
         });
-        allPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 50));
+        allPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, 50));
 
-        viewDetailButton.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        viewDetailButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-view-details-26.png")); // NOI18N
+        viewDetailButton.setBackground(new java.awt.Color(204, 204, 204));
+        viewDetailButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         viewDetailButton.setText("Xem chi tiết");
-        allPanel.add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 140, 50));
+        viewDetailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        allPanel.add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 140, 50));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Chức Năng ");
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("LỊCH SỬ XUẤT KHO");
-        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 370, -1));
+        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 490, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Lịch sử xuất kho.png")); // NOI18N
-        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 700));
+        jTextField1.setText(" ");
+        allPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 300, 20));
 
-        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Output.Jframe/OutputHistoryJFrame.png"))); // NOI18N
+        jLabel1.setMinimumSize(new java.awt.Dimension(680, 720));
+        jLabel1.setPreferredSize(new java.awt.Dimension(680, 720));
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,12 +160,11 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JPanel allPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable outputHistoryTable;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton viewDetailButton;

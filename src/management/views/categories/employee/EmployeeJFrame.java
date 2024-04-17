@@ -20,40 +20,59 @@ public class EmployeeJFrame extends javax.swing.JFrame {
         allPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         employeeTable = new javax.swing.JTable();
-        functionPanel = new javax.swing.JPanel();
-        addEmployeeButton = new javax.swing.JButton();
         filterButton = new javax.swing.JButton();
-        viewDetailButton = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
-        refreshButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        addEmployeeButton = new javax.swing.JButton();
+        viewDetailButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "MãNV", "Họ Tên", "Mật Khẩu", "Số Điện thoại", "Ghi Chú"
+                "MãNV", "Họ Tên", "Số Điện thoại", "Ghi Chú"
             }
         ));
         jScrollPane1.setViewportView(employeeTable);
 
-        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 800, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 680, 420));
 
-        functionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        filterButton.setBackground(new java.awt.Color(204, 204, 204));
+        filterButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        filterButton.setText("Làm mới");
+        filterButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        getContentPane().add(filterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 150, 50));
 
-        addEmployeeButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-add-properties-24.png")); // NOI18N
+        delButton.setBackground(new java.awt.Color(204, 204, 204));
+        delButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        delButton.setText("Xóa");
+        delButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        delButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                delButtonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, 50));
+
+        addEmployeeButton.setBackground(new java.awt.Color(204, 204, 204));
+        addEmployeeButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         addEmployeeButton.setText("Thêm");
+        addEmployeeButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         addEmployeeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addEmployeeButtonMouseClicked(evt);
@@ -64,65 +83,33 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                 addEmployeeButtonActionPerformed(evt);
             }
         });
-        functionPanel.add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 90, 30));
+        getContentPane().add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 50));
 
-        filterButton.setText("Bộ lọc");
-        functionPanel.add(filterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 90, 30));
-
-        viewDetailButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-view-details-26.png")); // NOI18N
+        viewDetailButton.setBackground(new java.awt.Color(204, 204, 204));
+        viewDetailButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         viewDetailButton.setText("Xem chi tiết");
+        viewDetailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         viewDetailButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewDetailButtonMouseClicked(evt);
             }
         });
-        functionPanel.add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 130, 30));
+        getContentPane().add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 50));
 
-        delButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-delete-24.png")); // NOI18N
-        delButton.setText("Xóa");
-        delButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                delButtonMouseClicked(evt);
-            }
-        });
-        functionPanel.add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 80, 30));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jButton1.setText("Tìm");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 110, 30));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 260, 30));
 
-        refreshButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\icons8-reset-24.png")); // NOI18N
-        refreshButton.setText("Làm mới");
-        refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshButtonMouseClicked(evt);
-            }
-        });
-        functionPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, -1, 30));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("QUẢN LÝ NHÂN VIÊN");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel2.setText("Nhân Viên");
-        functionPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 280, 70));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel3.setText("Quản lý");
-        functionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 280, 70));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Chức năng ");
-        functionPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 110, 90, 30));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Thêm tiêu đề (900 x 500 px) (1).png")); // NOI18N
-        functionPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
-
-        allPanel.add(functionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(allPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(allPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Thiết kế/Employee.Jframe/Employee.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
         pack();
         setLocationRelativeTo(null);
@@ -134,37 +121,16 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void addEmployeeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeButtonMouseClicked
-        UpdateEmployeeJFrame frame = new UpdateEmployeeJFrame(true);
-        frame.hideUpdateButton();        
-        frame.setEditable(true, true);
-        frame.setVisible(true);
+
     }//GEN-LAST:event_addEmployeeButtonMouseClicked
 
     private void delButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delButtonMouseClicked
-        int row = employeeTable.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel)employeeTable.getModel();
-        
-        String employeeId = model.getValueAt(row, 0).toString();
-        employeeController.hideEmployeeData(employeeId);
-        employeeController.showAllEmployee(employeeTable);
+
     }//GEN-LAST:event_delButtonMouseClicked
 
     private void viewDetailButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewDetailButtonMouseClicked
-        UpdateEmployeeJFrame frame = new UpdateEmployeeJFrame(false);
-        frame.hidePasswordTF();
-        frame.setEditable(false, false);
-        
-        int row = employeeTable.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel)employeeTable.getModel();
-        String employeeId = model.getValueAt(row, 1).toString();
-                
-        employeeController.showSingleEmployee(frame, employeeId);
-        frame.setVisible(true);
-    }//GEN-LAST:event_viewDetailButtonMouseClicked
 
-    private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
-        employeeController.showAllEmployee(employeeTable);
-    }//GEN-LAST:event_refreshButtonMouseClicked
+    }//GEN-LAST:event_viewDetailButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -207,14 +173,12 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     private javax.swing.JButton delButton;
     private javax.swing.JTable employeeTable;
     private javax.swing.JButton filterButton;
-    private javax.swing.JPanel functionPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton refreshButton;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton viewDetailButton;
     // End of variables declaration//GEN-END:variables
 }

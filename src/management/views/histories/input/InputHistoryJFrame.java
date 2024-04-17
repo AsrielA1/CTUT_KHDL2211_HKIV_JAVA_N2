@@ -26,17 +26,19 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         viewInputDetailButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(610, 640));
+        setMinimumSize(new java.awt.Dimension(690, 750));
+        setPreferredSize(new java.awt.Dimension(690, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inputHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -52,63 +54,65 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(inputHistoryTable);
 
-        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 600, 403));
+        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 680, 410));
 
+        jButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton3.setText("Thêm");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
             }
         });
-        allPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 130, 50));
+        allPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 50));
 
+        deleteButton.setBackground(new java.awt.Color(204, 204, 204));
+        deleteButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         deleteButton.setText("Xóa");
+        deleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deleteButtonMouseClicked(evt);
             }
         });
-        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 130, 50));
+        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 130, 50));
 
+        refreshButton.setBackground(new java.awt.Color(204, 204, 204));
+        refreshButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         refreshButton.setText("Làm mới");
+        refreshButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 refreshButtonMouseClicked(evt);
             }
         });
-        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 130, 50));
+        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 130, 50));
 
-        jButton1.setText("Xác nhận");
-        allPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 90, 40));
-
-        jButton2.setText("Hủy");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        allPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 90, 40));
-
-        viewInputDetailButton.setText("Xem chi tiết ");
+        viewInputDetailButton.setBackground(new java.awt.Color(204, 204, 204));
+        viewInputDetailButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        viewInputDetailButton.setText("Xem");
+        viewInputDetailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewInputDetailButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewInputDetailButtonMouseClicked(evt);
             }
         });
-        allPanel.add(viewInputDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 130, 50));
+        allPanel.add(viewInputDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 2, 48)); // NOI18N
-        jLabel1.setText("Lịch Sử ");
-        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 46)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("LỊCH SỬ NHẬP KHO");
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 490, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 2, 48)); // NOI18N
-        jLabel3.setText("Nhập Kho");
-        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jButton4.setText("TÌM");
+        allPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 100, -1));
+        allPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 300, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\wk\\Downloads\\Thiết kế chưa có tên (5).png")); // NOI18N
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 600));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputHistoryJFrame.png"))); // NOI18N
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
-        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,10 +125,6 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         AddInputHistoryJFrame frame = new AddInputHistoryJFrame();
         frame.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        dispose();
-    }//GEN-LAST:event_jButton2MouseClicked
 
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         inputHistoryController.hideInputHistory(inputHistoryTable);
@@ -178,13 +178,12 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel allPanel;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTable inputHistoryTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton viewInputDetailButton;
     // End of variables declaration//GEN-END:variables
