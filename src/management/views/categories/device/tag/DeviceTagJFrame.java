@@ -1,5 +1,6 @@
 package management.views.categories.device.tag;
 
+import javax.swing.table.DefaultTableModel;
 import management.controllers.categories.DeviceController;
 
 public class DeviceTagJFrame extends javax.swing.JFrame {
@@ -128,7 +129,12 @@ public class DeviceTagJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void btnUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseClicked
-
+        int row = tblTag.getSelectedRow();
+        DefaultTableModel dtModel = (DefaultTableModel)tblTag.getModel();
+        String _tagId = dtModel.getValueAt(row, 0).toString();
+        
+        UpdateDeviceTagJFrame frame = new UpdateDeviceTagJFrame(_tagId);
+        frame.setVisible(true);
     }//GEN-LAST:event_btnUpdateMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked

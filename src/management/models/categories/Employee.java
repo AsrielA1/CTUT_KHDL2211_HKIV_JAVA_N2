@@ -14,9 +14,9 @@ import java.util.ArrayList;
 
 
 interface IEmployee{
-    void addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote);
-    void delEmployee(String employeeId);
-    void updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote);
+    boolean addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote);
+    boolean delEmployee(String employeeId);
+    boolean updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote);
 }
 
 public class Employee implements IEmployee{
@@ -41,7 +41,7 @@ public class Employee implements IEmployee{
     }
     
     @Override
-    public void addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote){
+    public boolean addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
         
@@ -59,14 +59,18 @@ public class Employee implements IEmployee{
             pstmt.setString(5, employeeNote);
             
             pstmt.executeUpdate();
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Employee.addEmployee\n" + e);
         }
+        
+        return false;
     }
     
     @Override
-    public void delEmployee(String employeeId){
+    public boolean delEmployee(String employeeId){
         Connection connection = null;
         Statement stmt = null;
         
@@ -77,15 +81,19 @@ public class Employee implements IEmployee{
             String query = "UPDATE nhan_vien SET ghi_chu = 'Nghỉ' WHERE ma_nhanvien = '" + employeeId + "';";
             stmt = connection.createStatement();
             stmt.executeUpdate(query);
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Employee.delEmployee\n" + e);
         }
+        
+        return false;
     }
     
     
     @Override
-    public void updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote){
+    public boolean updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
 
@@ -93,41 +101,25 @@ public class Employee implements IEmployee{
             Class.forName("org.postgresql.Driver");
 
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-
-            List<String> updateList = new ArrayList<>();
-            if (employeeName != null){
-                updateList.add("ho_ten = ?");
-            }
-            if (employeeNumber != null){
-                updateList.add("so_dienthoai = ?");
-            }
-            if (employeeNote != null){
-                updateList.add("ghi_chu = ?");
-            }
-
-            if (!updateList.isEmpty()){
-                String query = "UPDATE nhan_vien SET " + String.join(", ", updateList) + " WHERE ma_nhanvien = ?";
-                System.out.println(query);
-                pstmt = connection.prepareStatement(query);
-                
-                int parameterIndex = 1;
-                if (employeeName != null){
-                    pstmt.setString(parameterIndex++, employeeName);
-                }
-                if (employeeNumber != null){
-                    pstmt.setString(parameterIndex++, employeeNumber);
-                }
-                if (employeeNote != null){
-                    pstmt.setString(parameterIndex++, employeeNote);
-                }
-                pstmt.setString(parameterIndex, employeeId);
-
-                pstmt.executeUpdate();
-            }
+            String query = "UPDATE nhan_vien "
+                    + "SET ho_ten = ?, so_dienthoai = ?, ghi_chu = ? "
+                    + "WHERE ma_nhanvien = ?;";
+            
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, employeeName);
+            pstmt.setString(2, employeeNumber);
+            pstmt.setString(3, employeeNote);
+            pstmt.setString(4, employeeId);
+            
+            pstmt.executeUpdate();
+            
+            return true;            
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Employee.updateEmployee\n" + e);
         }
+        
+        return false;
     }
 
 }

@@ -21,10 +21,11 @@ public class UpdateDeviceTagJFrame extends javax.swing.JFrame {
         
         viewFrameInit(_tagId);
         isViewFrame = true;
+        deviceController.showSingleTag(tfTagId, tfTagName, tfTagNote);
     }
     
     private void viewFrameInit(String _tagId){
-        btnConfirm.setText("Hủy");
+        btnConfirm.setText("Sửa");
         
         tfTagId.setText(_tagId);
         tfTagId.setEditable(false);
@@ -91,6 +92,11 @@ public class UpdateDeviceTagJFrame extends javax.swing.JFrame {
         btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Hủy");
         btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 630, 150, 50));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
@@ -110,11 +116,14 @@ public class UpdateDeviceTagJFrame extends javax.swing.JFrame {
     private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
         if (isViewFrame){
             if (firstPress){                
+                btnConfirm.setText("Xác nhận");
+                
                 tfTagName.setEditable(true);
                 tfTagNote.setEditable(true);
                 firstPress = false;
             } else {
                 boolean success = deviceController.updateTag(tfTagId, tfTagName, tfTagNote);
+                dispose();
             }
         }
         else {
@@ -128,6 +137,10 @@ public class UpdateDeviceTagJFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnConfirmMouseClicked
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        dispose();
+    }//GEN-LAST:event_btnCancelMouseClicked
 
     /**
      * @param args the command line arguments

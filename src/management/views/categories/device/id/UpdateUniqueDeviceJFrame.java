@@ -31,7 +31,7 @@ public class UpdateUniqueDeviceJFrame extends javax.swing.JFrame {
         tfStorageId.setEditable(false);
         tfUniqueNote.setEditable(false);
         
-        deviceController.showSingleDevice(tfDeviceId, tfStorageId, tfUniqueNote);
+        deviceController.showSingleUniqueDevice(tfUniqueNote, tfStorageId, tfUniqueNote);
     }
 
     @SuppressWarnings("unchecked")

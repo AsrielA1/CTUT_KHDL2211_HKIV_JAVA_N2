@@ -1,12 +1,13 @@
 package management.views.categories.employee;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import management.controllers.categories.EmployeeController;
 
 public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     
-    private boolean isAddJFrame;
-    
+    private boolean firstPress = false;
+        
     private final EmployeeController employeeController = new EmployeeController();
     
     public UpdateEmployeeJFrame() {
@@ -14,12 +15,19 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         
     }
     
-    public UpdateEmployeeJFrame(boolean addNewEmployee) {
+    public UpdateEmployeeJFrame(String _employeeId) {
         initComponents();
         
-        
-        isAddJFrame = addNewEmployee;
-        
+        employeeController.showSingleEmployee(_employeeId, tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
+        viewFrameInit(_employeeId);
+    }
+    
+    private void viewFrameInit(String _employeeId){
+        tfEmployeeId.setText(_employeeId);
+        tfEmployeeId.setEditable(false);
+        tfEmployeeName.setEditable(false);
+        tfEmployeeNumber.setEditable(false);
+        tfEmployeeNote.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -31,12 +39,12 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        employeeIdTF = new javax.swing.JTextField();
-        employeeNameTF = new javax.swing.JTextField();
-        employeeNoteTF = new javax.swing.JTextField();
-        passwordTF = new javax.swing.JPasswordField();
-        cancelButton = new javax.swing.JButton();
-        confirmButton = new javax.swing.JButton();
+        tfEmployeeId = new javax.swing.JTextField();
+        tfEmployeeNumber = new javax.swing.JTextField();
+        tfEmployeeNote = new javax.swing.JTextField();
+        tfEmployeeName = new javax.swing.JPasswordField();
+        btnCancel = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -70,43 +78,43 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("Ghi chú");
         informationPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 160, 50));
-        informationPanel.add(employeeIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 350, 40));
+        informationPanel.add(tfEmployeeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 350, 40));
 
-        employeeNameTF.addActionListener(new java.awt.event.ActionListener() {
+        tfEmployeeNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeeNameTFActionPerformed(evt);
+                tfEmployeeNumberActionPerformed(evt);
             }
         });
-        informationPanel.add(employeeNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 350, 40));
-        informationPanel.add(employeeNoteTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 350, 100));
-        informationPanel.add(passwordTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 350, 40));
+        informationPanel.add(tfEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 350, 40));
+        informationPanel.add(tfEmployeeNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 350, 100));
+        informationPanel.add(tfEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 350, 40));
 
-        cancelButton.setBackground(new java.awt.Color(204, 204, 204));
-        cancelButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        cancelButton.setText("Hủy");
-        cancelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnCancel.setText("Hủy");
+        btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cancelButtonMouseClicked(evt);
+                btnCancelMouseClicked(evt);
             }
         });
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
-        informationPanel.add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 140, 40));
+        informationPanel.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 140, 40));
 
-        confirmButton.setBackground(new java.awt.Color(204, 204, 204));
-        confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        confirmButton.setText("Xác nhận");
-        confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnConfirm.setText("Sửa");
+        btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmButtonMouseClicked(evt);
+                btnConfirmMouseClicked(evt);
             }
         });
-        informationPanel.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, 140, 40));
+        informationPanel.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 620, 140, 40));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 40)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,21 +146,32 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void confirmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseClicked
+    private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
+        if(firstPress){            
+            tfEmployeeName.setEditable(true);
+            tfEmployeeNumber.setEditable(true);
+            tfEmployeeNote.setEditable(true);
+            
+            btnConfirm.setText("Xác nhận");
+        } else {
+            boolean success = employeeController.updateEmployeeData(tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
+            if (success){
+                JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
+            }
+        }  
+    }//GEN-LAST:event_btnConfirmMouseClicked
 
-    }//GEN-LAST:event_confirmButtonMouseClicked
-
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         dispose();
-    }//GEN-LAST:event_cancelButtonMouseClicked
+    }//GEN-LAST:event_btnCancelMouseClicked
 
-    private void employeeNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNameTFActionPerformed
+    private void tfEmployeeNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmployeeNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_employeeNameTFActionPerformed
+    }//GEN-LAST:event_tfEmployeeNumberActionPerformed
     
 
 
@@ -190,11 +209,8 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JButton confirmButton;
-    private javax.swing.JTextField employeeIdTF;
-    private javax.swing.JTextField employeeNameTF;
-    private javax.swing.JTextField employeeNoteTF;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JPanel informationPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -206,6 +222,9 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField passwordTF;
+    private javax.swing.JTextField tfEmployeeId;
+    private javax.swing.JPasswordField tfEmployeeName;
+    private javax.swing.JTextField tfEmployeeNote;
+    private javax.swing.JTextField tfEmployeeNumber;
     // End of variables declaration//GEN-END:variables
 }
