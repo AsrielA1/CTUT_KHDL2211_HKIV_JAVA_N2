@@ -12,20 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/tag/UpdateDeviceTagJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/device/DeviceDetailJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/id/UniqueDeviceJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/database/DBInit.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/device/UpdateDeviceJframe.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/device/DeviceJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/ColdStorage.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/DeviceController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Device.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/employee/EmployeeJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/employee/UpdateEmployeeJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/EmployeeController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Employee.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/tag/DeviceTagJFrame.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/storage/StorageJFrame.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/storage/UpdateStorageJFrame.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/StorageController.java</file>
         </group>
     </open-files>
 </project-private>
