@@ -9,6 +9,7 @@ public class StorageJFrame extends javax.swing.JFrame {
     
     public StorageJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         storageController.showAllStorageData(tblStorage);
     }
@@ -109,6 +110,7 @@ public class StorageJFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked

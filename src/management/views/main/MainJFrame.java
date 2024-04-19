@@ -1,11 +1,16 @@
 package management.views.main;
 
+import javax.swing.JDialog;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.awt.Desktop;
 
 import management.views.categories.device.id.UniqueDeviceJFrame;
+import management.views.categories.employee.EmployeeJFrame;
+import management.views.categories.provider.ProviderJFrame;
+
 
 public class MainJFrame extends javax.swing.JFrame {
 
@@ -15,24 +20,10 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);       
+
     }
 
-    private void openMonitoring(){
-        if (Desktop.isDesktopSupported()) {
-      
-         //making a desktop object
-         Desktop desktop = Desktop.getDesktop();
-         try {
-            URI uri = new URI("https://nhankhdl2211012.grafana.net/");
-            desktop.browse(uri);
-         } catch (IOException excp) {
-            excp.printStackTrace();
-         } catch (URISyntaxException excp) {
-            excp.printStackTrace();
-         }
-      }
-    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -93,6 +84,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnEmployeeManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         btnEmployeeManagement.setText("QUẢN LÝ NHÂN SỰ");
         btnEmployeeManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEmployeeManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEmployeeManagementMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnEmployeeManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 320, 120));
 
         btnInputManagement.setBackground(new java.awt.Color(255, 153, 153));
@@ -105,6 +101,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnProviderManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         btnProviderManagement.setText("QUẢN LÝ NHÀ CUNG ỨNG");
         btnProviderManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnProviderManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProviderManagementMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnProviderManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 310, 120));
 
         btnStorageMonitoring.setBackground(new java.awt.Color(204, 204, 204));
@@ -139,13 +140,24 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOutputManagementActionPerformed
 
     private void btnStorageMonitoringMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStorageMonitoringMouseClicked
-        openMonitoring();
+        StorageOption dialog = new StorageOption(this, rootPaneCheckingEnabled);
+        dialog.setVisible(true);
     }//GEN-LAST:event_btnStorageMonitoringMouseClicked
 
     private void btnDeviceManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeviceManagementMouseClicked
         UniqueDeviceJFrame frame = new UniqueDeviceJFrame();
         frame.setVisible(true);
     }//GEN-LAST:event_btnDeviceManagementMouseClicked
+
+    private void btnEmployeeManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeManagementMouseClicked
+        EmployeeJFrame frame = new EmployeeJFrame();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnEmployeeManagementMouseClicked
+
+    private void btnProviderManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProviderManagementMouseClicked
+        ProviderJFrame frame = new ProviderJFrame();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnProviderManagementMouseClicked
 
     /**
      * @param args the command line arguments

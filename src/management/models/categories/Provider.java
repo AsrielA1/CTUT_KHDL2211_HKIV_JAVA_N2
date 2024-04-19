@@ -11,9 +11,9 @@ import management.configs.PropertiesController;
 
 
 interface IProvider{
-    void addProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote);
-    void delProvider(String providerId);
-    void updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote);
+    boolean addProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote);
+    boolean delProvider(String providerId);
+    boolean updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote);
 }
 
 public class Provider implements IProvider{
@@ -38,13 +38,12 @@ public class Provider implements IProvider{
     }
 
     @Override
-    public void addProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
+    public boolean addProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
         
         try {
-            Class.forName("org.postgresql.Driver");
-            
+            Class.forName("org.postgresql.Driver");            
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
             String query = "INSERT INTO nha_cungcap VALUES (?, ?, ?, ?, ?);";
@@ -56,15 +55,18 @@ public class Provider implements IProvider{
             pstmt.setString(5, providerNote);
             
             pstmt.executeUpdate();
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Provider.addProvider\n" + e);
         }
+        
+        return false;
     }
     
-    //Không xóa nhà cung cấp trong bất kỳ tình huống nào
     @Override
-    public void delProvider(String providerId){
+    public boolean delProvider(String providerId){
         Connection connection = null;
         Statement stmt = null;
         
@@ -75,62 +77,44 @@ public class Provider implements IProvider{
             String query = "UPDATE nha_cungcap SET ghi_chu = 'Ngừng hợp tác' WHERE ma_nhacungcap = '" + providerId + "';";
             stmt = connection.createStatement();
             stmt.executeUpdate(query);
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Provider.delProvider\n" + e);
         }
+        
+        return false;
     }
     
     @Override
-    public void updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
+    public boolean updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
+        String query = null;
 
         try {
             Class.forName("org.postgresql.Driver");
-
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-            List<String> updateList = new ArrayList<>();
-            if (providerName != null){
-                updateList.add("ten_nhacungcap = ?");
-            }
-            if (providerEmail != null){
-                updateList.add("diachi_email = ?");
-            }
-            if(providerNumber != null){
-                updateList.add("so_dienthoai = ?");
-            }
-            if (providerNote != null){
-                updateList.add("ghi_chu = ?");
-            }
-
-            if (!updateList.isEmpty()){
-                String query = "UPDATE nha_cungcap SET " + String.join(", ", updateList) + " WHERE ma_nhacungcap = ?";
-                System.out.println(query);
-                pstmt = connection.prepareStatement(query);
-                
-                int parameterIndex = 1;
-                if (providerName != null){
-                    pstmt.setString(parameterIndex++, providerName);
-                }
-                if (providerEmail != null){
-                    pstmt.setString(parameterIndex++, providerEmail);
-                }
-                if (providerNumber != null){
-                    pstmt.setString(parameterIndex++, providerNumber);
-                }
-                if (providerNote != null){
-                    pstmt.setString(parameterIndex++, providerNote);
-                }
-                
-                pstmt.setString(parameterIndex, providerId);
-                
-                pstmt.executeUpdate();
-            }
+            query = "UPDATE danhmuc_kho SET ten_nhacungcap = ?, diachi_email = ?, so_dienthoai = ?, ghi_chu = ? "
+                    + "FROM danhmuc_kho "
+                    + "WHERE ma_kho = ?;";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, providerName);
+            pstmt.setString(2, providerEmail);
+            pstmt.setString(3, providerNumber);
+            pstmt.setString(4, providerNote);
+            pstmt.setString(6, providerId);
+            
+            pstmt.executeUpdate();
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.catagories.Provider.updateProvider\n" + e);
         }
+        
+        return false;
     }
 }
