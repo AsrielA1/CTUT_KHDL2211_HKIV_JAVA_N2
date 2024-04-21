@@ -44,7 +44,8 @@ public class StorageController {
             
             stmt = connection.createStatement();
             query = "SELECT ma_kho, CONCAT(khoiluong_hientai, '/', suc_chua), (khoiluong_hientai/suc_chua * 100) "
-                    + "FROM danhmuc_kho";
+                    + "FROM danhmuc_kho "
+                    + "WHERE ghi_chu NOT LIKE '%Hủy%';";
             
             rs = stmt.executeQuery(query);
             while(rs.next()){

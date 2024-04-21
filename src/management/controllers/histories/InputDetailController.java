@@ -19,10 +19,9 @@ import management.models.details.InputDetail;
 
 interface IInputDetailController{
     void showAllInputDetail(JTable inputDetailTable, String _inputHistoryId);
-    void addInputHistoryIdChooser(JComboBox inputHistoryComboBox);
-    void addStorageIdChooser(JComboBox storageComboBox);
-    void addInputDetail(JComboBox inputHistoryComboBox, JComboBox storageComboBox, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF);
-    void hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser);
+    boolean addInputDetail(JTextField _tfSupplyId, JTextField _tfStorageId, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF);
+    boolean hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser);
+    void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail);
 }
 
 public class InputDetailController implements IInputDetailController{
@@ -73,82 +72,32 @@ public class InputDetailController implements IInputDetailController{
             System.out.println("Error in management.controllers.categories.histories.InputDetailController.showAllInputDetail\n" + e);
         }
     }
-   
-    @Override
-    public void addInputHistoryIdChooser(JComboBox inputHistoryComboBox){
-        inputHistoryComboBox.removeAllItems();
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
-        try {
-            Class.forName("org.postgresql.Driver");            
-            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-            
-            stmt = connection.createStatement();
-            query = "SELECT ma_lohang FROM lichsu_nhapkho WHERE ghi_chu NOT LIKE '%Hủy%'";
-            rs = stmt.executeQuery(query);
-            
-            while (rs.next()){
-                inputHistoryComboBox.addItem(rs.getString(1));
-            }
-        }
-        catch (Exception e){
-            System.out.println("Error in management.controllers.categories.histories.InputDetailController.addInputHistoryChooser\n" + e);
-        }
-    }
     
     @Override
-    public void addStorageIdChooser(JComboBox storageComboBox){
-        storageComboBox.removeAllItems();
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
-        try {
-            Class.forName("org.postgresql.Driver");            
-            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
-            
-            stmt = connection.createStatement();
-            query = "SELECT ma_kho FROM danhmuc_kho WHERE ghi_chu NOT LIKE '%Hủy%'";
-            rs = stmt.executeQuery(query);
-            
-            while (rs.next()){
-                storageComboBox.addItem(rs.getString(1));
-            }
-        }
-        catch (Exception e){
-            System.out.println("Error in management.controllers.categories.histories.InputDetailController.addStorageIdChooser\n" + e);
-        }
-    }
-    
-    @Override
-    public void addInputDetail(JComboBox inputHistoryComboBox, JComboBox storageComboBox, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF){
+    public boolean addInputDetail(JTextField _tfSupplyId, JTextField _tfStorageId, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF){
         try {        
             String inputId, storageId, inputDetailNote;
             float costPerWeight, weight;
 
-            inputId = inputHistoryComboBox.getSelectedItem().toString();
-            storageId = storageComboBox.getSelectedItem().toString();
+            inputId = _tfSupplyId.getText();
+            storageId = _tfStorageId.getText();
             costPerWeight = Float.parseFloat(costPerWeightTF.getText());
             weight = Float.parseFloat(weightTF.getText());
             inputDetailNote = inputDetailNoteTF.getText();
 
             inputDetail.addInputDetail(inputId, storageId, costPerWeight, weight, inputDetailNote);
             
-            System.out.println(inputId + "\n" + storageId +"\n" + String.valueOf(costPerWeight) + "\n" + String.valueOf(weight) + "\n" + inputDetailNote);
+            return true;
         }
         catch (Exception e) {
             System.out.println("Error in management.controllers.categories.histories.InputDetailController.addInputDetail\n" + e);
         }
+        
+        return false;
     }
     
     @Override
-    public void hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser){
+    public boolean hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser){
         try {
             int row = inputDetailTable.getSelectedRow();
             DefaultTableModel tModel = (DefaultTableModel)inputDetailTable.getModel();
@@ -157,9 +106,53 @@ public class InputDetailController implements IInputDetailController{
             int inputDetailNumber = Integer.parseInt(tModel.getValueAt(row, 0).toString());
 
             inputDetail.delInputDetail(inputHistoryId, inputDetailNumber);
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.InputDetailController.hideInputDetail\n" + e);
         }
+        
+        return false;
     }
-}
+    
+    @Override
+    public void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail){
+        DefaultTableModel tModel = (DefaultTableModel)_tblInputDetail.getModel();
+        tModel.setRowCount(0);
+        
+        Connection connection = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String query = null;
+        
+        String inputDetailNum, storageId, weight, cost, costPerWeight;
+        
+        String keyword = "%" + _tfSearchBar.getText() + "%";
+        
+        try {
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            
+            query = "SELECT * FROM sp_TimChitietNhap(?);";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, keyword);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                inputDetailNum = rs.getString(1);
+                storageId = rs.getString(2);
+                weight = String.valueOf(rs.getFloat(3));
+                cost = String.valueOf(rs.getFloat(4));
+                costPerWeight = String.valueOf(rs.getFloat(5));
+                
+                String[] inputDetailData = {inputDetailNum, storageId, weight, cost, costPerWeight};
+                tModel.addRow(inputDetailData);
+            }           
+                        
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.InputDetailController.searchInputDetail\n" + e);
+        }
+    }
+}   

@@ -9,15 +9,13 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     public InputDetailJFrame() {
         initComponents();
         
-        inputDetailController.addInputHistoryIdChooser(inputHistoryComboBox);
     }
     
     public InputDetailJFrame(String _inputHistoryId) {
         initComponents();
         
-        inputDetailController.addInputHistoryIdChooser(inputHistoryComboBox);
-        inputDetailController.showAllInputDetail(inputDetailTable, _inputHistoryId);
-        inputHistoryComboBox.setSelectedItem(_inputHistoryId);
+        tfSupplyId.setText(_inputHistoryId);
+        inputDetailController.showAllInputDetail(tblInputDetail, _inputHistoryId);
     }
     
     /**
@@ -31,18 +29,19 @@ public class InputDetailJFrame extends javax.swing.JFrame {
 
         allPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inputDetailTable = new javax.swing.JTable();
-        inputHistoryComboBox = new javax.swing.JComboBox<>();
-        deleteButton = new javax.swing.JButton();
-        addButton = new javax.swing.JButton();
-        refreshButton = new javax.swing.JButton();
+        tblInputDetail = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        tfSearchBar = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        tfSupplyId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(690, 750));
-        setPreferredSize(new java.awt.Dimension(690, 750));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -50,7 +49,7 @@ public class InputDetailJFrame extends javax.swing.JFrame {
         allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        inputDetailTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblInputDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -58,69 +57,63 @@ public class InputDetailJFrame extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Số thứ tự", "Mã kho", "Chi phí", "Khối lượng", "Chi phí theo đơn vị"
             }
         ));
-        jScrollPane1.setViewportView(inputDetailTable);
+        jScrollPane1.setViewportView(tblInputDetail);
 
         allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 680, 410));
 
-        inputHistoryComboBox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        inputHistoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inputHistoryComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputHistoryComboBoxActionPerformed(evt);
-            }
-        });
-        allPanel.add(inputHistoryComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 160, 40));
-
-        deleteButton.setBackground(new java.awt.Color(204, 204, 204));
-        deleteButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        deleteButton.setText("Xóa");
-        deleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDelete.setBackground(new java.awt.Color(204, 204, 204));
+        btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnDelete.setText("Xóa");
+        btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteButtonMouseClicked(evt);
+                btnDeleteMouseClicked(evt);
             }
         });
-        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 40));
+        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 150, 40));
 
-        addButton.setBackground(new java.awt.Color(204, 204, 204));
-        addButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        addButton.setText("Thêm");
-        addButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd.setText("Thêm");
+        btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addButtonMouseClicked(evt);
+                btnAddMouseClicked(evt);
             }
         });
-        allPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, 40));
+        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, 40));
 
-        refreshButton.setBackground(new java.awt.Color(204, 204, 204));
-        refreshButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        refreshButton.setText("Làm mới");
-        refreshButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnRefresh.setText("Làm mới");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshButtonMouseClicked(evt);
+                btnRefreshMouseClicked(evt);
             }
         });
-        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 150, 40));
+        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 150, 40));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("QUẢN LÝ NHẬP KHO");
         allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("xem");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        allPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 150, 40));
+        btnView.setBackground(new java.awt.Color(204, 204, 204));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnView.setText("xem");
+        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 150, 40));
+        allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 190, -1));
+
+        btnSearch.setText("Tìm");
+        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, -1));
+        allPanel.add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 90, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputDetailJFrame.png"))); // NOI18N
-        jLabel1.setMinimumSize(new java.awt.Dimension(680, 720));
-        jLabel1.setPreferredSize(new java.awt.Dimension(680, 720));
         allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 720));
 
         getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
@@ -128,24 +121,20 @@ public class InputDetailJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
-        String inputHistoryId = inputHistoryComboBox.getSelectedItem().toString();
-        inputDetailController.showAllInputDetail(inputDetailTable, inputHistoryId);
-    }//GEN-LAST:event_refreshButtonMouseClicked
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        String _supplyId = tfSupplyId.getText();
+                
+        inputDetailController.showAllInputDetail(tblInputDetail, _supplyId);
+    }//GEN-LAST:event_btnRefreshMouseClicked
 
-    private void addButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButtonMouseClicked
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         AddInputDetailJFrame frame = new AddInputDetailJFrame();
         frame.setVisible(true);
-    }//GEN-LAST:event_addButtonMouseClicked
+    }//GEN-LAST:event_btnAddMouseClicked
 
-    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
-        inputDetailController.hideInputDetail(inputDetailTable, inputHistoryComboBox);
-        inputDetailController.showAllInputDetail(inputDetailTable, inputHistoryComboBox.getSelectedItem().toString());
-    }//GEN-LAST:event_deleteButtonMouseClicked
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
 
-    private void inputHistoryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputHistoryComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputHistoryComboBoxActionPerformed
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -183,15 +172,17 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
     private javax.swing.JPanel allPanel;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JTable inputDetailTable;
-    private javax.swing.JComboBox<String> inputHistoryComboBox;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton refreshButton;
+    private javax.swing.JTable tblInputDetail;
+    private javax.swing.JTextField tfSearchBar;
+    private javax.swing.JTextField tfSupplyId;
     // End of variables declaration//GEN-END:variables
 }

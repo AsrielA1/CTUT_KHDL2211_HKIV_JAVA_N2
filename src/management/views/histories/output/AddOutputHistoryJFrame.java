@@ -1,5 +1,6 @@
 package management.views.histories.output;
 
+import javax.swing.JOptionPane;
 import management.controllers.histories.OutputHistoryController;
 
 public class AddOutputHistoryJFrame extends javax.swing.JFrame {
@@ -18,13 +19,13 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
         allPanel = new javax.swing.JPanel();
         confirmButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        outputNoteTF = new javax.swing.JTextField();
+        tfOutputNote = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        outputTimeTF = new javax.swing.JTextField();
+        tfOutputTime = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        dateChosser = new com.toedter.calendar.JDateChooser();
-        outputIdTF = new javax.swing.JTextField();
+        dateOutput = new com.toedter.calendar.JDateChooser();
+        tfOutputId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -34,7 +35,6 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(690, 750));
-        setPreferredSize(new java.awt.Dimension(690, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
@@ -62,22 +62,22 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
             }
         });
         allPanel.add(cancelButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 660, 150, 50));
-        allPanel.add(outputNoteTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 330, 134));
+        allPanel.add(tfOutputNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 330, 134));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setText("Ghi chú");
         allPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 469, -1, 50));
-        allPanel.add(outputTimeTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 330, 50));
+        allPanel.add(tfOutputTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 330, 50));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("Thời gian xuất");
-        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 309, -1, 50));
+        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 50));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Ngày xuất");
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 389, -1, 50));
-        allPanel.add(dateChosser, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 330, 50));
-        allPanel.add(outputIdTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 330, 50));
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, 50));
+        allPanel.add(dateOutput, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 330, 50));
+        allPanel.add(tfOutputId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 330, 50));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Mã xuất kho");
@@ -109,7 +109,12 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonMouseClicked
 
     private void confirmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseClicked
-        outputController.addOutputHistoryData(outputIdTF, dateChosser, outputTimeTF, outputNoteTF);
+        boolean success = outputController.addOutputHistory(tfOutputId, dateOutput, tfOutputTime, tfOutputNote);
+        if (success){
+            JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+        } else {            
+            JOptionPane.showMessageDialog(rootPane, "Thêm không thành công");
+        }
     }//GEN-LAST:event_confirmButtonMouseClicked
 
     /**
@@ -152,7 +157,7 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel allPanel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton confirmButton;
-    private com.toedter.calendar.JDateChooser dateChosser;
+    private com.toedter.calendar.JDateChooser dateOutput;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -161,8 +166,8 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField outputIdTF;
-    private javax.swing.JTextField outputNoteTF;
-    private javax.swing.JTextField outputTimeTF;
+    private javax.swing.JTextField tfOutputId;
+    private javax.swing.JTextField tfOutputNote;
+    private javax.swing.JTextField tfOutputTime;
     // End of variables declaration//GEN-END:variables
 }

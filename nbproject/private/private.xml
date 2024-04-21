@@ -12,9 +12,9 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/storage/StorageJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/storage/UpdateStorageJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/StorageController.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/histories/OutputDetailController.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/histories/output/details/OutputDetailJFrame.java</file>
+            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/histories/output/details/AddOutputDetailJFrame.java</file>
         </group>
     </open-files>
 </project-private>

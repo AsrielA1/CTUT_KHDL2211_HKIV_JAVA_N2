@@ -1,5 +1,6 @@
 package management.views.categories.storage;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import management.controllers.categories.StorageController;
 
@@ -80,6 +81,11 @@ public class StorageJFrame extends javax.swing.JFrame {
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, 40));
 
         btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
@@ -134,6 +140,14 @@ public class StorageJFrame extends javax.swing.JFrame {
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         storageController.searchStorage(tfSearchBar, tblStorage);
     }//GEN-LAST:event_btnSearchMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        boolean success = storageController.delStorage(tblStorage);
+        if (success){
+            JOptionPane.showMessageDialog(rootPane, "Xóa thành công");
+            storageController.showAllStorageData(tblStorage);
+        }
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
     /**
      * @param args the command line arguments

@@ -1,25 +1,28 @@
 package management.models.histories;
 
+import management.models.details.InputDetail;
 import management.configs.PropertiesController;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.ResultSet;
 
 import java.text.SimpleDateFormat;  
 import java.util.HashMap;
 
 
 interface IInputHistory{
-    void addInputHistory(String supplyId, String inputDate, String inputTime, String providerId, String inputNote);
-    void delInputHistory(String supplyId);
+    boolean addInputHistory(String supplyId, String inputDate, String inputTime, String providerId, String inputNote);
+    boolean delInputHistory(String supplyId);
     
 }
 
 public class InputHistory implements IInputHistory{
+    
+    private final InputDetail iDetailModel = new InputDetail();
+            
     private String supplyId;
     private String inputDate;
     private String inputTime;
@@ -46,7 +49,7 @@ public class InputHistory implements IInputHistory{
     }
     
     @Override
-    public void addInputHistory(String supplyId, String inputDate, String inputTime, String providerId, String inputNote){
+    public boolean addInputHistory(String supplyId, String inputDate, String inputTime, String providerId, String inputNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
         
@@ -67,17 +70,25 @@ public class InputHistory implements IInputHistory{
             pstmt.setString(7, inputNote);
             
             pstmt.executeUpdate();
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.histories.InputHistory.addInputHistory\n" + e);
         }
+        
+        return false;
     }
     
     //Không xóa nhà cung cấp trong bất kỳ tình huống nào
     @Override
-    public void delInputHistory(String supplyId){
+    public boolean delInputHistory(String supplyId){
         Connection connection = null;
         Statement stmt = null;
+        ResultSet rs = null;
+        
+        String _supplyId;
+        int _inputNum;
         
         try {
             Class.forName("org.postgresql.Driver");
@@ -86,9 +97,27 @@ public class InputHistory implements IInputHistory{
             String query = "UPDATE lichsu_nhapkho SET ghi_chu = 'Hủy' WHERE ma_lohang = '" + supplyId + "';";
             stmt = connection.createStatement();
             stmt.executeUpdate(query);
+            
+            query = """
+                    SELECT ma_lohang, so_thutu
+                    FROM chitiet_nhapkho
+                    WHERE ghi_chu NOT LIKE '%Hủy%';
+                    """;
+            rs = stmt.executeQuery(query);
+            
+            while(rs.next()){
+                _supplyId = rs.getString(1);
+                _inputNum = rs.getInt(2);
+                
+                iDetailModel.delInputDetail(supplyId, _inputNum);
+            }
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.histories.Supply.delSupply\n" + e);
         }
+        
+        return false;
     }
 }

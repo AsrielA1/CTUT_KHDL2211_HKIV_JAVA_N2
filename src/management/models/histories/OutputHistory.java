@@ -13,8 +13,8 @@ import java.util.HashMap;
 import management.configs.PropertiesController;
 
 interface IOutputHistory{    
-    void addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote);
-    void delOutputHistory(String outputId);
+    boolean addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote);
+    boolean delOutputHistory(String outputId);
 }
 
 public class OutputHistory implements IOutputHistory{
@@ -42,7 +42,7 @@ public class OutputHistory implements IOutputHistory{
     }
     
     @Override
-    public void addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote){
+    public boolean addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
         
@@ -62,14 +62,18 @@ public class OutputHistory implements IOutputHistory{
             pstmt.setString(6, outputNote);
             
             pstmt.executeUpdate();
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.histories.OutputHistory.addOutputHistory\n" + e);
         }
+        
+        return false;
     }
     
     @Override
-    public void delOutputHistory(String outputId){
+    public boolean delOutputHistory(String outputId){
         Connection connection = null;
         Statement stmt = null;
         
@@ -77,13 +81,17 @@ public class OutputHistory implements IOutputHistory{
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
-            String query = "UPDATE lichsu_xuatkho SET ghi_chu = \'Hủy\' WHERE ma_lohang = '" + outputId + "';";
+            String query = "UPDATE lichsu_xuatkho SET ghi_chu = \'Hủy\' WHERE ma_xuatkho = '" + outputId + "';";
             stmt = connection.createStatement();
             stmt.executeUpdate(query);
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.hítories.OutputHistory.delOutputHistory\n" + e);
         }
+        
+        return false;
     }
     
 }

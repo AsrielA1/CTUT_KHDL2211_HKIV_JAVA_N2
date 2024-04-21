@@ -1,20 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package management.views.histories.output.details;
 
-/**
- *
- * @author Asriel
- */
+import javax.swing.JOptionPane;
+import management.controllers.histories.OutputDetailController;
+
 public class AddOutputDetailJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AddOutputDetailJFrame
-     */
+    private final OutputDetailController odController = new OutputDetailController();
+    
     public AddOutputDetailJFrame() {
         initComponents();
+    }
+    
+    public AddOutputDetailJFrame(String _outputId) {
+        initComponents();
+        
+        tfOutputId.setText(_outputId);
     }
 
     /**
@@ -33,13 +34,13 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tfOutputId = new javax.swing.JTextField();
+        tfStorageId = new javax.swing.JTextField();
+        tfWeight = new javax.swing.JTextField();
+        tfIncomPerCost = new javax.swing.JTextField();
+        tfOutputDetailNote = new javax.swing.JTextField();
+        btnConfirm = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,77 +66,103 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setText("Khối lượng");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 389, -1, 50));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, 50));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel7.setText("Doanh thu");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 469, -1, 50));
+        jLabel7.setText("Doanh thu theo đơn vị");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, 50));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel8.setText("Ghi Chú");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 549, -1, 50));
 
-        jTextField1.setText(" ");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 330, 40));
+        tfOutputId.setText(" ");
+        getContentPane().add(tfOutputId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 330, 40));
 
-        jTextField2.setText(" ");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfStorageId.setText(" ");
+        tfStorageId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfStorageIdActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 330, 40));
+        getContentPane().add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 330, 40));
 
-        jTextField3.setText(" ");
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 330, 40));
+        tfWeight.setText(" ");
+        getContentPane().add(tfWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 330, 40));
 
-        jTextField4.setText(" ");
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 330, 40));
+        tfIncomPerCost.setText(" ");
+        getContentPane().add(tfIncomPerCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 330, 40));
 
-        jTextField5.setText(" ");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        tfOutputDetailNote.setText(" ");
+        tfOutputDetailNote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                tfOutputDetailNoteActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 330, 40));
+        getContentPane().add(tfOutputDetailNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, 330, 40));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("Xác nhận");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnConfirm.setText("Xác nhận");
+        btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 660, 150, 40));
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 660, 150, 40));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton2.setText("Hủy");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 150, 40));
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnCancel.setText("Hủy");
+        btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Output.Jframe/AddOutputDetailJFrame.png"))); // NOI18N
-        jLabel1.setMinimumSize(new java.awt.Dimension(680, 720));
-        jLabel1.setPreferredSize(new java.awt.Dimension(680, 720));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfStorageIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfStorageIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfStorageIdActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void tfOutputDetailNoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfOutputDetailNoteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_tfOutputDetailNoteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
+        boolean success = odController.addOutputDetail(tfOutputId, tfStorageId, tfIncomPerCost, tfWeight, tfOutputDetailNote);
+        if (success){
+            JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
+            
+            tfOutputId.setText("");
+            tfStorageId.setText("");
+            tfStorageId.setText("");
+            tfIncomPerCost.setText("");
+            tfWeight.setText("");
+            tfOutputDetailNote.setText("");
+        }
+    }//GEN-LAST:event_btnConfirmMouseClicked
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        dispose();
+    }//GEN-LAST:event_btnCancelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -173,8 +200,8 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -183,10 +210,10 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField tfIncomPerCost;
+    private javax.swing.JTextField tfOutputDetailNote;
+    private javax.swing.JTextField tfOutputId;
+    private javax.swing.JTextField tfStorageId;
+    private javax.swing.JTextField tfWeight;
     // End of variables declaration//GEN-END:variables
 }

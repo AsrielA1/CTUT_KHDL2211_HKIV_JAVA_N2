@@ -1,23 +1,28 @@
 package management.controllers.histories;
 
+import management.configs.PropertiesController;
+import management.models.details.OutputDetail;
+
+import com.toedter.calendar.JDateChooser;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
+
 import java.util.HashMap;
 
-import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import management.configs.PropertiesController;
-
-import management.models.details.OutputDetail;
 
 interface IOutputDetailController{
     void showAllOutputDetail(JTable outputDetailTable, String outputHistoryId);
-    void addOutHistoryIdChooser(JComboBox outputHistoryIdChooser);
-    void addStorageIdChooser(JComboBox storageIdChooser);
+    boolean addOutputDetail(JTextField _tfOutputId, JTextField _tfStorageId, JTextField _tfIncomPerCost, JTextField _tfWeight, JTextField _tfOutputNote);
+    boolean delOutputDetail(JTextField _tfOutputId, JTable _tblOutputDetail);
+    void searchOutputDetail(JTextField _tfSearchBar, JTable _tblOutputDetail);
 }
 
 public class OutputDetailController implements IOutputDetailController{
@@ -62,42 +67,57 @@ public class OutputDetailController implements IOutputDetailController{
                 
                 tModel.addRow(outputDetailData);
             }
-            
-            
+                        
         }
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.OutputDetailController.showAllOutputDetail\n" + e);
         }
     }
-    
+   
     @Override
-    public void addOutHistoryIdChooser(JComboBox outputHistoryIdChooser){
-    
-    }
-    
-    @Override
-    public void addStorageIdChooser(JComboBox storageIdChooser){
-        storageIdChooser.removeAllItems();
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+    public boolean addOutputDetail(JTextField _tfOutputId, JTextField _tfStorageId, JTextField _tfIncomPerCost, JTextField _tfWeight, JTextField _tfOutputNote){
         try {
-            Class.forName("org.postgresql.Driver");            
-            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            String _outputId = _tfOutputId.getText();
+            String _storageId = _tfStorageId.getText();
+            float _incomePerCost = Float.parseFloat(_tfIncomPerCost.getText());
+            float _weight = Float.parseFloat(_tfWeight.getText());
+            String _outputNote = _tfOutputNote.getText();
             
-            stmt = connection.createStatement();
-            query = "SELECT ma_kho FROM danhmuc_kho WHERE ghi_chu NOT LIKE '%Hủy%'";
-            rs = stmt.executeQuery(query);
+            return outputDetail.addOutputDetail(_outputId, _storageId, _incomePerCost, _weight, _outputNote);
             
-            while (rs.next()){
-                storageIdChooser.addItem(rs.getString(1));
-            }
         }
         catch (Exception e){
-            System.out.println("Error in management.controllers.categories.histories.InputDetailController.addStorageIdChooser\n" + e);
+            System.out.println("Error in management.controllers.categories.histories.OutputDetailController.addOutputDetail\n" + e);
         }
+        return false;
     }
+    
+    @Override
+    public boolean delOutputDetail(JTextField _tfOutputId, JTable _tblOutputDetail){
+        
+        try {            
+            int[] rows = _tblOutputDetail.getSelectedRows();
+            DefaultTableModel dtModel = (DefaultTableModel)_tblOutputDetail.getModel();
+            
+            String _outputId = _tfOutputId.getText();
+            int _outputNum;
+            
+            for (int i = 0; i < rows.length; i++){
+                _outputNum = Integer.parseInt(dtModel.getValueAt(rows[i], 0).toString());
+                
+                outputDetail.delOutputDetail(_outputId, _outputNum);
+            }
+            
+            return true;
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.OutputDetailController.addOutputDetail\n" + e);
+        }
+        return false;
+    }  
+    
+    @Override
+    public void searchOutputDetail(JTextField _tfSearchBar, JTable _tblOutputDetail){
+    }
+
 }

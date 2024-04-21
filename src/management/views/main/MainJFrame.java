@@ -133,6 +133,7 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOutputManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputManagementActionPerformed

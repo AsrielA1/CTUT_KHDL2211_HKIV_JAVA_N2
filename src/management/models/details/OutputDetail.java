@@ -12,7 +12,7 @@ import management.configs.PropertiesController;
 interface IOutputDetail{
     void minusWeightFromStorage(String storageId, float weight);
     void addWeightToOutputHistory(String ouputId, float weight, float cost);
-    void addOutputDetail(String outputId, int outputNumber, String storageId, float incomePerWeight, float weight);
+    boolean addOutputDetail(String outputId, String storageId, float incomePerWeight, float weight, String _outputNote);
     
     void addWeightToStorage(String storageId, float weight);
     void minusWeightFromOutputHistory(String outputId, float weight, float cost);
@@ -88,7 +88,7 @@ public class OutputDetail implements IOutputDetail{
     }
     
     @Override
-    public void addOutputDetail(String outputId, int outputNumber, String storageId, float incomePerWeight, float weight){
+    public boolean addOutputDetail(String outputId, String storageId, float incomePerWeight, float weight, String _outputNote){
         Connection connection = null;
         PreparedStatement pstmt = null;
         
@@ -99,23 +99,27 @@ public class OutputDetail implements IOutputDetail{
             
             float income = incomePerWeight * weight;
             
-            String query = "INSERT INTO chitiet_xuatkho VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO chitiet_xuatkho(ma_xuatkho, ma_kho, doanhthu_theodv, khoi_luong, doanh_thu, ghi_chu) VALUES (?, ?, ?, ?, ?, ?);";
             pstmt = connection.prepareStatement(query);
             pstmt.setString(1, outputId);
-            pstmt.setInt(2, outputNumber);
-            pstmt.setString(3, storageId);
-            pstmt.setFloat(4, incomePerWeight);
-            pstmt.setFloat(5, weight);
-            pstmt.setFloat(6, income);
+            pstmt.setString(2, storageId);
+            pstmt.setFloat(3, incomePerWeight);
+            pstmt.setFloat(4, weight);
+            pstmt.setFloat(5, income);
+            pstmt.setString(6, _outputNote);
             
             pstmt.executeUpdate();
             
             minusWeightFromStorage(storageId, weight);
             addWeightToOutputHistory(outputId, weight, income);
+            
+            return true;
         }
         catch (Exception e){
             System.out.println("Error in management.models.details.OutputDetail.addOutputDetail\n" + e);
         }
+        
+        return false;
     }
     
     @Override

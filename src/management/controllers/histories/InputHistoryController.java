@@ -19,8 +19,8 @@ import javax.swing.JTable;
 
 interface IIntputHistoryController{
     void showAllInputHistory(JTable inputHistoryTable);
-    void addInputHistory(JTextField inputHistoryIdTF, JDateChooser inputDateChooser, JTextField inputTimeTF, JTextField providerIdTF, JTextField inputHistoryNoteTF);
-    void hideInputHistory(JTable inputHistoryTable);
+    boolean addInputHistory(JTextField inputHistoryIdTF, JDateChooser inputDateChooser, JTextField inputTimeTF, JTextField providerIdTF, JTextField inputHistoryNoteTF);
+    boolean hideInputHistory(JTable inputHistoryTable);
 }
 
 public class InputHistoryController implements IIntputHistoryController{
@@ -71,30 +71,45 @@ public class InputHistoryController implements IIntputHistoryController{
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.IntputHistoryController.showAllInputHistory\n" + e);
         }
+        
     }
     
     @Override
-    public void addInputHistory(JTextField inputHistoryIdTF, JDateChooser inputDateChooser, JTextField inputTimeTF, JTextField providerIdTF, JTextField inputHistoryNoteTF){
-        String inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote;
+    public boolean addInputHistory(JTextField inputHistoryIdTF, JDateChooser inputDateChooser, JTextField inputTimeTF, JTextField providerIdTF, JTextField inputHistoryNoteTF){
+        try {
+            String inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote;
         
-        SimpleDateFormat desiredFormat = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat desiredFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+            inputHistoryId = inputHistoryIdTF.getText();
+            inputDate = desiredFormat.format(inputDateChooser.getDate());
+            inputTime = inputTimeTF.getText();
+            providerId = providerIdTF.getText();
+            inputHistoryNote = inputHistoryNoteTF.getText();
+
+            inputHistory.addInputHistory(inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote);
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.IntputHistoryController.addInputHistory\n" + e);
+        }
         
-        inputHistoryId = inputHistoryIdTF.getText();
-        inputDate = desiredFormat.format(inputDateChooser.getDate());
-        inputTime = inputTimeTF.getText();
-        providerId = providerIdTF.getText();
-        inputHistoryNote = inputHistoryNoteTF.getText();
-        
-        inputHistory.addInputHistory(inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote);
+        return false;
     }
     
     @Override
-    public void hideInputHistory(JTable inputHistoryTable){
-        int row = inputHistoryTable.getSelectedRow();
-        DefaultTableModel tModel = (DefaultTableModel)inputHistoryTable.getModel();
+    public boolean hideInputHistory(JTable inputHistoryTable){
+        try {
+            int row = inputHistoryTable.getSelectedRow();
+            DefaultTableModel tModel = (DefaultTableModel)inputHistoryTable.getModel();
+
+            String inputId = tModel.getValueAt(row, 0).toString();
+            return inputHistory.delInputHistory(inputId);
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.IntputHistoryController.hideInputHistory\n" + e);
+        }
         
-        String inputId = tModel.getValueAt(row, 0).toString();
-        inputHistory.delInputHistory(inputId);
+        return false;
     }
     
 }

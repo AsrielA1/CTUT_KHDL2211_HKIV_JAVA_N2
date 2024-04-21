@@ -70,16 +70,41 @@ public class OutputHistoryController {
         }
     }
     
-    public void addOutputHistoryData(JTextField outputHistoryIdTF, JDateChooser outputDateChooser, JTextField outputTimeTF, JTextField outputHistoryNoteTF){
-        String outputHistoryId,  outputDate, outputTime, outputHistoryNote;
+    public boolean addOutputHistory(JTextField _tfOutputId, JDateChooser _dateOutput, JTextField _tfTimeOutput, JTextField _tfOutputNote){
+        try {
+            String _outputId = _tfOutputId.getText();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String _outputDate = dateFormat.format(_dateOutput.getDate());
+            String _ouputTime = _tfTimeOutput.getText();
+            String _outputNote = _tfOutputNote.getText();
+            
+            return outputHistory.addOutputHistory(_outputId, _outputDate, _ouputTime, _outputNote);
+        }
+        catch (Exception e){            
+            System.out.println("Error in management.controllers.categories.histories.OutputDetailController.addOutputHistory\n" + e);
+        }
         
-        SimpleDateFormat desiredFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return false;
+    }
+    
+    public boolean delOutputHistory(JTable _tblOutput){
+        try{
+            String _outputId;
+            
+            int[] rows = _tblOutput.getSelectedRows();
+            DefaultTableModel dtModel = (DefaultTableModel)_tblOutput.getModel();
+            
+            for (int i = 0; i < rows.length; i++){
+                _outputId = dtModel.getValueAt(rows[i], 0).toString();
+                outputHistory.delOutputHistory(_outputId);
+            }
+            
+            return true;
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.OutputDetailController.delOutputHistory\n" + e);
+        }
         
-        outputHistoryId = outputHistoryIdTF.getText();
-        outputDate = desiredFormat.format(outputDateChooser.getDate());
-        outputTime = outputTimeTF.getText();
-        outputHistoryNote = outputHistoryNoteTF.getText();
-        
-        outputHistory.addOutputHistory(outputHistoryId, outputDate, outputTime, outputHistoryNote);
+        return false;
     }
 }

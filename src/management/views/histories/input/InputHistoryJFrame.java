@@ -12,7 +12,7 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
     public InputHistoryJFrame() {
         initComponents();
         
-        inputHistoryController.showAllInputHistory(inputHistoryTable);
+        inputHistoryController.showAllInputHistory(tblHistory);
     }
 
     
@@ -22,26 +22,27 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
 
         allPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inputHistoryTable = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        refreshButton = new javax.swing.JButton();
-        viewInputDetailButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        tblHistory = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        tfSearchBar = new javax.swing.JTextField();
+        dateBegin = new com.toedter.calendar.JDateChooser();
+        dateEnd = new com.toedter.calendar.JDateChooser();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(690, 750));
-        setPreferredSize(new java.awt.Dimension(690, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
         allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        inputHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -52,94 +53,96 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
                 "Mã nhập kho", "Thời gian", "Mã nhà cung cấp", "Tổng khối lượng", "Tổng chi phí"
             }
         ));
-        jScrollPane1.setViewportView(inputHistoryTable);
+        jScrollPane1.setViewportView(tblHistory);
 
         allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 680, 410));
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton3.setText("Thêm");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd.setText("Thêm");
+        btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnAddMouseClicked(evt);
             }
         });
-        allPanel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 50));
+        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 50));
 
-        deleteButton.setBackground(new java.awt.Color(204, 204, 204));
-        deleteButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        deleteButton.setText("Xóa");
-        deleteButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDelete.setBackground(new java.awt.Color(204, 204, 204));
+        btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnDelete.setText("Xóa");
+        btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deleteButtonMouseClicked(evt);
+                btnDeleteMouseClicked(evt);
             }
         });
-        allPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 130, 50));
+        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 130, 50));
 
-        refreshButton.setBackground(new java.awt.Color(204, 204, 204));
-        refreshButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        refreshButton.setText("Làm mới");
-        refreshButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        refreshButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnRefresh.setText("Làm mới");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                refreshButtonMouseClicked(evt);
+                btnRefreshMouseClicked(evt);
             }
         });
-        allPanel.add(refreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 130, 50));
+        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 130, 50));
 
-        viewInputDetailButton.setBackground(new java.awt.Color(204, 204, 204));
-        viewInputDetailButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        viewInputDetailButton.setText("Xem");
-        viewInputDetailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        viewInputDetailButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnView.setBackground(new java.awt.Color(204, 204, 204));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnView.setText("Xem");
+        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                viewInputDetailButtonMouseClicked(evt);
+                btnViewMouseClicked(evt);
             }
         });
-        allPanel.add(viewInputDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, 50));
+        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, 50));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 46)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LỊCH SỬ NHẬP KHO");
-        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 490, -1));
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 3, 46)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("LỊCH SỬ NHẬP KHO");
+        allPanel.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 490, -1));
 
-        jButton4.setText("TÌM");
-        allPanel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 100, -1));
-        allPanel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 300, -1));
+        btnSearch.setText("TÌM");
+        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 100, -1));
+        allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 300, -1));
+        allPanel.add(dateBegin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        allPanel.add(dateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputHistoryJFrame.png"))); // NOI18N
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputHistoryJFrame.png"))); // NOI18N
+        allPanel.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
         getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void refreshButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshButtonMouseClicked
-        inputHistoryController.showAllInputHistory(inputHistoryTable);
-    }//GEN-LAST:event_refreshButtonMouseClicked
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        inputHistoryController.showAllInputHistory(tblHistory);
+    }//GEN-LAST:event_btnRefreshMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         AddInputHistoryJFrame frame = new AddInputHistoryJFrame();
         frame.setVisible(true);
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_btnAddMouseClicked
 
-    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
-        inputHistoryController.hideInputHistory(inputHistoryTable);
-        inputHistoryController.showAllInputHistory(inputHistoryTable);
-    }//GEN-LAST:event_deleteButtonMouseClicked
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        inputHistoryController.hideInputHistory(tblHistory);
+        inputHistoryController.showAllInputHistory(tblHistory);
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
-    private void viewInputDetailButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewInputDetailButtonMouseClicked
-        int row = inputHistoryTable.getSelectedRow();
-        DefaultTableModel tModel = (DefaultTableModel)inputHistoryTable.getModel();
+    private void btnViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseClicked
+        int row = tblHistory.getSelectedRow();
+        DefaultTableModel tModel = (DefaultTableModel)tblHistory.getModel();
         
         String inputHistoryId = tModel.getValueAt(row, 0).toString();
         System.out.println(inputHistoryId);
         InputDetailJFrame frame = new InputDetailJFrame(inputHistoryId);
         frame.setVisible(true);
-    }//GEN-LAST:event_viewInputDetailButtonMouseClicked
+    }//GEN-LAST:event_btnViewMouseClicked
 
     
     public static void main(String args[]) {
@@ -176,15 +179,17 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel allPanel;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JTable inputHistoryTable;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnView;
+    private com.toedter.calendar.JDateChooser dateBegin;
+    private com.toedter.calendar.JDateChooser dateEnd;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JButton refreshButton;
-    private javax.swing.JButton viewInputDetailButton;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblHistory;
+    private javax.swing.JTextField tfSearchBar;
     // End of variables declaration//GEN-END:variables
 }

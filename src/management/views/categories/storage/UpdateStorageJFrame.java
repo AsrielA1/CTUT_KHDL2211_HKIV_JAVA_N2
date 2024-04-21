@@ -116,6 +116,7 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
         getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 730));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
@@ -135,7 +136,16 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
                 }
             }
         } else {
-            storageController.addStorage(tfStorageId, tfWeightMax, tfStorageNote);
+            boolean success = storageController.addStorage(tfStorageId, tfWeightMax, tfStorageNote);
+            if (success){
+                JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+                
+                tfStorageId.setEditable(false);
+                tfWeightMax.setEditable(false);
+                tfStorageNote.setEditable(false);
+                
+                tfStorageId.requestFocus();
+            }
         }
     }//GEN-LAST:event_btnConfirmMouseClicked
 
@@ -147,31 +157,7 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateStorageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateStorageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateStorageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateStorageJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new UpdateStorageJFrame().setVisible(true);
