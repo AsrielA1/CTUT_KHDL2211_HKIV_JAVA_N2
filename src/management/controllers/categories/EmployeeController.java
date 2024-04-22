@@ -209,5 +209,95 @@ public class EmployeeController implements IEmployeeController{
         }
     }
     
+    public boolean checkValidEmployeeId(String _employeeId){
+        Connection connection;
+        PreparedStatement pstmt;
+        ResultSet rs;
+        String query;
+        
+        try {            
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            
+            query = "SELECT * FROM nhan_vien WHERE ma_nhanvien = ?;";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, _employeeId);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                return false;
+            }
+            
+            return true;
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.EmployeeController.checkValidEmployeeId\n" + e);
+        }
+        
+        return false;
+    }
+    
+    public boolean register(JTextField _tfEmployeeId, JTextField _tfName, JTextField _tfNumber, JTextField _tfPassword, JTextField _tfRetypePassword){
+        
+        try {
+            String _employeeId = _tfEmployeeId.getText();
+            if (!checkValidEmployeeId(_employeeId)){
+                return false;
+            }
+            
+            String _name = _tfName.getText();
+            String _number = _tfNumber.getText();
+            String _password = _tfPassword.getText();
+            String _retypePassword = _tfRetypePassword.getText();
+            
+            if (_password.length() < 8)
+                return false;
+            
+            if (!_password.equals(_retypePassword))
+                return false;
+            
+            employeeFunction.addEmployee(_employeeId, _retypePassword, _name, _number, "");
+            
+            return true;
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.EmployeeController.register\n" + e);
+        }
+        
+        return false;
+    }
+    
+    public boolean logIn(JTextField _tfEmployeeId, JTextField _tfPassword){
+        String _employeeId = _tfEmployeeId.getText();
+        String _password = _tfPassword.getText();
+           
+        Connection connection;
+        PreparedStatement pstmt;
+        ResultSet rs;
+        String query;
+        
+        try {              
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+                      
+            query = "SELECT * FROM nhan_vien WHERE ma_nhanvien = ? AND mat_khau = ?;";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, _employeeId);
+            pstmt.setString(2, _password);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                return true;
+            }
+            
+            return false;
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.EmployeeController.logOut\n" + e);
+        }
+        
+        return false;
+    }
+    
 }
     

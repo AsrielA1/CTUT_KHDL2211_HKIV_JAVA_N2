@@ -79,7 +79,6 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
         tfOutputId.setText(" ");
         getContentPane().add(tfOutputId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 330, 40));
 
-        tfStorageId.setText(" ");
         tfStorageId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfStorageIdActionPerformed(evt);

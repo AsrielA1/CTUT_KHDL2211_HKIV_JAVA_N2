@@ -71,6 +71,11 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnRefresh.setText("Làm mới");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 150, 50));
 
         tblOutputDetail.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,6 +114,12 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         odController.delOutputDetail(tfOutputId, tblOutputDetail);
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        String _outputId = tfOutputId.getText();
+        
+        odController.showAllOutputDetail(tblOutputDetail, _outputId);
+    }//GEN-LAST:event_btnRefreshMouseClicked
 
     /**
      * @param args the command line arguments

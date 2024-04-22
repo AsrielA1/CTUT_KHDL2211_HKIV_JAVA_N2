@@ -4,6 +4,7 @@ import management.controllers.histories.InputHistoryController;
 
 import java.util.Date;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
@@ -126,7 +127,11 @@ public class AddInputHistoryJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmButtonKeyPressed
 
     private void confirmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseClicked
-        inputHistoryController.addInputHistory(inputHistoryIdTF, datePicker, inputTimeTF, providerIdTF, inputHistoryNoteTF);
+        boolean success = inputHistoryController.addInputHistory(inputHistoryIdTF, datePicker, inputTimeTF, providerIdTF, inputHistoryNoteTF);
+        if (success){
+            JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+            dispose();
+        }
     }//GEN-LAST:event_confirmButtonMouseClicked
 
     private void cancelButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButtonMouseClicked
