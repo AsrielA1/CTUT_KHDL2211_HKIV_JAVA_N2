@@ -9,6 +9,7 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     public EmployeeJFrame() {
         initComponents();
         
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         employeeController.showAllEmployee(tblEmployee);
     }
 

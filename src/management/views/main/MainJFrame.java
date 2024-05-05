@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import management.views.categories.device.id.UniqueDeviceJFrame;
 import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
+import management.views.histories.input.InputHistoryJFrame;
 
 
 public class MainJFrame extends javax.swing.JFrame {
@@ -95,6 +96,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnInputManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         btnInputManagement.setText("QUẢN LÝ LỊCH SỬ NHẬP");
         btnInputManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnInputManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInputManagementMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnInputManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 320, 120));
 
         btnProviderManagement.setBackground(new java.awt.Color(153, 153, 255));
@@ -159,6 +165,11 @@ public class MainJFrame extends javax.swing.JFrame {
         ProviderJFrame frame = new ProviderJFrame();
         frame.setVisible(true);
     }//GEN-LAST:event_btnProviderManagementMouseClicked
+
+    private void btnInputManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInputManagementMouseClicked
+        InputHistoryJFrame frame = new InputHistoryJFrame();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnInputManagementMouseClicked
 
     /**
      * @param args the command line arguments

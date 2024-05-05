@@ -11,12 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/ColdStorage.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/main/Login.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/main/Register.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/EmployeeController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Employee.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

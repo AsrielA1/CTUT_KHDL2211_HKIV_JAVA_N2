@@ -9,6 +9,7 @@ public class ProviderJFrame extends javax.swing.JFrame {
     public ProviderJFrame() {
         initComponents();
         
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         providerController.showAllProvider(tblProvider);
     }
 

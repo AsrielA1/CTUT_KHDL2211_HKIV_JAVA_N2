@@ -39,7 +39,7 @@ public class Employee implements IEmployee{
         this.employeeName = employeeName;
         this.employeeNumber = employeeNumber;
     }
-    
+        
     @Override
     public boolean addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote){
         Connection connection = null;
