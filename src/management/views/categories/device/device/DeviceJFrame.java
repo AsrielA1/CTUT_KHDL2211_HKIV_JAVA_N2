@@ -10,6 +10,7 @@ public class DeviceJFrame extends javax.swing.JFrame {
     
     public DeviceJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         deviceController.showAllDevices(tblDevice);
     }

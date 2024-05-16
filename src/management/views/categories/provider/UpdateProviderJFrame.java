@@ -13,10 +13,12 @@ public class UpdateProviderJFrame extends javax.swing.JFrame {
 
     public UpdateProviderJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
     
     public UpdateProviderJFrame(String _providerId) {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         isViewFrame = true;
         viewFrameInit(_providerId);

@@ -51,7 +51,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(204, 255, 255));
         lblTitle.setText("     ỨNG DỤNG QUẢN LÝ KHO ");
         lblTitle.setToolTipText("");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 980, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 30, 990, -1));
 
         btnDeviceManagement.setBackground(new java.awt.Color(153, 255, 255));
         btnDeviceManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N

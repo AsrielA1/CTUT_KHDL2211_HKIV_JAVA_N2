@@ -16,6 +16,6 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 public class ColdStorage {
 
     public static void main(String[] args) throws MqttException{
-        new Login().setVisible(true);
+        new MainJFrame().setVisible(true);
     }
 }

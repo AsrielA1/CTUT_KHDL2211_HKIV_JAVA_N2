@@ -14,10 +14,12 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
 
     public UpdateStorageJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
     
     public UpdateStorageJFrame(String _storageId) {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         viewFrameInit(_storageId);
         isViewFrame = true;

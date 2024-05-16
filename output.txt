@@ -1,0 +1,611 @@
+.
+├── build
+│   └── classes
+│       ├── icon
+│       │   ├── back_32px.png
+│       │   ├── close-50.png
+│       │   ├── close_icon.jpg
+│       │   ├── delete_32px.png
+│       │   ├── full_screen_32px.png
+│       │   ├── menu_32px.png
+│       │   └── settings_32px.png
+│       ├── images
+│       │   ├── 1.png
+│       │   ├── 2.png
+│       │   └── icons8-register-24.png
+│       ├── Input.Jframe
+│       │   ├── AddInputDetailJFrame.png
+│       │   ├── AddInputHistoryJFrame.png
+│       │   ├── InputDetailJFrame.png
+│       │   └── InputHistoryJFrame.png
+│       ├── lib
+│       │   ├── AbsoluteLayout-RELEASE210.jar
+│       │   ├── gson-2.10.1.jar
+│       │   ├── jcalendar-1.4.jar
+│       │   ├── jgoodies-common-1.2.0.jar
+│       │   ├── jgoodies-looks-2.4.1.jar
+│       │   ├── junit-4.6.jar
+│       │   ├── org.eclipse.paho.client.mqttv3-1.2.5.jar
+│       │   └── postgresql-42.7.2.jar
+│       ├── Login$1.class
+│       ├── Login$2.class
+│       ├── Main.Jframe.png
+│       ├── management
+│       │   ├── ColdStorage.class
+│       │   ├── configs
+│       │   │   ├── configs - Shortcut.lnk
+│       │   │   ├── db.properties
+│       │   │   └── PropertiesController.class
+│       │   ├── controllers
+│       │   │   ├── categories
+│       │   │   │   ├── DeviceController.class
+│       │   │   │   ├── EmployeeController.class
+│       │   │   │   ├── IDeviceController.class
+│       │   │   │   ├── IEmployeeController.class
+│       │   │   │   ├── IProviderController.class
+│       │   │   │   ├── ProviderController.class
+│       │   │   │   └── StorageController.class
+│       │   │   ├── histories
+│       │   │   │   ├── IInputDetailController.class
+│       │   │   │   ├── IIntputHistoryController.class
+│       │   │   │   ├── InputDetailController.class
+│       │   │   │   ├── InputHistoryController.class
+│       │   │   │   ├── IOutputDetailController.class
+│       │   │   │   ├── IOutputHistoryController.class
+│       │   │   │   ├── IWarningController.class
+│       │   │   │   ├── OutputDetailController.class
+│       │   │   │   ├── OutputHistoryController.class
+│       │   │   │   ├── WarningController.class
+│       │   │   │   └── WarningController.rs
+│       │   │   ├── JSON
+│       │   │   │   └── JSONController.class
+│       │   │   └── main
+│       │   │       └── mainController.class
+│       │   ├── database
+│       │   │   ├── DB.class
+│       │   │   └── DBInit.class
+│       │   ├── exceptions
+│       │   │   ├── InvalidLoginException.class
+│       │   │   ├── MailException.class
+│       │   │   └── NumberException.class
+│       │   ├── models
+│       │   │   ├── categories
+│       │   │   │   ├── Device.class
+│       │   │   │   ├── Employee.class
+│       │   │   │   ├── IDevice.class
+│       │   │   │   ├── IEmployee.class
+│       │   │   │   ├── IProvider.class
+│       │   │   │   ├── IStorage.class
+│       │   │   │   ├── Provider.class
+│       │   │   │   └── Storage.class
+│       │   │   ├── details
+│       │   │   │   ├── IInputDetail.class
+│       │   │   │   ├── InputDetail.class
+│       │   │   │   ├── IOutputDetail.class
+│       │   │   │   └── OutputDetail.class
+│       │   │   ├── devices
+│       │   │   ├── histories
+│       │   │   │   ├── IInputHistory.class
+│       │   │   │   ├── InputHistory.class
+│       │   │   │   ├── IOutputHistory.class
+│       │   │   │   └── OutputHistory.class
+│       │   │   └── warning
+│       │   │       ├── IWarning.class
+│       │   │       ├── Warning.class
+│       │   │       └── Warning.rs
+│       │   ├── temps
+│       │   └── views
+│       │       ├── categories
+│       │       │   ├── device
+│       │       │   │   ├── device
+│       │       │   │   │   ├── DeviceDetailJFrame$1.class
+│       │       │   │   │   ├── DeviceDetailJFrame$2.class
+│       │       │   │   │   ├── DeviceDetailJFrame$3.class
+│       │       │   │   │   ├── DeviceDetailJFrame.class
+│       │       │   │   │   ├── DeviceDetailJFrame.form
+│       │       │   │   │   ├── DeviceJFrame$1.class
+│       │       │   │   │   ├── DeviceJFrame$2.class
+│       │       │   │   │   ├── DeviceJFrame$3.class
+│       │       │   │   │   ├── DeviceJFrame$4.class
+│       │       │   │   │   ├── DeviceJFrame$5.class
+│       │       │   │   │   ├── DeviceJFrame$6.class
+│       │       │   │   │   ├── DeviceJFrame.class
+│       │       │   │   │   ├── DeviceJFrame.form
+│       │       │   │   │   ├── UpdateDeviceJframe$1.class
+│       │       │   │   │   ├── UpdateDeviceJframe$2.class
+│       │       │   │   │   ├── UpdateDeviceJframe$3.class
+│       │       │   │   │   ├── UpdateDeviceJframe$4.class
+│       │       │   │   │   ├── UpdateDeviceJframe.class
+│       │       │   │   │   └── UpdateDeviceJframe.form
+│       │       │   │   ├── id
+│       │       │   │   │   ├── UniqueDeviceJFrame$1.class
+│       │       │   │   │   ├── UniqueDeviceJFrame$2.class
+│       │       │   │   │   ├── UniqueDeviceJFrame$3.class
+│       │       │   │   │   ├── UniqueDeviceJFrame$4.class
+│       │       │   │   │   ├── UniqueDeviceJFrame$5.class
+│       │       │   │   │   ├── UniqueDeviceJFrame$6.class
+│       │       │   │   │   ├── UniqueDeviceJFrame.class
+│       │       │   │   │   ├── UniqueDeviceJFrame.form
+│       │       │   │   │   ├── UpdateUniqueDeviceJFrame$1.class
+│       │       │   │   │   ├── UpdateUniqueDeviceJFrame$2.class
+│       │       │   │   │   ├── UpdateUniqueDeviceJFrame$3.class
+│       │       │   │   │   ├── UpdateUniqueDeviceJFrame$4.class
+│       │       │   │   │   ├── UpdateUniqueDeviceJFrame.class
+│       │       │   │   │   └── UpdateUniqueDeviceJFrame.form
+│       │       │   │   ├── location
+│       │       │   │   ├── tag
+│       │       │   │   │   ├── DeviceTagJFrame$1.class
+│       │       │   │   │   ├── DeviceTagJFrame$2.class
+│       │       │   │   │   ├── DeviceTagJFrame$3.class
+│       │       │   │   │   ├── DeviceTagJFrame$4.class
+│       │       │   │   │   ├── DeviceTagJFrame$5.class
+│       │       │   │   │   ├── DeviceTagJFrame$6.class
+│       │       │   │   │   ├── DeviceTagJFrame.class
+│       │       │   │   │   ├── DeviceTagJFrame.form
+│       │       │   │   │   ├── UpdateDeviceTagJFrame$1.class
+│       │       │   │   │   ├── UpdateDeviceTagJFrame$2.class
+│       │       │   │   │   ├── UpdateDeviceTagJFrame$3.class
+│       │       │   │   │   ├── UpdateDeviceTagJFrame$4.class
+│       │       │   │   │   ├── UpdateDeviceTagJFrame.class
+│       │       │   │   │   └── UpdateDeviceTagJFrame.form
+│       │       │   │   └── type
+│       │       │   ├── devices
+│       │       │   ├── employee
+│       │       │   │   ├── EmployeeJFrame$1.class
+│       │       │   │   ├── EmployeeJFrame$2.class
+│       │       │   │   ├── EmployeeJFrame$3.class
+│       │       │   │   ├── EmployeeJFrame$4.class
+│       │       │   │   ├── EmployeeJFrame$5.class
+│       │       │   │   ├── EmployeeJFrame$6.class
+│       │       │   │   ├── EmployeeJFrame$7.class
+│       │       │   │   ├── EmployeeJFrame.class
+│       │       │   │   ├── EmployeeJFrame.form
+│       │       │   │   ├── UpdateEmployeeJFrame$1.class
+│       │       │   │   ├── UpdateEmployeeJFrame$2.class
+│       │       │   │   ├── UpdateEmployeeJFrame$3.class
+│       │       │   │   ├── UpdateEmployeeJFrame$4.class
+│       │       │   │   ├── UpdateEmployeeJFrame$5.class
+│       │       │   │   ├── UpdateEmployeeJFrame.class
+│       │       │   │   └── UpdateEmployeeJFrame.form
+│       │       │   ├── provider
+│       │       │   │   ├── ProviderJFrame$1.class
+│       │       │   │   ├── ProviderJFrame$2.class
+│       │       │   │   ├── ProviderJFrame$3.class
+│       │       │   │   ├── ProviderJFrame$4.class
+│       │       │   │   ├── ProviderJFrame$5.class
+│       │       │   │   ├── ProviderJFrame$6.class
+│       │       │   │   ├── ProviderJFrame.class
+│       │       │   │   ├── ProviderJFrame.form
+│       │       │   │   ├── UpdateProviderJFrame$1.class
+│       │       │   │   ├── UpdateProviderJFrame$2.class
+│       │       │   │   ├── UpdateProviderJFrame$3.class
+│       │       │   │   ├── UpdateProviderJFrame.class
+│       │       │   │   └── UpdateProviderJFrame.form
+│       │       │   └── storage
+│       │       │       ├── StorageJFrame$1.class
+│       │       │       ├── StorageJFrame$2.class
+│       │       │       ├── StorageJFrame$3.class
+│       │       │       ├── StorageJFrame$4.class
+│       │       │       ├── StorageJFrame$5.class
+│       │       │       ├── StorageJFrame$6.class
+│       │       │       ├── StorageJFrame.class
+│       │       │       ├── StorageJFrame.form
+│       │       │       ├── UpdateStorageJFrame$1.class
+│       │       │       ├── UpdateStorageJFrame$2.class
+│       │       │       ├── UpdateStorageJFrame$3.class
+│       │       │       ├── UpdateStorageJFrame.class
+│       │       │       └── UpdateStorageJFrame.form
+│       │       ├── histories
+│       │       │   ├── input
+│       │       │   │   ├── AddInputHistoryJFrame$1.class
+│       │       │   │   ├── AddInputHistoryJFrame$2.class
+│       │       │   │   ├── AddInputHistoryJFrame$3.class
+│       │       │   │   ├── AddInputHistoryJFrame$4.class
+│       │       │   │   ├── AddInputHistoryJFrame$5.class
+│       │       │   │   ├── AddInputHistoryJFrame.class
+│       │       │   │   ├── AddInputHistoryJFrame.form
+│       │       │   │   ├── details
+│       │       │   │   │   ├── AddInputDetailJFrame$1.class
+│       │       │   │   │   ├── AddInputDetailJFrame$2.class
+│       │       │   │   │   ├── AddInputDetailJFrame$3.class
+│       │       │   │   │   ├── AddInputDetailJFrame.class
+│       │       │   │   │   ├── AddInputDetailJFrame.form
+│       │       │   │   │   ├── InputDetailJFrame$1.class
+│       │       │   │   │   ├── InputDetailJFrame$2.class
+│       │       │   │   │   ├── InputDetailJFrame$3.class
+│       │       │   │   │   ├── InputDetailJFrame$4.class
+│       │       │   │   │   ├── InputDetailJFrame.class
+│       │       │   │   │   └── InputDetailJFrame.form
+│       │       │   │   ├── InputHistoryJFrame$1.class
+│       │       │   │   ├── InputHistoryJFrame$2.class
+│       │       │   │   ├── InputHistoryJFrame$3.class
+│       │       │   │   ├── InputHistoryJFrame$4.class
+│       │       │   │   ├── InputHistoryJFrame$5.class
+│       │       │   │   ├── InputHistoryJFrame.class
+│       │       │   │   └── InputHistoryJFrame.form
+│       │       │   ├── output
+│       │       │   │   ├── AddOutputHistoryJFrame$1.class
+│       │       │   │   ├── AddOutputHistoryJFrame$2.class
+│       │       │   │   ├── AddOutputHistoryJFrame$3.class
+│       │       │   │   ├── AddOutputHistoryJFrame.class
+│       │       │   │   ├── AddOutputHistoryJFrame.form
+│       │       │   │   ├── details
+│       │       │   │   │   ├── AddOutputDetailJFrame$1.class
+│       │       │   │   │   ├── AddOutputDetailJFrame$2.class
+│       │       │   │   │   ├── AddOutputDetailJFrame$3.class
+│       │       │   │   │   ├── AddOutputDetailJFrame$4.class
+│       │       │   │   │   ├── AddOutputDetailJFrame$5.class
+│       │       │   │   │   ├── AddOutputDetailJFrame$6.class
+│       │       │   │   │   ├── AddOutputDetailJFrame.class
+│       │       │   │   │   ├── AddOutputDetailJFrame.form
+│       │       │   │   │   ├── OutputDetailJFrame$1.class
+│       │       │   │   │   ├── OutputDetailJFrame$2.class
+│       │       │   │   │   ├── OutputDetailJFrame$3.class
+│       │       │   │   │   ├── OutputDetailJFrame$4.class
+│       │       │   │   │   ├── OutputDetailJFrame.class
+│       │       │   │   │   └── OutputDetailJFrame.form
+│       │       │   │   ├── OutputHistoryJFrame$1.class
+│       │       │   │   ├── OutputHistoryJFrame$2.class
+│       │       │   │   ├── OutputHistoryJFrame$3.class
+│       │       │   │   ├── OutputHistoryJFrame$4.class
+│       │       │   │   ├── OutputHistoryJFrame$5.class
+│       │       │   │   ├── OutputHistoryJFrame.class
+│       │       │   │   └── OutputHistoryJFrame.form
+│       │       │   └── warning
+│       │       ├── main
+│       │       │   ├── Login$1.class
+│       │       │   ├── Login$2.class
+│       │       │   ├── Login$3.class
+│       │       │   ├── Login$4.class
+│       │       │   ├── Login.class
+│       │       │   ├── Login.form
+│       │       │   ├── MainJFrame$1.class
+│       │       │   ├── MainJFrame$2.class
+│       │       │   ├── MainJFrame$3.class
+│       │       │   ├── MainJFrame$4.class
+│       │       │   ├── MainJFrame$5.class
+│       │       │   ├── MainJFrame$6.class
+│       │       │   ├── MainJFrame$7.class
+│       │       │   ├── MainJFrame.class
+│       │       │   ├── MainJFrame.form
+│       │       │   ├── Register$1.class
+│       │       │   ├── Register$2.class
+│       │       │   ├── Register$3.class
+│       │       │   ├── Register$4.class
+│       │       │   ├── Register.class
+│       │       │   ├── Register.form
+│       │       │   ├── StorageOption$1.class
+│       │       │   ├── StorageOption$2.class
+│       │       │   ├── StorageOption$3$1.class
+│       │       │   ├── StorageOption$3.class
+│       │       │   ├── StorageOption.class
+│       │       │   └── StorageOption.form
+│       │       └── visualization
+│       ├── Output.Jframe
+│       │   ├── AddInputHistoryJFrame.png
+│       │   ├── AddOutputDetailJFrame.png
+│       │   ├── OutputDetailJFrame.png
+│       │   └── OutputHistoryJFrame.png
+│       ├── Reg$1.class
+│       ├── Reg$2.class
+│       ├── Reg$3.class
+│       ├── Register$1.class
+│       ├── Register$2.class
+│       ├── Register$3.class
+│       ├── Thiết kế
+│       │   ├── DeviceDetail.Jframe (1)
+│       │   │   ├── AddTagForDeviceJFrame_1.png
+│       │   │   ├── AddTagForDeviceJFrame_2.png
+│       │   │   ├── AddTagForDeviceJFrame_3.png
+│       │   │   ├── AddTagForDeviceJFrame_4.png
+│       │   │   ├── AddTagForDeviceJFrame_5.png
+│       │   │   ├── AddTagForDeviceJFrame.png
+│       │   │   ├── DelTagJFrame_1.png
+│       │   │   ├── DelTagJFrame_2.png
+│       │   │   ├── DelTagJFrame_3.png
+│       │   │   ├── DelTagJFrame_4.png
+│       │   │   ├── DelTagJFrame_5.png
+│       │   │   ├── DelTagJFrame.png
+│       │   │   ├── DeviceDetailJFrame_1.png
+│       │   │   ├── DeviceDetailJFrame_2.png
+│       │   │   ├── DeviceDetailJFrame_3.png
+│       │   │   ├── DeviceDetailJFrame_4.png
+│       │   │   ├── DeviceDetailJFrame_5.png
+│       │   │   ├── DeviceDetailJFrame.png
+│       │   │   ├── DeviceJFrame_1.png
+│       │   │   ├── DeviceJFrame_2.png
+│       │   │   ├── DeviceJFrame_3.png
+│       │   │   ├── DeviceJFrame_4.png
+│       │   │   ├── DeviceJFrame_5.png
+│       │   │   ├── DeviceJFrame.png
+│       │   │   ├── UpdateDeviceJFrame_1.png
+│       │   │   ├── UpdateDeviceJFrame_2.png
+│       │   │   ├── UpdateDeviceJFrame_3.png
+│       │   │   ├── UpdateDeviceJFrame_4.png
+│       │   │   ├── UpdateDeviceJFrame_5.png
+│       │   │   └── UpdateDeviceJFrame.png
+│       │   ├── Employee.Jframe
+│       │   │   ├── Employee_1.png
+│       │   │   ├── Employee_2.png
+│       │   │   ├── Employee_3.png
+│       │   │   ├── Employee.png
+│       │   │   ├── UpdateEmployee_1.png
+│       │   │   ├── UpdateEmployee_2.png
+│       │   │   ├── UpdateEmployee_3.png
+│       │   │   └── UpdateEmployee.png
+│       │   ├── Input.Jframe
+│       │   ├── provider.Jframe
+│       │   │   ├── Provider_1.png
+│       │   │   ├── Provider_2.png
+│       │   │   ├── Provider.png
+│       │   │   ├── Update Provider_1.png
+│       │   │   ├── Update Provider_2.png
+│       │   │   └── Update Provider.png
+│       │   ├── storage.Jframe
+│       │   │   ├── storage_1.png
+│       │   │   ├── storage.png
+│       │   │   ├── Updatestorage_1.png
+│       │   │   └── Updatestorage.png
+│       │   └── TypeDevice.Jframe
+│       │       ├── Changelocation_1.png
+│       │       ├── Changelocation_2.png
+│       │       ├── Changelocation_3.png
+│       │       ├── Changelocation_4.png
+│       │       ├── Changelocation.png
+│       │       ├── DeviceTypeJFrame_1.png
+│       │       ├── DeviceTypeJFrame_2.png
+│       │       ├── DeviceTypeJFrame_3.png
+│       │       ├── DeviceTypeJFrame_4.png
+│       │       ├── DeviceTypeJFrame.png
+│       │       ├── UniqueDeviceJFrame_1.png
+│       │       ├── UniqueDeviceJFrame_2.png
+│       │       ├── UniqueDeviceJFrame_3.png
+│       │       ├── UniqueDeviceJFrame_4.png
+│       │       ├── UniqueDeviceJFrame.png
+│       │       ├── update device_1.png
+│       │       ├── update device_2.png
+│       │       ├── update device_3.png
+│       │       ├── update device.png
+│       │       ├── UpdateDeviceTypeJFrame_1.png
+│       │       ├── UpdateDeviceTypeJFrame_2.png
+│       │       ├── UpdateDeviceTypeJFrame_3.png
+│       │       ├── UpdateDeviceTypeJFrame_4.png
+│       │       ├── UpdateDeviceTypeJFrame.png
+│       │       └── UpdateUniqueDeviceJFrame.png
+│       └── TypeDevice.Jframe
+├── build.xml
+├── manifest.mf
+├── nbproject
+│   ├── build-impl.xml
+│   ├── genfiles.properties
+│   ├── private
+│   │   ├── private.properties
+│   │   └── private.xml
+│   ├── project.properties
+│   └── project.xml
+├── output.txt
+├── src
+│   ├── icon
+│   │   ├── back_32px.png
+│   │   ├── close-50.png
+│   │   ├── close_icon.jpg
+│   │   ├── delete_32px.png
+│   │   ├── full_screen_32px.png
+│   │   ├── menu_32px.png
+│   │   └── settings_32px.png
+│   ├── images
+│   │   ├── 1.png
+│   │   ├── 2.png
+│   │   └── icons8-register-24.png
+│   ├── Input.Jframe
+│   │   ├── AddInputDetailJFrame.png
+│   │   ├── AddInputHistoryJFrame.png
+│   │   ├── InputDetailJFrame.png
+│   │   └── InputHistoryJFrame.png
+│   ├── lib
+│   │   ├── AbsoluteLayout-RELEASE210.jar
+│   │   ├── gson-2.10.1.jar
+│   │   ├── jcalendar-1.4.jar
+│   │   ├── jgoodies-common-1.2.0.jar
+│   │   ├── jgoodies-looks-2.4.1.jar
+│   │   ├── junit-4.6.jar
+│   │   ├── org.eclipse.paho.client.mqttv3-1.2.5.jar
+│   │   └── postgresql-42.7.2.jar
+│   ├── Main.Jframe.png
+│   ├── management
+│   │   ├── ColdStorage.java
+│   │   ├── configs
+│   │   │   ├── configs - Shortcut.lnk
+│   │   │   ├── db.properties
+│   │   │   └── PropertiesController.java
+│   │   ├── controllers
+│   │   │   ├── categories
+│   │   │   │   ├── DeviceController.java
+│   │   │   │   ├── EmployeeController.java
+│   │   │   │   ├── ProviderController.java
+│   │   │   │   └── StorageController.java
+│   │   │   ├── CSVController
+│   │   │   ├── histories
+│   │   │   │   ├── InputDetailController.java
+│   │   │   │   ├── InputHistoryController.java
+│   │   │   │   ├── OutputDetailController.java
+│   │   │   │   ├── OutputHistoryController.java
+│   │   │   │   └── WarningController.java
+│   │   │   ├── JSON
+│   │   │   │   └── JSONController.java
+│   │   │   └── main
+│   │   │       └── mainController.java
+│   │   ├── database
+│   │   │   ├── DBInit.java
+│   │   │   └── DB.java
+│   │   ├── exceptions
+│   │   │   ├── InvalidLoginException.java
+│   │   │   ├── MailException.java
+│   │   │   └── NumberException.java
+│   │   ├── models
+│   │   │   ├── categories
+│   │   │   │   ├── Device.java
+│   │   │   │   ├── Employee.java
+│   │   │   │   ├── Provider.java
+│   │   │   │   └── Storage.java
+│   │   │   ├── details
+│   │   │   │   ├── InputDetail.java
+│   │   │   │   └── OutputDetail.java
+│   │   │   ├── histories
+│   │   │   │   ├── InputHistory.java
+│   │   │   │   └── OutputHistory.java
+│   │   │   └── warning
+│   │   │       └── Warning.java
+│   │   ├── temps
+│   │   └── views
+│   │       ├── categories
+│   │       │   ├── device
+│   │       │   │   ├── device
+│   │       │   │   │   ├── DeviceDetailJFrame.form
+│   │       │   │   │   ├── DeviceDetailJFrame.java
+│   │       │   │   │   ├── DeviceJFrame.form
+│   │       │   │   │   ├── DeviceJFrame.java
+│   │       │   │   │   ├── UpdateDeviceJframe.form
+│   │       │   │   │   └── UpdateDeviceJframe.java
+│   │       │   │   ├── id
+│   │       │   │   │   ├── UniqueDeviceJFrame.form
+│   │       │   │   │   ├── UniqueDeviceJFrame.java
+│   │       │   │   │   ├── UpdateUniqueDeviceJFrame.form
+│   │       │   │   │   └── UpdateUniqueDeviceJFrame.java
+│   │       │   │   └── tag
+│   │       │   │       ├── DeviceTagJFrame.form
+│   │       │   │       ├── DeviceTagJFrame.java
+│   │       │   │       ├── UpdateDeviceTagJFrame.form
+│   │       │   │       └── UpdateDeviceTagJFrame.java
+│   │       │   ├── employee
+│   │       │   │   ├── EmployeeJFrame.form
+│   │       │   │   ├── EmployeeJFrame.java
+│   │       │   │   ├── UpdateEmployeeJFrame.form
+│   │       │   │   └── UpdateEmployeeJFrame.java
+│   │       │   ├── provider
+│   │       │   │   ├── ProviderJFrame.form
+│   │       │   │   ├── ProviderJFrame.java
+│   │       │   │   ├── UpdateProviderJFrame.form
+│   │       │   │   └── UpdateProviderJFrame.java
+│   │       │   └── storage
+│   │       │       ├── StorageJFrame.form
+│   │       │       ├── StorageJFrame.java
+│   │       │       ├── UpdateStorageJFrame.form
+│   │       │       └── UpdateStorageJFrame.java
+│   │       ├── histories
+│   │       │   ├── input
+│   │       │   │   ├── AddInputHistoryJFrame.form
+│   │       │   │   ├── AddInputHistoryJFrame.java
+│   │       │   │   ├── details
+│   │       │   │   │   ├── AddInputDetailJFrame.form
+│   │       │   │   │   ├── AddInputDetailJFrame.java
+│   │       │   │   │   ├── InputDetailJFrame.form
+│   │       │   │   │   └── InputDetailJFrame.java
+│   │       │   │   ├── InputHistoryJFrame.form
+│   │       │   │   └── InputHistoryJFrame.java
+│   │       │   └── output
+│   │       │       ├── AddOutputHistoryJFrame.form
+│   │       │       ├── AddOutputHistoryJFrame.java
+│   │       │       ├── details
+│   │       │       │   ├── AddOutputDetailJFrame.form
+│   │       │       │   ├── AddOutputDetailJFrame.java
+│   │       │       │   ├── OutputDetailJFrame.form
+│   │       │       │   └── OutputDetailJFrame.java
+│   │       │       ├── OutputHistoryJFrame.form
+│   │       │       └── OutputHistoryJFrame.java
+│   │       └── main
+│   │           ├── Login.form
+│   │           ├── Login.java
+│   │           ├── MainJFrame.form
+│   │           ├── MainJFrame.java
+│   │           ├── Register.form
+│   │           ├── Register.java
+│   │           ├── StorageOption.form
+│   │           └── StorageOption.java
+│   ├── Output.Jframe
+│   │   ├── AddInputHistoryJFrame.png
+│   │   ├── AddOutputDetailJFrame.png
+│   │   ├── OutputDetailJFrame.png
+│   │   └── OutputHistoryJFrame.png
+│   └── Thiết kế
+│       ├── DeviceDetail.Jframe (1)
+│       │   ├── AddTagForDeviceJFrame_1.png
+│       │   ├── AddTagForDeviceJFrame_2.png
+│       │   ├── AddTagForDeviceJFrame_3.png
+│       │   ├── AddTagForDeviceJFrame_4.png
+│       │   ├── AddTagForDeviceJFrame_5.png
+│       │   ├── AddTagForDeviceJFrame.png
+│       │   ├── DelTagJFrame_1.png
+│       │   ├── DelTagJFrame_2.png
+│       │   ├── DelTagJFrame_3.png
+│       │   ├── DelTagJFrame_4.png
+│       │   ├── DelTagJFrame_5.png
+│       │   ├── DelTagJFrame.png
+│       │   ├── DeviceDetailJFrame_1.png
+│       │   ├── DeviceDetailJFrame_2.png
+│       │   ├── DeviceDetailJFrame_3.png
+│       │   ├── DeviceDetailJFrame_4.png
+│       │   ├── DeviceDetailJFrame_5.png
+│       │   ├── DeviceDetailJFrame.png
+│       │   ├── DeviceJFrame_1.png
+│       │   ├── DeviceJFrame_2.png
+│       │   ├── DeviceJFrame_3.png
+│       │   ├── DeviceJFrame_4.png
+│       │   ├── DeviceJFrame_5.png
+│       │   ├── DeviceJFrame.png
+│       │   ├── UpdateDeviceJFrame_1.png
+│       │   ├── UpdateDeviceJFrame_2.png
+│       │   ├── UpdateDeviceJFrame_3.png
+│       │   ├── UpdateDeviceJFrame_4.png
+│       │   ├── UpdateDeviceJFrame_5.png
+│       │   └── UpdateDeviceJFrame.png
+│       ├── Employee.Jframe
+│       │   ├── Employee_1.png
+│       │   ├── Employee_2.png
+│       │   ├── Employee_3.png
+│       │   ├── Employee.png
+│       │   ├── UpdateEmployee_1.png
+│       │   ├── UpdateEmployee_2.png
+│       │   ├── UpdateEmployee_3.png
+│       │   └── UpdateEmployee.png
+│       ├── provider.Jframe
+│       │   ├── Provider_1.png
+│       │   ├── Provider_2.png
+│       │   ├── Provider.png
+│       │   ├── Update Provider_1.png
+│       │   ├── Update Provider_2.png
+│       │   └── Update Provider.png
+│       ├── storage.Jframe
+│       │   ├── storage_1.png
+│       │   ├── storage.png
+│       │   ├── Updatestorage_1.png
+│       │   └── Updatestorage.png
+│       └── TypeDevice.Jframe
+│           ├── Changelocation_1.png
+│           ├── Changelocation_2.png
+│           ├── Changelocation_3.png
+│           ├── Changelocation_4.png
+│           ├── Changelocation.png
+│           ├── DeviceTypeJFrame_1.png
+│           ├── DeviceTypeJFrame_2.png
+│           ├── DeviceTypeJFrame_3.png
+│           ├── DeviceTypeJFrame_4.png
+│           ├── DeviceTypeJFrame.png
+│           ├── UniqueDeviceJFrame_1.png
+│           ├── UniqueDeviceJFrame_2.png
+│           ├── UniqueDeviceJFrame_3.png
+│           ├── UniqueDeviceJFrame_4.png
+│           ├── UniqueDeviceJFrame.png
+│           ├── update device_1.png
+│           ├── update device_2.png
+│           ├── update device_3.png
+│           ├── update device.png
+│           ├── UpdateDeviceTypeJFrame_1.png
+│           ├── UpdateDeviceTypeJFrame_2.png
+│           ├── UpdateDeviceTypeJFrame_3.png
+│           ├── UpdateDeviceTypeJFrame_4.png
+│           ├── UpdateDeviceTypeJFrame.png
+│           └── UpdateUniqueDeviceJFrame.png
+└── test
+
+97 directories, 511 files

@@ -12,11 +12,12 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     
     public UpdateEmployeeJFrame() {
         initComponents();
-        
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);        
     }
     
     public UpdateEmployeeJFrame(String _employeeId) {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE); 
         
         employeeController.showSingleEmployee(_employeeId, tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
         viewFrameInit(_employeeId);
