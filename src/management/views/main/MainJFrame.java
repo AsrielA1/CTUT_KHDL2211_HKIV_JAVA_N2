@@ -7,7 +7,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.awt.Desktop;
 
-import management.views.categories.device.id.UniqueDeviceJFrame;
 import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
 import management.views.histories.input.InputHistoryJFrame;
@@ -152,8 +151,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStorageMonitoringMouseClicked
 
     private void btnDeviceManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeviceManagementMouseClicked
-        UniqueDeviceJFrame frame = new UniqueDeviceJFrame();
-        frame.setVisible(true);
+
     }//GEN-LAST:event_btnDeviceManagementMouseClicked
 
     private void btnEmployeeManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeManagementMouseClicked
