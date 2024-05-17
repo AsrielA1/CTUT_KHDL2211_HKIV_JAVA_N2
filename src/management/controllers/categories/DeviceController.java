@@ -1,19 +1,16 @@
 package management.controllers.categories;
 
+import management.database.DB;
+
 import management.models.categories.Device;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.PreparedStatement;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import java.util.HashMap;
 
 import javax.swing.JTextField;
-import management.configs.PropertiesController;
 
 interface IDeviceController{
     void showAllDevice(JTable _tblDevice);
@@ -31,26 +28,16 @@ interface IDeviceController{
     void searchIDDevice(JTable _tblDevice, JTextField _tfDeviceId, JTextField _tfSearchBar);
 }
 
-public class DeviceController implements IDeviceController{
+public class DeviceController extends DB implements IDeviceController{
     private final Device deviceModel = new Device();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public DeviceController(){}
     
     @Override
     public void showAllDevice(JTable _tblDevice){
         DefaultTableModel dtModel = (DefaultTableModel)_tblDevice.getModel();
         dtModel.setRowCount(0);
-        
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
-        
+         
         String _deviceId, _deviceName;
         
         try {            
@@ -132,11 +119,7 @@ public class DeviceController implements IDeviceController{
     
     @Override
     public void showSingleDevice(JTextField _tfDeviceId, JTextField _tfDeviceName, JTextField _tfDeviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
-        
+
         String _deviceId = _tfDeviceId.getText();
         
         try {
@@ -162,12 +145,7 @@ public class DeviceController implements IDeviceController{
     public void searchDevice(JTable _tblDevice, JTextField _tfSearchBar){
         DefaultTableModel dtModel = (DefaultTableModel)_tblDevice.getModel();
         dtModel.setRowCount(0);
-        
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
-        
+
         String _keyword = "%" + _tfSearchBar.getText() + "%";
         
         String _deviceId, _deviceName;
@@ -200,11 +178,6 @@ public class DeviceController implements IDeviceController{
         dtModel.setRowCount(0);
         
         String _deviceId = _tfDeviceId.getText();
-        
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
         
         int _deviceNum;
         String _storageId;
@@ -292,11 +265,7 @@ public class DeviceController implements IDeviceController{
     
     @Override
     public void showSingleIDDevice(JTextField _tfDeviceId, JTextField _tfDeviceNum, JTextField _tfStorageId, JTextField _tfDeviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
-        
+
         String _deviceId = _tfDeviceId.getText();
         int _deviceNum = Integer.parseInt(_tfDeviceNum.getText());
         
@@ -324,11 +293,6 @@ public class DeviceController implements IDeviceController{
     public void searchIDDevice(JTable _tblDevice, JTextField _tfDeviceId, JTextField _tfSearchBar){
         DefaultTableModel dtModel = (DefaultTableModel)_tblDevice.getModel();
         dtModel.setRowCount(0);
-        
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        ResultSet rs;
         
         String _keyword = "%" + _tfSearchBar.getText() + "%";
         

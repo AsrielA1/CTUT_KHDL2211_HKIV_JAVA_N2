@@ -1,13 +1,8 @@
 package management.models.details;
 
-import java.sql.Connection;
+import management.database.DB;
+
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import java.util.HashMap;
-import management.configs.PropertiesController;
-
 
 interface IOutputDetail{
     void minusWeightFromStorage(String storageId, float weight);
@@ -19,7 +14,7 @@ interface IOutputDetail{
     void delOutputDetail(String outputId, int outputNumber);
 }
 
-public class OutputDetail implements IOutputDetail{
+public class OutputDetail extends DB implements IOutputDetail{
     private String outputId;
     private int outputNumber;
     private String storageId;
@@ -34,16 +29,9 @@ public class OutputDetail implements IOutputDetail{
         this.weight = weight;
     }
     
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
     @Override
     public void minusWeightFromStorage(String storageId, float weight){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -65,9 +53,7 @@ public class OutputDetail implements IOutputDetail{
     
     @Override
     public void addWeightToOutputHistory(String ouputId, float weight, float income){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -89,9 +75,7 @@ public class OutputDetail implements IOutputDetail{
     
     @Override
     public boolean addOutputDetail(String outputId, String storageId, float incomePerWeight, float weight, String _outputNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -124,9 +108,7 @@ public class OutputDetail implements IOutputDetail{
     
     @Override
     public void addWeightToStorage(String storageId, float weight){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -148,9 +130,7 @@ public class OutputDetail implements IOutputDetail{
     
     @Override
     public void minusWeightFromOutputHistory(String outputId, float weight, float income){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -176,10 +156,7 @@ public class OutputDetail implements IOutputDetail{
     
     @Override
     public void delOutputDetail(String outputId, int outputNumber){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);

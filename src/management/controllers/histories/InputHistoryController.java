@@ -1,15 +1,12 @@
 package management.controllers.histories;
 
-import management.configs.PropertiesController;
+import management.database.DB;
+
 import management.models.histories.InputHistory;
 
 import java.text.SimpleDateFormat;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.HashMap;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -23,26 +20,16 @@ interface IIntputHistoryController{
     boolean hideInputHistory(JTable inputHistoryTable);
 }
 
-public class InputHistoryController implements IIntputHistoryController{
+public class InputHistoryController extends DB implements IIntputHistoryController{
     private final InputHistory inputHistory = new InputHistory();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public InputHistoryController(){}
     
     @Override
     public void showAllInputHistory(JTable inputHistoryTable){
         DefaultTableModel tModel = (DefaultTableModel)inputHistoryTable.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+
         String inputHistoryId, inputDateTime, providerId, totalWeight, totalCost;
         
         try {

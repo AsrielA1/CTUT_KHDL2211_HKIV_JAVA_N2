@@ -1,46 +1,35 @@
 package management.controllers.histories;
 
+import management.database.DB;
+import management.models.histories.OutputHistory;
+
 import com.toedter.calendar.JDateChooser;
-import java.sql.Connection;
+
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
+
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import javax.swing.table.DefaultTableModel;
-import management.configs.PropertiesController;
 
-
-import management.models.histories.OutputHistory;
-import management.views.histories.output.*;
 
 interface IOutputHistoryController{
     void showAllOutputData(JTable outputHistoryTable);
-    void addOutputHistoryData(JTextField outputHistoryIdTF, JDateChooser outputDateChooser, JTextField outputTimeTF, JTextField outputHistoryNote);
+    boolean addOutputHistory(JTextField _tfOutputId, JDateChooser _dateOutput, JTextField _tfTimeOutput, JTextField _tfOutputNote);
+    boolean delOutputHistory(JTable _tblOutput);
 }
 
-public class OutputHistoryController {
+public class OutputHistoryController extends DB implements IOutputHistoryController{
     private final OutputHistory outputHistory = new OutputHistory();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public OutputHistoryController(){}
     
+    @Override
     public void showAllOutputData(JTable outputHistoryTable){
         DefaultTableModel tModel = (DefaultTableModel)outputHistoryTable.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+
         String outputId, outputTimeDate, totalWeight, totalIncome;
         
         try {
@@ -70,6 +59,7 @@ public class OutputHistoryController {
         }
     }
     
+    @Override
     public boolean addOutputHistory(JTextField _tfOutputId, JDateChooser _dateOutput, JTextField _tfTimeOutput, JTextField _tfOutputNote){
         try {
             String _outputId = _tfOutputId.getText();
@@ -87,6 +77,7 @@ public class OutputHistoryController {
         return false;
     }
     
+    @Override
     public boolean delOutputHistory(JTable _tblOutput){
         try{
             String _outputId;

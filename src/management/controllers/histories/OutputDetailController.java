@@ -1,17 +1,10 @@
 package management.controllers.histories;
 
-import management.configs.PropertiesController;
+import management.database.DB;
+
 import management.models.details.OutputDetail;
 
-import com.toedter.calendar.JDateChooser;
-
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-
-import java.util.HashMap;
 
 import javax.swing.JTextField;
 import javax.swing.JTable;
@@ -25,13 +18,8 @@ interface IOutputDetailController{
     void searchOutputDetail(JTextField _tfSearchBar, JTable _tblOutputDetail);
 }
 
-public class OutputDetailController implements IOutputDetailController{
+public class OutputDetailController extends DB implements IOutputDetailController{
     private final OutputDetail outputDetail = new OutputDetail();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
     
     public OutputDetailController(){};
     
@@ -39,11 +27,6 @@ public class OutputDetailController implements IOutputDetailController{
     public void showAllOutputDetail(JTable outputDetailTable, String outputHistoryId){
         DefaultTableModel tModel = (DefaultTableModel)outputDetailTable.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
         
         String outputDetailId, storageId, weight, income, incomePerWeight;
         

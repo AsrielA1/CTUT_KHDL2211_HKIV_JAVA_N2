@@ -1,15 +1,9 @@
 package management.models.categories;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import management.database.DB;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import management.configs.PropertiesController;
+import java.sql.DriverManager;
+
 
 interface IStorage{
     boolean addStorage(String storageId, float maxWeight, String storageNote);
@@ -17,7 +11,7 @@ interface IStorage{
     boolean updateStorage(String storageId, float maxWeight, String storageNote);
 }
 
-public class Storage implements IStorage{
+public class Storage extends DB implements IStorage{
     private String storageId;
     private float currentWeight;
     private float maxWeight;
@@ -32,16 +26,9 @@ public class Storage implements IStorage{
         this.storageNote = storageNote;
     }
     
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
     @Override
     public boolean addStorage(String storageId, float maxWeight, String storageNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+    
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -67,9 +54,7 @@ public class Storage implements IStorage{
     
     @Override
     public boolean delStorage(String storageId){
-        Connection connection = null;
-        Statement stmt = null;
-        
+  
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -88,11 +73,7 @@ public class Storage implements IStorage{
     }
     
     public boolean isValid(String storageId, float maxWeight){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        String query = null;
-        ResultSet rs = null;
-        
+
         float currentWeight;
   
         try {
@@ -122,10 +103,7 @@ public class Storage implements IStorage{
     
     @Override
     public boolean updateStorage(String storageId, float maxWeight, String storageNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        String query = null;
-  
+
         try {
             if (!isValid(storageId, maxWeight)){
                 return false;

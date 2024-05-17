@@ -1,13 +1,9 @@
 package management.models.categories;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import management.database.DB;
 
-import java.util.HashMap;
-import management.configs.PropertiesController;
+import java.sql.DriverManager;
+
 
 interface IDevice{
     boolean addDevice(String _deviceId, String _deviceName, String _deviceNote);
@@ -19,28 +15,18 @@ interface IDevice{
     boolean updateIdDevice(String _deviceId, int _deviceNum, String _storageId, String _deviceNote);
 }
 
-public class Device implements IDevice{
+public class Device extends DB implements IDevice{
     private String deviceId;
     private String deviceName;
     private String deviceType;
     private String deviceNote;
     private String deviceLocation;
     
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
     public Device(){}    
 
     @Override
     public boolean addDevice(String _deviceId, String _deviceName, String _deviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
-        System.out.println(_deviceId + "\n" + _deviceName + "\n" + _deviceNote);
-        
+ 
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -64,10 +50,7 @@ public class Device implements IDevice{
     
     @Override
     public boolean hideDevice(String _deviceId){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
+
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -95,10 +78,7 @@ public class Device implements IDevice{
     
     @Override
     public boolean updateDevice(String _deviceId, String _deviceName, String _deviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
+ 
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -126,10 +106,7 @@ public class Device implements IDevice{
         
     @Override
     public boolean addIdDevice(String _deviceId, String _storageId, String _deviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
+   
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -156,10 +133,7 @@ public class Device implements IDevice{
     
     @Override
     public boolean hideIdDevice(String _deviceId, int _deviceNum){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
+ 
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -182,10 +156,7 @@ public class Device implements IDevice{
     
     @Override
     public boolean updateIdDevice(String _deviceId, int _deviceNum, String _storageId, String _deviceNote){
-        Connection connection;
-        PreparedStatement pstmt;
-        String query;
-        
+
         try {            
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);

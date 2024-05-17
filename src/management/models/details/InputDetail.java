@@ -1,13 +1,9 @@
 package management.models.details;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import management.database.DB;
 
-import java.util.HashMap;
-import management.configs.PropertiesController;
+import java.sql.DriverManager;
+
 
 interface IInputDetail{
     void addWeightToStorage(String storageId, float weight);
@@ -19,7 +15,7 @@ interface IInputDetail{
     void delInputDetail(String supplyId, int supplyNumber);
 }
 
-public class InputDetail implements IInputDetail{
+public class InputDetail extends DB implements IInputDetail{
     private String supplyId;
     private int supplyNumber;
     private String storageId;
@@ -36,17 +32,10 @@ public class InputDetail implements IInputDetail{
         this.weight = weight;
         this.inputDetailNote = inputDetailNote;
     }
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     @Override
     public void addWeightToInputHistory(String supplyId, float weight, float cost){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+  
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -71,9 +60,7 @@ public class InputDetail implements IInputDetail{
     
     @Override
     public void addWeightToStorage(String storageId, float weight){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+ 
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -95,9 +82,7 @@ public class InputDetail implements IInputDetail{
     
     @Override
     public void addInputDetail(String supplyId, String storageId, float costPerWeight, float weight, String inputDetailNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -127,9 +112,7 @@ public class InputDetail implements IInputDetail{
     
     @Override
     public void minusWeightFromStorage(String storageId, float weight){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -151,9 +134,7 @@ public class InputDetail implements IInputDetail{
     
     @Override
     public void minusWeightFromInputHistory(String supplyId, float weight, float cost){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -179,10 +160,7 @@ public class InputDetail implements IInputDetail{
     
     @Override
     public void delInputDetail(String supplyId, int supplyNumber){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        
+
         String _storageId;
         float _weight;
         float _cost;

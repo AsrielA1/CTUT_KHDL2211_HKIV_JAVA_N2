@@ -1,16 +1,10 @@
 package management.models.histories;
 
+import management.database.DB;
+
 import management.models.details.InputDetail;
-import management.configs.PropertiesController;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.ResultSet;
-
-import java.text.SimpleDateFormat;  
-import java.util.HashMap;
 
 
 interface IInputHistory{
@@ -19,7 +13,7 @@ interface IInputHistory{
     
 }
 
-public class InputHistory implements IInputHistory{
+public class InputHistory extends DB implements IInputHistory{
     
     private final InputDetail iDetailModel = new InputDetail();
             
@@ -30,12 +24,7 @@ public class InputHistory implements IInputHistory{
     private float totalCost;
     private String providerId;
     private String inputNote;
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public InputHistory(){}
 
     public InputHistory(String supplyId, String inputDate, String inputTime, float totalWeight, float totalCost, String providerId, String inputNote) {
@@ -50,9 +39,7 @@ public class InputHistory implements IInputHistory{
     
     @Override
     public boolean addInputHistory(String supplyId, String inputDate, String inputTime, String providerId, String inputNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -83,10 +70,7 @@ public class InputHistory implements IInputHistory{
     //Không xóa nhà cung cấp trong bất kỳ tình huống nào
     @Override
     public boolean delInputHistory(String supplyId){
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        
+
         String _supplyId;
         int _inputNum;
         

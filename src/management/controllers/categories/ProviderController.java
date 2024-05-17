@@ -1,20 +1,14 @@
 package management.controllers.categories;
 
+import management.database.DB;
+
 import management.models.categories.Provider;
 
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.Connection;
-import java.util.HashMap;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextField;
-
-import management.configs.PropertiesController;
-
 
 interface IProviderController{
     void showSingleProvider(JTextField _tfProviderId, JTextField _tfProviderName, JTextField _tfProviderEmail, JTextField _tfProviderNumber, JTextField _tfProviderNote);
@@ -25,24 +19,14 @@ interface IProviderController{
     void searchProvider(JTextField _tfProviderId, JTable _tblProvider);
 }
 
-public class ProviderController implements IProviderController {
+public class ProviderController extends DB implements IProviderController {
     private final Provider providerModel = new Provider();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public ProviderController(){}
     
     @Override
     public void showSingleProvider(JTextField _tfProviderId, JTextField _tfProviderName, JTextField _tfProviderEmail, JTextField _tfProviderNumber, JTextField _tfProviderNote){
 
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
         String _providerId = _tfProviderId.getText();
         String _providerName, _providerEmail, _providerNumber, _providerNote;
         
@@ -124,11 +108,6 @@ public class ProviderController implements IProviderController {
         DefaultTableModel tModel = (DefaultTableModel) providerTable.getModel();
         tModel.setRowCount(0);
         
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
         String providerId, providerName, providerMail, providerNumber;
         
         try{
@@ -176,11 +155,6 @@ public class ProviderController implements IProviderController {
     public void searchProvider(JTextField _tfProviderId, JTable _tblProvider){
         DefaultTableModel tModel = (DefaultTableModel) _tblProvider.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        String query = null;
         
         String providerId, providerName, providerMail, providerNumber;
         

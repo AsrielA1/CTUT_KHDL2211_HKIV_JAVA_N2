@@ -1,13 +1,8 @@
 package management.models.categories;
 
-import java.sql.Connection;
+import management.database.DB;
+
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import management.configs.PropertiesController;
 
 
 interface IProvider{
@@ -16,18 +11,13 @@ interface IProvider{
     boolean updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote);
 }
 
-public class Provider implements IProvider{
+public class Provider extends DB implements IProvider{
     private String providerId;
     private String providerName;
     private String providerEmail;
     private String providerNumber;
     private String providerNote;
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public Provider(){}
 
     public Provider(String providerId, String providerName, String providerEmail, String providerNumber) {
@@ -39,9 +29,7 @@ public class Provider implements IProvider{
 
     @Override
     public boolean addProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");            
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -67,9 +55,7 @@ public class Provider implements IProvider{
     
     @Override
     public boolean delProvider(String providerId){
-        Connection connection = null;
-        Statement stmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -89,9 +75,6 @@ public class Provider implements IProvider{
     
     @Override
     public boolean updateProvider(String providerId, String providerName, String providerEmail, String providerNumber, String providerNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        String query = null;
 
         try {
             Class.forName("org.postgresql.Driver");

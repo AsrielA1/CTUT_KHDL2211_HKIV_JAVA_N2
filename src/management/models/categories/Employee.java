@@ -1,16 +1,8 @@
 package management.models.categories;
 
-import management.configs.PropertiesController;
+import management.database.DB;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.SQLException;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
 
 
 interface IEmployee{
@@ -19,18 +11,13 @@ interface IEmployee{
     boolean updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote);
 }
 
-public class Employee implements IEmployee{
+public class Employee extends DB implements IEmployee{
     private String employeeId;
     private String password;
     private String employeeName;
     private String employeeNumber;
     private String employeeNote;
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public Employee(){}
 
     public Employee(String employeeId, String password, String employeeName, String employeeNumber) {
@@ -42,9 +29,7 @@ public class Employee implements IEmployee{
         
     @Override
     public boolean addEmployee(String employeeId, String employeePassword, String employeeName, String employeeNumber, String employeeNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -71,9 +56,7 @@ public class Employee implements IEmployee{
     
     @Override
     public boolean delEmployee(String employeeId){
-        Connection connection = null;
-        Statement stmt = null;
-        
+  
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -94,8 +77,6 @@ public class Employee implements IEmployee{
     
     @Override
     public boolean updateEmployee(String employeeId, String employeeName, String employeeNumber, String employeeNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
 
         try {
             Class.forName("org.postgresql.Driver");

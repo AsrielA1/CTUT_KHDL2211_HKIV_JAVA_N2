@@ -1,34 +1,21 @@
 package management.models.histories;
 
-import java.sql.Connection;
+import management.database.DB;
+
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-
-import java.sql.Time;
-import java.sql.Date;
-
-import java.util.HashMap;
-
-import management.configs.PropertiesController;
 
 interface IOutputHistory{    
     boolean addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote);
     boolean delOutputHistory(String outputId);
 }
 
-public class OutputHistory implements IOutputHistory{
+public class OutputHistory extends DB implements IOutputHistory{
     private String outputId;
     private String outputDate;
     private String outputTime;
     private float totalOutputWeight;
     private float totalIncome;
     private String outputNote;
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
     
     public OutputHistory(){}
 
@@ -43,9 +30,7 @@ public class OutputHistory implements IOutputHistory{
     
     @Override
     public boolean addOutputHistory(String outputId, String outputDate, String outputTime, String outputNote){
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        
+ 
         try {
             Class.forName("org.postgresql.Driver");
             
@@ -74,9 +59,7 @@ public class OutputHistory implements IOutputHistory{
     
     @Override
     public boolean delOutputHistory(String outputId){
-        Connection connection = null;
-        Statement stmt = null;
-        
+ 
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);

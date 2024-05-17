@@ -1,20 +1,14 @@
 package management.controllers.histories;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
+import management.database.DB;
 
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.sql.DriverManager;
 
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import management.configs.PropertiesController;
 import management.models.details.InputDetail;
 
 interface IInputDetailController{
@@ -24,26 +18,16 @@ interface IInputDetailController{
     void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail);
 }
 
-public class InputDetailController implements IInputDetailController{
+public class InputDetailController extends DB implements IInputDetailController{
     private final InputDetail inputDetail = new InputDetail();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+
     public InputDetailController(){}
     
     @Override
     public void showAllInputDetail(JTable inputDetailTable, String _inputHistoryId){
         DefaultTableModel tModel = (DefaultTableModel)inputDetailTable.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+
         String inputDetailId, storageId, weight, cost, costPerWeight;
         
         try {
@@ -120,12 +104,7 @@ public class InputDetailController implements IInputDetailController{
     public void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail){
         DefaultTableModel tModel = (DefaultTableModel)_tblInputDetail.getModel();
         tModel.setRowCount(0);
-        
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+
         String inputDetailNum, storageId, weight, cost, costPerWeight;
         
         String keyword = "%" + _tfSearchBar.getText() + "%";

@@ -1,5 +1,7 @@
 package management.controllers.categories;
 
+import management.database.DB;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -25,14 +27,9 @@ interface IEmployeeController{
     void searchEmployee(JTextField _tfSearchBar, JTable _tblEmployee);
 }
 
-public class EmployeeController implements IEmployeeController{
+public class EmployeeController extends DB implements IEmployeeController{
     private final Employee employeeFunction = new Employee();
-    
-    private final HashMap<String, String> properties = PropertiesController.getProperties();
-    private final String url = properties.get("url");
-    private final String dbUsername = properties.get("username");
-    private final String dbPassword = properties.get("password");
-    
+        
     public void EmployeeController(){}
     
     @Override
@@ -44,11 +41,7 @@ public class EmployeeController implements IEmployeeController{
     
     @Override
     public void showSingleEmployee(String employeeId, JTextField employeeIdTF, JTextField employeeNameTF, JTextField employeeNumberTF, JTextField employeeNoteTF){
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
+
         String employeeName, employeeNumber, employeeNote;
         
         try {
