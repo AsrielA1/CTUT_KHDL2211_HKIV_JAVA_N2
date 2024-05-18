@@ -124,11 +124,11 @@ public class UpdateIDDeviceJDialog extends javax.swing.JDialog {
             else{
                 boolean success = deviceController.updateIdDevice(tfDeviceId, tfDeviceNum, tfStorageId, tfDeviceNote);
                 if (success){
-                    JOptionPane.showConfirmDialog(rootPane, "Sửa thành công");
+                    JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
                     dispose();
                 }
                 else
-                    JOptionPane.showConfirmDialog(rootPane, "Sửa không thành công");
+                    JOptionPane.showMessageDialog(rootPane, "Sửa không thành công");
             }
         } else {
             boolean success = deviceController.addIdDevice(tfDeviceId, tfStorageId, tfDeviceNote);

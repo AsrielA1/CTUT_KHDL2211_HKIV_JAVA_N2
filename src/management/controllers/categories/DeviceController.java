@@ -299,13 +299,16 @@ public class DeviceController extends DB implements IDeviceController{
         int _deviceNum;
         String _storageId;
         
+        String _deviceId = _tfDeviceId.getText();
+        
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
-            query = "SELECT * FROM sp_TimThietbi(?);";
+            query = "SELECT * FROM sp_TimThietbi(?, ?);";
             pstmt = connection.prepareStatement(query);
             pstmt.setString(1, _keyword);
+            pstmt.setString(2, _deviceId);
             
             rs = pstmt.executeQuery();
             while(rs.next()){

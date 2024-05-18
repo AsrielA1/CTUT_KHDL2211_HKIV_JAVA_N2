@@ -94,6 +94,11 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
         getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 223, -1, -1));
 
         btnRefresh.setText("Làm mới");
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 265, -1, -1));
 
         btnSearch.setText("TÌm");
@@ -122,6 +127,8 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
         int _deviceNum = Integer.parseInt(dtModel.getValueAt(row, 0).toString());
         
         new UpdateIDDeviceJDialog(new JFrame(), rootPaneCheckingEnabled, _deviceId, _deviceNum).setVisible(true);
+        
+        deviceController.showAllIdDevice(tblIDevice, tfDeviceId);
     }//GEN-LAST:event_btnViewMouseClicked
 
     private void btnDelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDelMouseClicked
@@ -132,6 +139,10 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         deviceController.searchIDDevice(tblIDevice, tfDeviceId, tfSearchBar);
     }//GEN-LAST:event_btnSearchMouseClicked
+
+    private void btnRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshMouseClicked
+        deviceController.showAllIdDevice(tblIDevice, tfDeviceId);
+    }//GEN-LAST:event_btnRefreshMouseClicked
 
     /**
      * @param args the command line arguments

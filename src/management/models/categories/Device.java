@@ -162,7 +162,7 @@ public class Device extends DB implements IDevice{
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
             query = """
-                    UPDATE danhmuc_thietbi
+                    UPDATE thietbi
                     SET ma_kho = ?, ghi_chu = ?
                     WHERE ma_thietbi = ? AND so_thutu = ?
                     """;

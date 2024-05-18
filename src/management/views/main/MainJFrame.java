@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
 import management.views.histories.input.InputHistoryJFrame;
+import management.views.categories.device.DeviceJFrame;
 
 
 public class MainJFrame extends javax.swing.JFrame {
@@ -151,7 +152,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStorageMonitoringMouseClicked
 
     private void btnDeviceManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeviceManagementMouseClicked
-
+        new DeviceJFrame().setVisible(true);
     }//GEN-LAST:event_btnDeviceManagementMouseClicked
 
     private void btnEmployeeManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeManagementMouseClicked
