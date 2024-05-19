@@ -12,6 +12,7 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
     public InputHistoryJFrame() {
         initComponents();
         
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         inputHistoryController.showAllInputHistory(tblHistory);
     }
 
@@ -107,6 +108,11 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         allPanel.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 490, -1));
 
         btnSearch.setText("TÌM");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
         allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 100, -1));
         allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 300, -1));
         allPanel.add(dateBegin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
@@ -143,6 +149,10 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         InputDetailJFrame frame = new InputDetailJFrame(inputHistoryId);
         frame.setVisible(true);
     }//GEN-LAST:event_btnViewMouseClicked
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     
     public static void main(String args[]) {

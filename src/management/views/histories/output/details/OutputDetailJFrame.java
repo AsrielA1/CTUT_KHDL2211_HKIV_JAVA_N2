@@ -1,5 +1,6 @@
 package management.views.histories.output.details;
 
+import javax.swing.table.DefaultTableModel;
 import management.controllers.histories.OutputDetailController;
 
 public class OutputDetailJFrame extends javax.swing.JFrame {
@@ -12,14 +13,14 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
     
     public OutputDetailJFrame(String _outputId){
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         tfOutputId.setText(_outputId);
+        tfOutputId.setEditable(false);
+       
         odController.showAllOutputDetail(tblOutputDetail, _outputId);
     }
-
-    public OutputDetailJFrame(String _outputId, int _outputNum){
-        initComponents();
-    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -29,6 +30,7 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
+        btnAdd1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblOutputDetail = new javax.swing.JTable();
         tfSearchBar = new javax.swing.JTextField();
@@ -47,14 +49,14 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
 
         btnAdd.setBackground(new java.awt.Color(204, 204, 204));
         btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnAdd.setText("Thêm");
+        btnAdd.setText("Xem");
         btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 50));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 150, 50));
 
         btnDelete.setBackground(new java.awt.Color(204, 204, 204));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -77,6 +79,22 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 150, 50));
+
+        btnAdd1.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd1.setText("Thêm");
+        btnAdd1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdd1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdd1MouseClicked(evt);
+            }
+        });
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 50));
 
         tblOutputDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,9 +123,13 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        String _outputId = tfOutputId.getText();
+        int row = tblOutputDetail.getSelectedRow();
+        DefaultTableModel dtModel = (DefaultTableModel) tblOutputDetail.getModel();
         
-        AddOutputDetailJFrame frame = new AddOutputDetailJFrame(_outputId);
+        String _outputId = tfOutputId.getText();
+        int _outputNum = Integer.parseInt(dtModel.getValueAt(row, 0).toString());
+        
+        AddOutputDetailJFrame frame = new AddOutputDetailJFrame(_outputId, _outputNum);
         frame.setVisible(true);
     }//GEN-LAST:event_btnAddMouseClicked
 
@@ -120,6 +142,14 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
         
         odController.showAllOutputDetail(tblOutputDetail, _outputId);
     }//GEN-LAST:event_btnRefreshMouseClicked
+
+    private void btnAdd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdd1MouseClicked
+        new AddOutputDetailJFrame(tfOutputId.getText()).setVisible(true);
+    }//GEN-LAST:event_btnAdd1MouseClicked
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,6 +188,7 @@ public class OutputDetailJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;

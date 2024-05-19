@@ -13,9 +13,10 @@ import management.models.details.InputDetail;
 
 interface IInputDetailController{
     void showAllInputDetail(JTable inputDetailTable, String _inputHistoryId);
+    void showSingleInputDetail(String _inputId, int _inputNum, JTextField _tfStorageId, JTextField _tfWeight, JTextField _tfCostPerWeight, JTextField _tfInputNote);
     boolean addInputDetail(JTextField _tfSupplyId, JTextField _tfStorageId, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF);
     boolean hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser);
-    void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail);
+    void searchInputDetail(JTextField _tfInputId, JTextField _tfSearchBar, JTable _tblInputDetail);
 }
 
 public class InputDetailController extends DB implements IInputDetailController{
@@ -51,6 +52,32 @@ public class InputDetailController extends DB implements IInputDetailController{
                 tModel.addRow(inputHistoryList);
             }
                         
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.InputDetailController.showAllInputDetail\n" + e);
+        }
+    }
+    
+    @Override
+    public void showSingleInputDetail(String _inputId, int _inputNum, JTextField _tfStorageId, JTextField _tfWeight, JTextField _tfCostPerWeight, JTextField _tfInputNote){
+        //System.out.println(_inputId + "\t" + String.valueOf(_inputNum));
+        
+        try{
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            
+            query = "SELECT * FROM chitiet_nhapkho WHERE ma_lohang = ? AND so_thutu = ?;";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, _inputId);
+            pstmt.setInt(2, _inputNum);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                _tfStorageId.setText(rs.getString(3));
+                _tfCostPerWeight.setText(String.valueOf(rs.getFloat(4)));
+                _tfWeight.setText(String.valueOf(rs.getFloat(5)));
+                _tfInputNote.setText(rs.getString(7));
+            }
         }
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.InputDetailController.showAllInputDetail\n" + e);
@@ -101,21 +128,23 @@ public class InputDetailController extends DB implements IInputDetailController{
     }
     
     @Override
-    public void searchInputDetail(JTextField _tfSearchBar, JTable _tblInputDetail){
+    public void searchInputDetail(JTextField _tfInputId, JTextField _tfSearchBar, JTable _tblInputDetail){
         DefaultTableModel tModel = (DefaultTableModel)_tblInputDetail.getModel();
         tModel.setRowCount(0);
 
         String inputDetailNum, storageId, weight, cost, costPerWeight;
         
+        String _inputId = _tfInputId.getText();
         String keyword = "%" + _tfSearchBar.getText() + "%";
         
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
-            query = "SELECT * FROM sp_TimChitietNhap(?);";
+            query = "SELECT * FROM sp_TimChitietNhap(?, ?);";
             pstmt = connection.prepareStatement(query);
             pstmt.setString(1, keyword);
+            pstmt.setString(2, _inputId);
             
             rs = pstmt.executeQuery();
             while(rs.next()){

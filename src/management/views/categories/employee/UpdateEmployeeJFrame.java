@@ -6,7 +6,8 @@ import management.controllers.categories.EmployeeController;
 
 public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     
-    private boolean firstPress = false;
+    private boolean firstPress = true;
+    private boolean isView = false;
         
     private final EmployeeController employeeController = new EmployeeController();
     
@@ -21,6 +22,7 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         
         employeeController.showSingleEmployee(_employeeId, tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
         viewFrameInit(_employeeId);
+        isView = true;
     }
     
     private void viewFrameInit(String _employeeId){
@@ -43,7 +45,6 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         tfEmployeeId = new javax.swing.JTextField();
         tfEmployeeNumber = new javax.swing.JTextField();
         tfEmployeeNote = new javax.swing.JTextField();
-        tfEmployeeName = new javax.swing.JPasswordField();
         btnCancel = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -51,6 +52,7 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        tfEmployeeName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +81,12 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("Ghi chú");
         informationPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 160, 50));
+
+        tfEmployeeId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmployeeIdActionPerformed(evt);
+            }
+        });
         informationPanel.add(tfEmployeeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 350, 40));
 
         tfEmployeeNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +96,6 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         });
         informationPanel.add(tfEmployeeNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 350, 40));
         informationPanel.add(tfEmployeeNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 350, 100));
-        informationPanel.add(tfEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 350, 40));
 
         btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -138,6 +145,13 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
         jLabel12.setText("_________________________________________________________________________");
         informationPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 370, 20));
 
+        tfEmployeeName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tfEmployeeNameMouseClicked(evt);
+            }
+        });
+        informationPanel.add(tfEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 350, 40));
+
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Thiết kế/Employee.Jframe/UpdateEmployee.png"))); // NOI18N
         informationPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
@@ -148,18 +162,25 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
-        if(firstPress){            
-            tfEmployeeName.setEditable(true);
-            tfEmployeeNumber.setEditable(true);
-            tfEmployeeNote.setEditable(true);
-            
-            btnConfirm.setText("Xác nhận");
-        } else {
-            boolean success = employeeController.updateEmployeeData(tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
-            if (success){
-                JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
-            }
-        }  
+        try {
+            if(firstPress){            
+                tfEmployeeName.setEditable(true);
+                tfEmployeeNumber.setEditable(true);
+                tfEmployeeNote.setEditable(true);
+
+                btnConfirm.setText("Xác nhận");
+                
+                firstPress = false;
+            } else {
+                boolean success = employeeController.updateEmployeeData(tfEmployeeId, tfEmployeeName, tfEmployeeNumber, tfEmployeeNote);
+                if (success){
+                    JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
+                }
+            }  
+        }
+        catch (Exception e){
+            System.out.println("Error in management.views.categories.employee.UpdateEmployeeJFrame.btnConfirmMouseClicked");
+        }
     }//GEN-LAST:event_btnConfirmMouseClicked
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -173,6 +194,14 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     private void tfEmployeeNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmployeeNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEmployeeNumberActionPerformed
+
+    private void tfEmployeeIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmployeeIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmployeeIdActionPerformed
+
+    private void tfEmployeeNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tfEmployeeNameMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmployeeNameMouseClicked
     
 
 
@@ -224,7 +253,7 @@ public class UpdateEmployeeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tfEmployeeId;
-    private javax.swing.JPasswordField tfEmployeeName;
+    private javax.swing.JTextField tfEmployeeName;
     private javax.swing.JTextField tfEmployeeNote;
     private javax.swing.JTextField tfEmployeeNumber;
     // End of variables declaration//GEN-END:variables

@@ -5,17 +5,50 @@ import javax.swing.JOptionPane;
 import management.controllers.histories.OutputDetailController;
 
 public class AddOutputDetailJFrame extends javax.swing.JFrame {
+    
+    private boolean firstPress = true;
+    private boolean isView = false;
 
     private final OutputDetailController odController = new OutputDetailController();
     
     public AddOutputDetailJFrame() {
         initComponents();
+        
+        
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
     
     public AddOutputDetailJFrame(String _outputId) {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         tfOutputId.setText(_outputId);
+        tfOutputId.setEditable(false);
+        tfOutputNum.setVisible(false);
+        
+        isView = false;
+    }
+    
+    public AddOutputDetailJFrame(String _outputId, int _outputNum) {
+        initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        
+        viewInit(_outputId, _outputNum);
+        isView = true;
+    }
+    
+    private void viewInit(String _outputId, int _outputNum){
+        tfOutputId.setText(_outputId);
+        tfOutputNum.setText(String.valueOf(_outputNum));
+        
+        tfOutputId.setEditable(false);
+        tfOutputNum.setEditable(false);
+        tfStorageId.setEditable(false);
+        tfIncomPerCost.setEditable(false);
+        tfWeight.setEditable(false);
+        tfOutputDetailNote.setEditable(false);
+        
+        odController.showSingleOutputDetail(_outputId, _outputNum, tfStorageId, tfIncomPerCost, tfWeight, tfOutputNum);
     }
 
     /**
@@ -41,6 +74,7 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
         tfOutputDetailNote = new javax.swing.JTextField();
         btnConfirm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        tfOutputNum = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +111,7 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 549, -1, 50));
 
         tfOutputId.setText(" ");
-        getContentPane().add(tfOutputId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 330, 40));
+        getContentPane().add(tfOutputId, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 250, 40));
 
         tfStorageId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +160,7 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, 150, 40));
+        getContentPane().add(tfOutputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 60, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Output.Jframe/AddOutputDetailJFrame.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
@@ -146,16 +181,24 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
-        boolean success = odController.addOutputDetail(tfOutputId, tfStorageId, tfIncomPerCost, tfWeight, tfOutputDetailNote);
-        if (success){
-            JOptionPane.showMessageDialog(rootPane, "Sửa thành công");
-            
-            tfOutputId.setText("");
-            tfStorageId.setText("");
-            tfStorageId.setText("");
-            tfIncomPerCost.setText("");
-            tfWeight.setText("");
-            tfOutputDetailNote.setText("");
+        if (isView){
+            btnConfirm.setVisible(false);
+            dispose();
+        }
+        else{
+            boolean success = odController.addOutputDetail(tfOutputId, tfStorageId, tfIncomPerCost, tfWeight, tfOutputNum);
+            if (success){
+                JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
+                
+                tfStorageId.setText("");
+                tfIncomPerCost.setText("");
+                tfWeight.setText("");
+                tfOutputDetailNote.setText("");
+                
+                tfStorageId.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Thêm không thành công");
+            }
         }
     }//GEN-LAST:event_btnConfirmMouseClicked
 
@@ -212,6 +255,7 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField tfIncomPerCost;
     private javax.swing.JTextField tfOutputDetailNote;
     private javax.swing.JTextField tfOutputId;
+    private javax.swing.JTextField tfOutputNum;
     private javax.swing.JTextField tfStorageId;
     private javax.swing.JTextField tfWeight;
     // End of variables declaration//GEN-END:variables

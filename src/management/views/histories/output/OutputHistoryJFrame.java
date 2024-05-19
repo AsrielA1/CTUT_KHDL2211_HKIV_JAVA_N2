@@ -14,6 +14,7 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
     
     public OutputHistoryJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         outputController.showAllOutputData(tblOutput);
     }

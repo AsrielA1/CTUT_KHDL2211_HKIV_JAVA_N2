@@ -110,8 +110,6 @@ public class ProviderJFrame extends javax.swing.JFrame {
             }
         });
         allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 100, -1));
-
-        tfSearchBar.setText(" ");
         allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 270, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Thiết kế/provider.Jframe/Provider.png"))); // NOI18N

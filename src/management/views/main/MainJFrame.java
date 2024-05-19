@@ -10,6 +10,7 @@ import java.awt.Desktop;
 import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
 import management.views.histories.input.InputHistoryJFrame;
+import management.views.histories.output.OutputHistoryJFrame;
 import management.views.categories.device.DeviceJFrame;
 
 
@@ -20,9 +21,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-        
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);       
-
+          
     }
 
     
@@ -68,6 +67,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnOutputManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         btnOutputManagement.setText("QUẢN LÝ LỊCH SỬ XUẤT ");
         btnOutputManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnOutputManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnOutputManagementMouseClicked(evt);
+            }
+        });
         btnOutputManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOutputManagementActionPerformed(evt);
@@ -79,6 +83,11 @@ public class MainJFrame extends javax.swing.JFrame {
         btnLogout.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnLogout.setText("ĐĂNG XUẤT ");
         btnLogout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 280, 50));
 
         btnEmployeeManagement.setBackground(new java.awt.Color(153, 204, 255));
@@ -143,7 +152,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOutputManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputManagementActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnOutputManagementActionPerformed
 
     private void btnStorageMonitoringMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStorageMonitoringMouseClicked
@@ -169,6 +178,15 @@ public class MainJFrame extends javax.swing.JFrame {
         InputHistoryJFrame frame = new InputHistoryJFrame();
         frame.setVisible(true);
     }//GEN-LAST:event_btnInputManagementMouseClicked
+
+    private void btnOutputManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutputManagementMouseClicked
+        new OutputHistoryJFrame().setVisible(true);
+    }//GEN-LAST:event_btnOutputManagementMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        new Register().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
     /**
      * @param args the command line arguments

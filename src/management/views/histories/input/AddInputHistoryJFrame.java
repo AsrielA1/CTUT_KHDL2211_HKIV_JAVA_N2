@@ -9,13 +9,13 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
 public class AddInputHistoryJFrame extends javax.swing.JFrame {
-
+    
     private final InputHistoryController inputHistoryController = new InputHistoryController();
     
     public AddInputHistoryJFrame() {
-        initComponents();
+        initComponents();      
         
-        
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
 
 

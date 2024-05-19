@@ -74,7 +74,7 @@ public class InputHistoryController extends DB implements IIntputHistoryControll
             providerId = providerIdTF.getText();
             inputHistoryNote = inputHistoryNoteTF.getText();
 
-            inputHistory.addInputHistory(inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote);
+            return inputHistory.addInputHistory(inputHistoryId, inputDate, inputTime, providerId, inputHistoryNote);
         }
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.IntputHistoryController.addInputHistory\n" + e);

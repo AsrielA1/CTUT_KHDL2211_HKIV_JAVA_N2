@@ -1,5 +1,6 @@
 package management.views.histories.input.details;
 
+import javax.swing.table.DefaultTableModel;
 import management.controllers.histories.InputDetailController;
 
 public class InputDetailJFrame extends javax.swing.JFrame {
@@ -14,6 +15,7 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     public InputDetailJFrame(String _inputHistoryId) {
         initComponents();
         
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         tfSupplyId.setText(_inputHistoryId);
         inputDetailController.showAllInputDetail(tblInputDetail, _inputHistoryId);
     }
@@ -104,12 +106,22 @@ public class InputDetailJFrame extends javax.swing.JFrame {
 
         btnView.setBackground(new java.awt.Color(204, 204, 204));
         btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnView.setText("xem");
+        btnView.setText("Xem");
         btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewMouseClicked(evt);
+            }
+        });
         allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 150, 40));
         allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 190, -1));
 
         btnSearch.setText("Tìm");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
         allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, -1));
         allPanel.add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 90, 20));
 
@@ -128,13 +140,29 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        AddInputDetailJFrame frame = new AddInputDetailJFrame();
+
+        String _inputId = tfSupplyId.getText();
+        AddInputDetailJFrame frame = new AddInputDetailJFrame(_inputId);
         frame.setVisible(true);
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
 
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseClicked
+        int row = tblInputDetail.getSelectedRow();
+        DefaultTableModel dtModel = (DefaultTableModel)tblInputDetail.getModel();
+        
+        String _inputId = tfSupplyId.getText();
+        int _inputNum = Integer.parseInt(dtModel.getValueAt(row, 0).toString());
+
+        new AddInputDetailJFrame(_inputId, _inputNum).setVisible(true);
+    }//GEN-LAST:event_btnViewMouseClicked
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        inputDetailController.searchInputDetail(tfSupplyId, tfSearchBar, tblInputDetail);
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     /**
      * @param args the command line arguments

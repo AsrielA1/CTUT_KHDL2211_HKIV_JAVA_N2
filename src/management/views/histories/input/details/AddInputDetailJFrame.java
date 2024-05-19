@@ -5,17 +5,46 @@ import management.controllers.histories.InputDetailController;
 
 public class AddInputDetailJFrame extends javax.swing.JFrame {
            
+    private boolean isView;
+    
     private final InputDetailController inputDetailController = new InputDetailController();
     
     public AddInputDetailJFrame() {
         initComponents();
         
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);  
     }
 
     public AddInputDetailJFrame(String _inputId) {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
+        tfSupplyId.setText(_inputId);
+        tfSupplyId.setEditable(false);
     }
+    
+    public AddInputDetailJFrame(String _inputId, int _inputNum) {
+        initComponents();
+        
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        viewInit(_inputId, _inputNum);
+    }
+    
+    private void viewInit(String _inputId, int _inputNum){
+         
+        tfSupplyId.setText(_inputId);
+        tfInputNum.setText(String.valueOf(_inputNum));
+        
+        inputDetailController.showSingleInputDetail(_inputId, _inputNum, tfStorageId, tfWeight, tfCostPerWeight, tfInputNum);
+        
+        tfSupplyId.setEditable(false);
+        tfInputNum.setEditable(false);
+        tfWeight.setEditable(false);
+        tfCostPerWeight.setEditable(false);
+        tfNote.setEditable(false);
+        tfNote.setEditable(false);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -34,6 +63,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tfStorageId = new javax.swing.JTextField();
         tfSupplyId = new javax.swing.JTextField();
+        tfInputNum = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,7 +126,14 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         jLabel8.setText("Nhập Kho");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
         getContentPane().add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 324, 330, 40));
-        getContentPane().add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 330, 50));
+        getContentPane().add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 230, 50));
+
+        tfInputNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInputNumActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfInputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 80, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/AddInputDetailJFrame.png"))); // NOI18N
         jLabel6.setToolTipText("");
@@ -112,17 +149,22 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         if (success){
             JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
             
-            tfSupplyId.setText("");
             tfStorageId.setText("");
             tfWeight.setText("");
             tfCostPerWeight.setText("");
             tfNote.setText("");
+            
+            tfSupplyId.requestFocus();
         }
     }//GEN-LAST:event_btnConfirmMouseClicked
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         dispose();
     }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void tfInputNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInputNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfInputNumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +213,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField tfCostPerWeight;
+    private javax.swing.JTextField tfInputNum;
     private javax.swing.JTextField tfNote;
     private javax.swing.JTextField tfStorageId;
     private javax.swing.JTextField tfSupplyId;

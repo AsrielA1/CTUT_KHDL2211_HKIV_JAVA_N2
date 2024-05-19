@@ -152,13 +152,15 @@ public class ProviderController extends DB implements IProviderController {
     }
     
     @Override
-    public void searchProvider(JTextField _tfProviderId, JTable _tblProvider){
+    public void searchProvider(JTextField _tfSearchBar, JTable _tblProvider){
         DefaultTableModel tModel = (DefaultTableModel) _tblProvider.getModel();
         tModel.setRowCount(0);
         
         String providerId, providerName, providerMail, providerNumber;
         
-        String keyword = "%" + _tfProviderId.getText() + "%";
+        String keyword = "%" + _tfSearchBar.getText() + "%";
+        
+        System.out.println(keyword + "\n");
         
         try{
             Class.forName("org.postgresql.Driver");

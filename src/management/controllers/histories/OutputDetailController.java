@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 interface IOutputDetailController{
     void showAllOutputDetail(JTable outputDetailTable, String outputHistoryId);
+    void showSingleOutputDetail(String _outputId, int _outputNum, JTextField _tfStorageId, JTextField _tfIncomePerWeight, JTextField _tfWeight, JTextField _tfOutputNote);
     boolean addOutputDetail(JTextField _tfOutputId, JTextField _tfStorageId, JTextField _tfIncomPerCost, JTextField _tfWeight, JTextField _tfOutputNote);
     boolean delOutputDetail(JTextField _tfOutputId, JTable _tblOutputDetail);
     void searchOutputDetail(JTextField _tfSearchBar, JTable _tblOutputDetail);
@@ -54,6 +55,31 @@ public class OutputDetailController extends DB implements IOutputDetailControlle
         }
         catch (Exception e){
             System.out.println("Error in management.controllers.categories.histories.OutputDetailController.showAllOutputDetail\n" + e);
+        }
+    }
+    
+    @Override
+    public void showSingleOutputDetail(String _outputId, int _outputNum, JTextField _tfStorageId, JTextField _tfIncomePerWeight, JTextField _tfWeight, JTextField _tfOutputNote){
+        try{
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection(url, dbUsername, dbPassword);
+            
+            query = "SELECT * FROM chitiet_xuatkho WHERE ma_xuatkho = ? AND so_thutu = ?;";
+            pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, _outputId);
+            pstmt.setInt(2, _outputNum);
+            
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                _tfStorageId.setText(rs.getString(3));
+                _tfIncomePerWeight.setText(String.valueOf(rs.getFloat(4)));
+                _tfWeight.setText(String.valueOf(rs.getFloat(5)));
+                _tfOutputNote.setText(rs.getString(7));
+            }
+        
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.histories.OutputDetailController.showSingleOutputDetail\n" + e);
         }
     }
    

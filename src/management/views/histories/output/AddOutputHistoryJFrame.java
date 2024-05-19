@@ -9,6 +9,7 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     
     public AddOutputHistoryJFrame() {
         initComponents();
+        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")

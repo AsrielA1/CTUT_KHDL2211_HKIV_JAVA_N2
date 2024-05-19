@@ -142,11 +142,13 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
             if (success){
                 JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
                 
-                tfStorageId.setEditable(false);
-                tfWeightMax.setEditable(false);
-                tfStorageNote.setEditable(false);
+                tfStorageId.setText("");
+                tfWeightMax.setText("");
+                tfStorageNote.setText("");
                 
                 tfStorageId.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Thêm không thành công");
             }
         }
     }//GEN-LAST:event_btnConfirmMouseClicked

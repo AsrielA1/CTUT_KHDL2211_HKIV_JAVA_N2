@@ -88,15 +88,16 @@ public class EmployeeController extends DB implements IEmployeeController{
             connection = DriverManager.getConnection(url, dbUsername, dbPassword);
             
             stmt = connection.createStatement();
-            query = "SELECT ma_nhanvien, ho_ten, so_dienthoai FROM nhan_vien WHERE ghi_chu NOT LIKE '%Nghỉ%';";
+            query = "SELECT ma_nhanvien, ho_ten, so_dienthoai, ghi_chu FROM nhan_vien WHERE ghi_chu NOT LIKE '%Nghỉ%';";
             rs = stmt.executeQuery(query);
             
             while (rs.next()){
                 employeeId = String.valueOf(rs.getString(1));
                 employeeName = String.valueOf(rs.getString(2));
                 employeeNumber = String.valueOf(rs.getString(3));
+                employeeNote = rs.getString(4);
                 
-                String employeeDataList[] = {employeeId, employeeName, employeeNumber};
+                String employeeDataList[] = {employeeId, employeeName, employeeNumber, employeeNote};
                 
                 tModel.addRow(employeeDataList);
             }
@@ -168,11 +169,6 @@ public class EmployeeController extends DB implements IEmployeeController{
         DefaultTableModel tModel = (DefaultTableModel) _tblEmployee.getModel();
         tModel.setRowCount(0);
         
-        Connection connection = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
-        String query = null;
-        
         String employeeId, employeeName, employeeNumber, employeeNote;
         
         String _keyword = "%" + _tfSearchBar.getText() + "%";
@@ -185,7 +181,7 @@ public class EmployeeController extends DB implements IEmployeeController{
             pstmt = connection.prepareStatement(query);
             pstmt.setString(1, _keyword);
             
-            rs = pstmt.executeQuery(query);            
+            rs = pstmt.executeQuery();            
             while (rs.next()){
                 employeeId = String.valueOf(rs.getString(1));
                 employeeName = String.valueOf(rs.getString(2));
@@ -203,10 +199,6 @@ public class EmployeeController extends DB implements IEmployeeController{
     }
     
     public boolean checkValidEmployeeId(String _employeeId){
-        Connection connection;
-        PreparedStatement pstmt;
-        ResultSet rs;
-        String query;
         
         try {            
             Class.forName("org.postgresql.Driver");

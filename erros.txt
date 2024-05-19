@@ -1,0 +1,5 @@
+Views->Storage->Add
+    - Sau khi them thi bi setEditable(false) khong them moi duoc
+
+Controller
+    - Them nut tim cho lich su nhap + xuat kho

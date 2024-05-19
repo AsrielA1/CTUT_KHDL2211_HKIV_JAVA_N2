@@ -23,7 +23,6 @@ public class EmployeeJFrame extends javax.swing.JFrame {
         tblEmployee = new javax.swing.JTable();
         btnRefresh = new javax.swing.JButton();
         delButton = new javax.swing.JButton();
-        addEmployeeButton = new javax.swing.JButton();
         viewDetailButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         tfSearchBar = new javax.swing.JTextField();
@@ -75,22 +74,6 @@ public class EmployeeJFrame extends javax.swing.JFrame {
         });
         getContentPane().add(delButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 150, 50));
 
-        addEmployeeButton.setBackground(new java.awt.Color(204, 204, 204));
-        addEmployeeButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        addEmployeeButton.setText("Thêm");
-        addEmployeeButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        addEmployeeButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addEmployeeButtonMouseClicked(evt);
-            }
-        });
-        addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addEmployeeButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(addEmployeeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 50));
-
         viewDetailButton.setBackground(new java.awt.Color(204, 204, 204));
         viewDetailButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         viewDetailButton.setText("Xem chi tiết");
@@ -100,7 +83,7 @@ public class EmployeeJFrame extends javax.swing.JFrame {
                 viewDetailButtonMouseClicked(evt);
             }
         });
-        getContentPane().add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 150, 50));
+        getContentPane().add(viewDetailButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 320, 50));
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -127,14 +110,6 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addEmployeeButtonActionPerformed
-
-    private void addEmployeeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeeButtonMouseClicked
-
-    }//GEN-LAST:event_addEmployeeButtonMouseClicked
-
     private void delButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_delButtonMouseClicked
 
     }//GEN-LAST:event_delButtonMouseClicked
@@ -193,7 +168,6 @@ public class EmployeeJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addEmployeeButton;
     private javax.swing.JPanel allPanel;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton delButton;
