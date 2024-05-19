@@ -11,32 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/details/OutputDetail.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/histories/InputDetailController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/histories/InputHistoryController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Provider.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/StorageController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/database/DBInit.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/histories/OutputHistory.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/database/DB.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/ColdStorage.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/DeviceController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/UpdateDeviceJDialog.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/UpdateIDDeviceJDialog.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Device.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/histories/OutputHistoryController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/details/InputDetail.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/histories/InputHistory.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/IDDeviceJDialog.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/Main.Jframe.png</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/histories/OutputDetailController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/EmployeeController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Storage.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/categories/device/DeviceJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/controllers/categories/ProviderController.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/views/main/MainJFrame.java</file>
-            <file>file:/home/an/Desktop/Java/ColdStorage1.2/src/management/models/categories/Employee.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
