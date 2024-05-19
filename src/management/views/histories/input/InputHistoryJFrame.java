@@ -31,12 +31,13 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         tfSearchBar = new javax.swing.JTextField();
-        dateBegin = new com.toedter.calendar.JDateChooser();
-        dateEnd = new com.toedter.calendar.JDateChooser();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(690, 750));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setPreferredSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
@@ -60,6 +61,7 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
 
         btnAdd.setBackground(new java.awt.Color(204, 204, 204));
         btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,10 +69,11 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
                 btnAddMouseClicked(evt);
             }
         });
-        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 130, 50));
+        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 50));
 
         btnDelete.setBackground(new java.awt.Color(204, 204, 204));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xóa.png"))); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,10 +81,11 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
                 btnDeleteMouseClicked(evt);
             }
         });
-        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 130, 50));
+        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 50));
 
         btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/làm mới.png"))); // NOI18N
         btnRefresh.setText("Làm mới");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,10 +93,11 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
                 btnRefreshMouseClicked(evt);
             }
         });
-        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 130, 50));
+        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 50));
 
         btnView.setBackground(new java.awt.Color(204, 204, 204));
         btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xem chi tiết.png"))); // NOI18N
         btnView.setText("Xem");
         btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnView.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,24 +105,27 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
                 btnViewMouseClicked(evt);
             }
         });
-        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, 50));
+        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 150, 50));
 
         lblTitle.setFont(new java.awt.Font("Times New Roman", 3, 46)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("LỊCH SỬ NHẬP KHO");
         allPanel.add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 490, -1));
 
+        btnSearch.setBackground(new java.awt.Color(204, 204, 204));
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/tìm.png"))); // NOI18N
         btnSearch.setText("TÌM");
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSearchMouseClicked(evt);
             }
         });
-        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 100, -1));
-        allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 300, -1));
-        allPanel.add(dateBegin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
-        allPanel.add(dateEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, -1, -1));
+        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 100, -1));
+        allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 300, -1));
 
+        lblBackground.setBackground(new java.awt.Color(204, 204, 204));
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/InputHistoryJFrame.png"))); // NOI18N
         allPanel.add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
 
@@ -194,8 +202,6 @@ public class InputHistoryJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnView;
-    private com.toedter.calendar.JDateChooser dateBegin;
-    private com.toedter.calendar.JDateChooser dateEnd;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblTitle;

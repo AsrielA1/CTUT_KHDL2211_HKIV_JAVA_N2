@@ -10,7 +10,6 @@ import java.awt.Desktop;
 import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
 import management.views.histories.input.InputHistoryJFrame;
-import management.views.histories.output.OutputHistoryJFrame;
 import management.views.categories.device.DeviceJFrame;
 
 
@@ -21,7 +20,7 @@ public class MainJFrame extends javax.swing.JFrame {
      */
     public MainJFrame() {
         initComponents();
-          
+        
     }
 
     
@@ -42,58 +41,52 @@ public class MainJFrame extends javax.swing.JFrame {
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(990, 750));
-        setPreferredSize(new java.awt.Dimension(990, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 60)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(204, 255, 255));
-        lblTitle.setText("     ỨNG DỤNG QUẢN LÝ KHO ");
+        lblTitle.setFont(new java.awt.Font("Segoe UI Black", 1, 60)); // NOI18N
+        lblTitle.setText("       ỨNG DỤNG QUẢN LÝ KHO ");
         lblTitle.setToolTipText("");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 30, 990, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 30, 1010, -1));
 
         btnDeviceManagement.setBackground(new java.awt.Color(153, 255, 255));
         btnDeviceManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnDeviceManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý thiết bị.png"))); // NOI18N
         btnDeviceManagement.setText("QUẢN LÝ THIẾT BỊ");
-        btnDeviceManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnDeviceManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnDeviceManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDeviceManagementMouseClicked(evt);
             }
         });
-        getContentPane().add(btnDeviceManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 310, 120));
+        getContentPane().add(btnDeviceManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 320, 120));
 
         btnOutputManagement.setBackground(new java.awt.Color(255, 255, 153));
         btnOutputManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnOutputManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý lịch sử.png"))); // NOI18N
         btnOutputManagement.setText("QUẢN LÝ LỊCH SỬ XUẤT ");
-        btnOutputManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnOutputManagement.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnOutputManagementMouseClicked(evt);
-            }
-        });
+        btnOutputManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnOutputManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOutputManagementActionPerformed(evt);
             }
         });
-        getContentPane().add(btnOutputManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 310, 120));
+        getContentPane().add(btnOutputManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 320, 120));
 
         btnLogout.setBackground(new java.awt.Color(204, 255, 204));
         btnLogout.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/đăng xuất.png"))); // NOI18N
         btnLogout.setText("ĐĂNG XUẤT ");
-        btnLogout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLogoutMouseClicked(evt);
-            }
-        });
+        btnLogout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 280, 50));
 
         btnEmployeeManagement.setBackground(new java.awt.Color(153, 204, 255));
         btnEmployeeManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnEmployeeManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý nhân sự.png"))); // NOI18N
         btnEmployeeManagement.setText("QUẢN LÝ NHÂN SỰ");
-        btnEmployeeManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEmployeeManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnEmployeeManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEmployeeManagementMouseClicked(evt);
@@ -103,8 +96,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnInputManagement.setBackground(new java.awt.Color(255, 153, 153));
         btnInputManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnInputManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý nhập.png"))); // NOI18N
         btnInputManagement.setText("QUẢN LÝ LỊCH SỬ NHẬP");
-        btnInputManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnInputManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnInputManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnInputManagementMouseClicked(evt);
@@ -114,19 +108,26 @@ public class MainJFrame extends javax.swing.JFrame {
 
         btnProviderManagement.setBackground(new java.awt.Color(153, 153, 255));
         btnProviderManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnProviderManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý nhà cung ứng.png"))); // NOI18N
         btnProviderManagement.setText("QUẢN LÝ NHÀ CUNG ỨNG");
-        btnProviderManagement.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnProviderManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnProviderManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnProviderManagementMouseClicked(evt);
             }
         });
-        getContentPane().add(btnProviderManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 310, 120));
+        btnProviderManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProviderManagementActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnProviderManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 320, 120));
 
         btnStorageMonitoring.setBackground(new java.awt.Color(204, 204, 204));
         btnStorageMonitoring.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnStorageMonitoring.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/Giám sát kho.png"))); // NOI18N
         btnStorageMonitoring.setText("GIÁM SÁT KHO");
-        btnStorageMonitoring.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnStorageMonitoring.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
         btnStorageMonitoring.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnStorageMonitoringMouseClicked(evt);
@@ -152,7 +153,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOutputManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputManagementActionPerformed
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnOutputManagementActionPerformed
 
     private void btnStorageMonitoringMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStorageMonitoringMouseClicked
@@ -161,7 +162,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStorageMonitoringMouseClicked
 
     private void btnDeviceManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeviceManagementMouseClicked
-        new DeviceJFrame().setVisible(true);
+        try{            
+            new DeviceJFrame().setVisible(true);
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnDeviceManagementMouseClicked
 
     private void btnEmployeeManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeManagementMouseClicked
@@ -179,14 +184,9 @@ public class MainJFrame extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_btnInputManagementMouseClicked
 
-    private void btnOutputManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutputManagementMouseClicked
-        new OutputHistoryJFrame().setVisible(true);
-    }//GEN-LAST:event_btnOutputManagementMouseClicked
-
-    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        new Register().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnLogoutMouseClicked
+    private void btnProviderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderManagementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProviderManagementActionPerformed
 
     /**
      * @param args the command line arguments

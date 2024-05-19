@@ -8,7 +8,7 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
     private final OutputHistoryController outputController = new OutputHistoryController();
     
     public AddOutputHistoryJFrame() {
-        initComponents();
+        initComponents();        
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
     }
 
@@ -35,7 +35,10 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(690, 750));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setPreferredSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
@@ -44,6 +47,7 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
 
         confirmButton.setBackground(new java.awt.Color(204, 204, 204));
         confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        confirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         confirmButton.setText("Xác nhận");
         confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -55,6 +59,7 @@ public class AddOutputHistoryJFrame extends javax.swing.JFrame {
 
         cancelButton.setBackground(new java.awt.Color(204, 204, 204));
         cancelButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát.png"))); // NOI18N
         cancelButton.setText("Hủy");
         cancelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {

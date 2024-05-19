@@ -45,6 +45,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         tfNote.setEditable(false);
     }
     
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,12 +68,14 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(690, 760));
-        setPreferredSize(new java.awt.Dimension(690, 760));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
         btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         btnConfirm.setText("Xác nhận");
         btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -84,6 +87,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
 
         btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát.png"))); // NOI18N
         btnCancel.setText("Hủy");
         btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,14 +130,8 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         jLabel8.setText("Nhập Kho");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
         getContentPane().add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 324, 330, 40));
-        getContentPane().add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 230, 50));
-
-        tfInputNum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfInputNumActionPerformed(evt);
-            }
-        });
-        getContentPane().add(tfInputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 80, 50));
+        getContentPane().add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 240, 50));
+        getContentPane().add(tfInputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, -1, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/AddInputDetailJFrame.png"))); // NOI18N
         jLabel6.setToolTipText("");
@@ -149,22 +147,17 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         if (success){
             JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
             
+            tfSupplyId.setText("");
             tfStorageId.setText("");
             tfWeight.setText("");
             tfCostPerWeight.setText("");
             tfNote.setText("");
-            
-            tfSupplyId.requestFocus();
         }
     }//GEN-LAST:event_btnConfirmMouseClicked
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         dispose();
     }//GEN-LAST:event_btnCancelMouseClicked
-
-    private void tfInputNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfInputNumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfInputNumActionPerformed
 
     /**
      * @param args the command line arguments

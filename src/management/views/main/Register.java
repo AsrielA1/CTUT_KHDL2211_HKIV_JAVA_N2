@@ -1,5 +1,7 @@
 package management.views.main;
 
+import management.controllers.categories.EmployeeController;
+
 import javax.swing.JOptionPane;
 import management.controllers.categories.EmployeeController;
 
@@ -40,7 +42,7 @@ public class Register extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(780, 600));
-        setPreferredSize(new java.awt.Dimension(780, 600));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -112,8 +114,7 @@ public class Register extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 610, 40));
 
-        jLabel1.setMinimumSize(new java.awt.Dimension(780, 570));
-        jLabel1.setPreferredSize(new java.awt.Dimension(780, 570));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
 
         pack();
@@ -128,7 +129,7 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPasswordActionPerformed
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-        boolean success = eController.register(tfEmployeeId, tfNumber, tfNumber, tfPassword, tfRetypePassword);
+        boolean success = eController.register(tfEmployeeId, tfEmployeeName, tfNumber, tfPassword, tfRetypePassword);
         if (success){
             JOptionPane.showMessageDialog(rootPane, "Đăng ký thành công");
             dispose();

@@ -13,7 +13,7 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
     private final OutputHistoryController outputController = new OutputHistoryController();
     
     public OutputHistoryJFrame() {
-        initComponents();
+        initComponents();        
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
         outputController.showAllOutputData(tblOutput);
@@ -41,7 +41,10 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(690, 750));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setPreferredSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
@@ -63,11 +66,16 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
 
         allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 680, 400));
 
+        btnSearch.setBackground(new java.awt.Color(204, 204, 204));
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/tìm.png"))); // NOI18N
         btnSearch.setText("TÌM");
-        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, -1));
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 120, -1));
 
         btnDelete.setBackground(new java.awt.Color(204, 204, 204));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xóa.png"))); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -75,10 +83,11 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
                 btnDeleteMouseClicked(evt);
             }
         });
-        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 50));
+        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, 50));
 
         btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
         btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát.png"))); // NOI18N
         btnRefresh.setText("Làm mới");
         btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,10 +95,11 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
                 btnRefreshMouseClicked(evt);
             }
         });
-        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, 50));
+        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 50));
 
         btnAdd.setBackground(new java.awt.Color(204, 204, 204));
         btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,18 +107,19 @@ public class OutputHistoryJFrame extends javax.swing.JFrame {
                 btnAddMouseClicked(evt);
             }
         });
-        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, 50));
+        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, 50));
 
         btnView.setBackground(new java.awt.Color(204, 204, 204));
         btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnView.setText("Xem chi tiết");
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xem chi tiết.png"))); // NOI18N
+        btnView.setText("Xem");
         btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewMouseClicked(evt);
             }
         });
-        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 140, 50));
+        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 150, 50));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));

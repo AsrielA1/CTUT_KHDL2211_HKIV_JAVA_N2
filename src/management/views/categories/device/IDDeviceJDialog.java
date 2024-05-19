@@ -42,12 +42,18 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
         btnSearch = new javax.swing.JButton();
         tfSearchBar = new javax.swing.JTextField();
         tfDeviceId = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(690, 750));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setPreferredSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
+        allPanel.setMaximumSize(new java.awt.Dimension(670, 750));
+        allPanel.setMinimumSize(new java.awt.Dimension(680, 750));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
@@ -67,49 +73,76 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
         tblIDevice.setPreferredSize(new java.awt.Dimension(690, 402));
         jScrollPane1.setViewportView(tblIDevice);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, -1, 437));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 680, 437));
 
+        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
+        btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         btnAdd.setText("Thêm");
+        btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 223, -1, -1));
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 150, 50));
 
+        btnView.setBackground(new java.awt.Color(204, 204, 204));
+        btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xem chi tiết.png"))); // NOI18N
         btnView.setText("Xem");
+        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnViewMouseClicked(evt);
             }
         });
-        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 265, -1, -1));
+        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 150, 50));
 
+        btnDel.setBackground(new java.awt.Color(204, 204, 204));
+        btnDel.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnDel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xóa.png"))); // NOI18N
         btnDel.setText("Xóa");
+        btnDel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnDelMouseClicked(evt);
             }
         });
-        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 223, -1, -1));
+        getContentPane().add(btnDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, 50));
 
+        btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
+        btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/làm mới.png"))); // NOI18N
         btnRefresh.setText("Làm mới");
+        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnRefreshMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 265, -1, -1));
+        getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 150, 50));
 
+        btnSearch.setBackground(new java.awt.Color(204, 204, 204));
+        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/tìm.png"))); // NOI18N
         btnSearch.setText("TÌm");
+        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSearchMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(604, 265, -1, -1));
-        getContentPane().add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(369, 265, 207, -1));
-        getContentPane().add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 265, -1, -1));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 100, 30));
+        getContentPane().add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 300, -1));
+        getContentPane().add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 180, -1));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel2.setText("DANH SÁCH THIẾT BỊ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DeviceDetail/IDdialog.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,6 +229,8 @@ public class IDDeviceJDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnView;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblIDevice;
     private javax.swing.JTextField tfDeviceId;

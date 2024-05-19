@@ -9,13 +9,13 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
 public class AddInputHistoryJFrame extends javax.swing.JFrame {
-    
+
     private final InputHistoryController inputHistoryController = new InputHistoryController();
     
     public AddInputHistoryJFrame() {
-        initComponents();      
+        initComponents();
         
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+        
     }
 
 
@@ -40,8 +40,10 @@ public class AddInputHistoryJFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(690, 750));
-        setPreferredSize(new java.awt.Dimension(690, 750));
+        setMaximumSize(new java.awt.Dimension(680, 750));
+        setMinimumSize(new java.awt.Dimension(680, 750));
+        setPreferredSize(new java.awt.Dimension(680, 750));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         allPanel.setMinimumSize(new java.awt.Dimension(690, 750));
@@ -75,6 +77,7 @@ public class AddInputHistoryJFrame extends javax.swing.JFrame {
 
         confirmButton.setBackground(new java.awt.Color(204, 204, 204));
         confirmButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        confirmButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
         confirmButton.setText("Xác nhận");
         confirmButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +94,7 @@ public class AddInputHistoryJFrame extends javax.swing.JFrame {
 
         cancelButton.setBackground(new java.awt.Color(204, 204, 204));
         cancelButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát.png"))); // NOI18N
         cancelButton.setText("Hủy");
         cancelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,7 +112,7 @@ public class AddInputHistoryJFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CHI TIẾT LỊCH SỬ");
-        allPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, -1, -1));
+        allPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 430, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/AddInputHistoryJFrame.png"))); // NOI18N

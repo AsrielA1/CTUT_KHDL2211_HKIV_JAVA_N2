@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ interface IEmployeeController{
     void setEditable(JTextField employeeNameTF, JTextField employeeNumberTF, JTextField employeeNoteTF, boolean b);
     void showSingleEmployee(String employeeId, JTextField employeeIdTF, JTextField employeeNameTF, JTextField employeeNumberTF, JTextField employeeNoteTF);
     void showAllEmployee(JTable employeeTable);
+    boolean register(JTextField _tfEmployeeId, JTextField _tfEmployeeName, JTextField _tfEmployeeNumber, JTextField _tfPassword, JTextField _tfRetypePassword);
     boolean addEmployeeData(JTextField TFemployeeId, JTextField TFpassword, JTextField TFemployeeName, JTextField TFemployeeNumber, JTextField TFemployeeNote);
     boolean delEmployee(JTable _tblEmployee);
     boolean updateEmployeeData(JTextField TFemployeeId, JTextField TFemployeeName, JTextField TFemployeeNumber, JTextField TFemployeeNote);
@@ -70,6 +72,28 @@ public class EmployeeController extends DB implements IEmployeeController{
         }
     }
     
+    @Override
+    public boolean register(JTextField _tfEmployeeId, JTextField _tfEmployeeName, JTextField _tfEmployeeNumber, JTextField _tfPassword, JTextField _tfRetypePassword){
+        try{
+            String _employeeId = _tfEmployeeId.getText();
+            String _employeeName = _tfEmployeeName.getText();
+            String _employeeNumber = _tfEmployeeNumber.getText();
+            String _password = _tfPassword.getText();
+            String _retypePassword = _tfRetypePassword.getText();            
+            
+            if (_password.equals(_retypePassword)){
+                JOptionPane.showMessageDialog(_tfEmployeeName, "Mật khâu không đúng");
+                return false;
+            }
+            
+            return employeeFunction.addEmployee(_employeeId, _retypePassword, _employeeName, _employeeNumber, "");            
+        }
+        catch (Exception e){
+            System.out.println("Error in management.controllers.categories.EmployeeController.register\n" + e);
+        }
+        
+        return false;
+    }
     
     @Override
     public void showAllEmployee(JTable employeeTable){
@@ -221,36 +245,7 @@ public class EmployeeController extends DB implements IEmployeeController{
         
         return false;
     }
-    
-    public boolean register(JTextField _tfEmployeeId, JTextField _tfName, JTextField _tfNumber, JTextField _tfPassword, JTextField _tfRetypePassword){
-        
-        try {
-            String _employeeId = _tfEmployeeId.getText();
-            if (!checkValidEmployeeId(_employeeId)){
-                return false;
-            }
-            
-            String _name = _tfName.getText();
-            String _number = _tfNumber.getText();
-            String _password = _tfPassword.getText();
-            String _retypePassword = _tfRetypePassword.getText();
-            
-            if (_password.length() < 8)
-                return false;
-            
-            if (!_password.equals(_retypePassword))
-                return false;
-            
-            employeeFunction.addEmployee(_employeeId, _retypePassword, _name, _number, "");
-            
-            return true;
-        }
-        catch (Exception e){
-            System.out.println("Error in management.controllers.categories.EmployeeController.register\n" + e);
-        }
-        
-        return false;
-    }
+
     
     public boolean logIn(JTextField _tfEmployeeId, JTextField _tfPassword){
         String _employeeId = _tfEmployeeId.getText();

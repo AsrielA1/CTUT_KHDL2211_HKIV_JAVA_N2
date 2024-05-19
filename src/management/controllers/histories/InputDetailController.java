@@ -15,7 +15,7 @@ interface IInputDetailController{
     void showAllInputDetail(JTable inputDetailTable, String _inputHistoryId);
     void showSingleInputDetail(String _inputId, int _inputNum, JTextField _tfStorageId, JTextField _tfWeight, JTextField _tfCostPerWeight, JTextField _tfInputNote);
     boolean addInputDetail(JTextField _tfSupplyId, JTextField _tfStorageId, JTextField costPerWeightTF, JTextField weightTF, JTextField inputDetailNoteTF);
-    boolean hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser);
+    boolean hideInputDetail(JTable inputDetailTable, JTextField _tfInputId);
     void searchInputDetail(JTextField _tfInputId, JTextField _tfSearchBar, JTable _tblInputDetail);
 }
 
@@ -108,12 +108,12 @@ public class InputDetailController extends DB implements IInputDetailController{
     }
     
     @Override
-    public boolean hideInputDetail(JTable inputDetailTable, JComboBox inputHistoryIdChooser){
+    public boolean hideInputDetail(JTable inputDetailTable, JTextField _tfInputId){
         try {
             int row = inputDetailTable.getSelectedRow();
             DefaultTableModel tModel = (DefaultTableModel)inputDetailTable.getModel();
 
-            String inputHistoryId = inputHistoryIdChooser.getSelectedItem().toString();
+            String inputHistoryId = _tfInputId.getText();
             int inputDetailNumber = Integer.parseInt(tModel.getValueAt(row, 0).toString());
 
             inputDetail.delInputDetail(inputHistoryId, inputDetailNumber);
