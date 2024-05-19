@@ -1,5 +1,6 @@
 package management.views.categories.provider;
 
+import javax.swing.table.DefaultTableModel;
 import management.controllers.categories.ProviderController;
 
 public class ProviderJFrame extends javax.swing.JFrame {
@@ -142,7 +143,12 @@ public class ProviderJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteMouseClicked
 
     private void btnViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewMouseClicked
+        int row = tblProvider.getSelectedRow();
+        DefaultTableModel dtModel = (DefaultTableModel)tblProvider.getModel();
         
+        String _providerId = dtModel.getValueAt(row, 0).toString();
+        
+        new UpdateProviderJFrame(_providerId).setVisible(true);
     }//GEN-LAST:event_btnViewMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked

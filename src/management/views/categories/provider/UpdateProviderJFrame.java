@@ -33,6 +33,8 @@ public class UpdateProviderJFrame extends javax.swing.JFrame {
         tfProviderNote.setEditable(false);
         
         btnConfirm.setText("Sửa");
+        
+        providerController.showSingleProvider(tfProviderId, tfProviderName, tfProviderEmail, tfProviderNumber, tfProviderNote);
     }
 
 

@@ -33,8 +33,10 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(780, 600));
         setMinimumSize(new java.awt.Dimension(780, 600));
         setPreferredSize(new java.awt.Dimension(780, 600));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
@@ -74,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("Bạn đã có tài khoản chưa ? ");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 180, -1));
 
-        btnRegister.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         btnRegister.setText("Đăng kí ");
         btnRegister.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,7 +84,7 @@ public class Login extends javax.swing.JFrame {
                 btnRegisterMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, -1, 20));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, 80, 20));
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("______________________________________________________________________");
@@ -92,9 +94,8 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("______________________________________________________________________");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/1.png"))); // NOI18N
         jLabel1.setToolTipText("");
-        jLabel1.setMinimumSize(new java.awt.Dimension(780, 570));
-        jLabel1.setPreferredSize(new java.awt.Dimension(780, 570));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
 
         pack();

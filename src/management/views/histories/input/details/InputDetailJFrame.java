@@ -89,6 +89,9 @@ public class InputDetailJFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddMouseEntered(evt);
+            }
         });
         allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, 50));
 
@@ -151,8 +154,9 @@ public class InputDetailJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRefreshMouseClicked
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        AddInputDetailJFrame frame = new AddInputDetailJFrame();
-        frame.setVisible(true);
+        String _inputId = tfSupplyId.getText();
+                
+        new AddInputDetailJFrame(_inputId).setVisible(true);
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
@@ -172,6 +176,10 @@ public class InputDetailJFrame extends javax.swing.JFrame {
 
         new AddInputDetailJFrame(_inputId, _inputNum).setVisible(true);
     }//GEN-LAST:event_btnViewMouseClicked
+
+    private void btnAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseEntered
+        
+    }//GEN-LAST:event_btnAddMouseEntered
 
     /**
      * @param args the command line arguments

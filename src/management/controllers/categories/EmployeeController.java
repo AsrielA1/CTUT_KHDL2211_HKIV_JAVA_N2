@@ -79,9 +79,11 @@ public class EmployeeController extends DB implements IEmployeeController{
             String _employeeName = _tfEmployeeName.getText();
             String _employeeNumber = _tfEmployeeNumber.getText();
             String _password = _tfPassword.getText();
-            String _retypePassword = _tfRetypePassword.getText();            
+            String _retypePassword = _tfRetypePassword.getText();    
             
-            if (_password.equals(_retypePassword)){
+            System.out.printf(_employeeId + "\n" + _employeeName + "\n" + _employeeNumber + "\n" + _password + "\n" + _retypePassword);
+            
+            if (_password == _retypePassword){
                 JOptionPane.showMessageDialog(_tfEmployeeName, "Mật khâu không đúng");
                 return false;
             }

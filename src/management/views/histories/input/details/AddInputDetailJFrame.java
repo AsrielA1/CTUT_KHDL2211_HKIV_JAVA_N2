@@ -21,6 +21,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         
         tfSupplyId.setText(_inputId);
         tfSupplyId.setEditable(false);
+        tfInputNum.setVisible(false);
     }
     
     public AddInputDetailJFrame(String _inputId, int _inputNum) {
@@ -131,7 +132,7 @@ public class AddInputDetailJFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
         getContentPane().add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 324, 330, 40));
         getContentPane().add(tfSupplyId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 240, 50));
-        getContentPane().add(tfInputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, -1, 50));
+        getContentPane().add(tfInputNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 240, 70, 50));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Input.Jframe/AddInputDetailJFrame.png"))); // NOI18N
         jLabel6.setToolTipText("");

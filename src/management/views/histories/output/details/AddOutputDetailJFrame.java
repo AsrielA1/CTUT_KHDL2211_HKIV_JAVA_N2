@@ -35,6 +35,7 @@ public class AddOutputDetailJFrame extends javax.swing.JFrame {
         
         viewInit(_outputId, _outputNum);
         isView = true;
+        tfOutputNum.setText(String.valueOf(_outputNum));
     }
     
     private void viewInit(String _outputId, int _outputNum){

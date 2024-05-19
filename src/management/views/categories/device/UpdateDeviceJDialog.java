@@ -54,11 +54,16 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(670, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
+        allPanel.setMaximumSize(new java.awt.Dimension(670, 730));
+        allPanel.setMinimumSize(new java.awt.Dimension(670, 730));
+        allPanel.setPreferredSize(new java.awt.Dimension(670, 730));
         allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfDeviceId.addActionListener(new java.awt.event.ActionListener() {
@@ -66,36 +71,57 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
                 tfDeviceIdActionPerformed(evt);
             }
         });
-        allPanel.add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 113, -1));
-        allPanel.add(tfDeviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 180, 70));
-        allPanel.add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 210, 80));
+        allPanel.add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 350, 50));
+        allPanel.add(tfDeviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 350, 50));
+        allPanel.add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 350, 120));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel1.setText("Mã thiết bị");
-        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 298, -1, 40));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel2.setText("Tên thiết bị");
-        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, 50));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel3.setText("Ghi chú");
-        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
+        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 488, -1, 40));
 
+        btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnConfirm.setText("Xác nhận");
+        btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConfirmMouseClicked(evt);
             }
         });
-        allPanel.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 683, -1, -1));
+        allPanel.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 150, 50));
+        btnConfirm.getAccessibleContext().setAccessibleName("");
 
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         btnCancel.setText("Hủy");
+        btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelMouseClicked(evt);
             }
         });
-        allPanel.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 683, -1, -1));
+        allPanel.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 150, 50));
+        btnCancel.getAccessibleContext().setAccessibleName("");
 
-        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel5.setText("CHI TIẾT THIẾT BỊ");
+        allPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DeviceDetail/UpdateDeviceJFrame.png"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(670, 730));
+        jLabel4.setMinimumSize(new java.awt.Dimension(670, 730));
+        jLabel4.setPreferredSize(new java.awt.Dimension(670, 730));
+        allPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -193,6 +219,8 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField tfDeviceId;
     private javax.swing.JTextField tfDeviceName;
     private javax.swing.JTextField tfDeviceNote;

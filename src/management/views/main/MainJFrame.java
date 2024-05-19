@@ -11,6 +11,7 @@ import management.views.categories.employee.EmployeeJFrame;
 import management.views.categories.provider.ProviderJFrame;
 import management.views.histories.input.InputHistoryJFrame;
 import management.views.categories.device.DeviceJFrame;
+import management.views.histories.output.OutputHistoryJFrame;
 
 
 public class MainJFrame extends javax.swing.JFrame {
@@ -61,25 +62,35 @@ public class MainJFrame extends javax.swing.JFrame {
                 btnDeviceManagementMouseClicked(evt);
             }
         });
-        getContentPane().add(btnDeviceManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 320, 120));
+        getContentPane().add(btnDeviceManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 330, 120));
 
         btnOutputManagement.setBackground(new java.awt.Color(255, 255, 153));
         btnOutputManagement.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         btnOutputManagement.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/quản lý lịch sử.png"))); // NOI18N
         btnOutputManagement.setText("QUẢN LÝ LỊCH SỬ XUẤT ");
         btnOutputManagement.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+        btnOutputManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnOutputManagementMouseClicked(evt);
+            }
+        });
         btnOutputManagement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOutputManagementActionPerformed(evt);
             }
         });
-        getContentPane().add(btnOutputManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 320, 120));
+        getContentPane().add(btnOutputManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 330, 120));
 
         btnLogout.setBackground(new java.awt.Color(204, 255, 204));
         btnLogout.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/đăng xuất.png"))); // NOI18N
         btnLogout.setText("ĐĂNG XUẤT ");
         btnLogout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 0), null, null));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
         getContentPane().add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 510, 280, 50));
 
         btnEmployeeManagement.setBackground(new java.awt.Color(153, 204, 255));
@@ -121,7 +132,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 btnProviderManagementActionPerformed(evt);
             }
         });
-        getContentPane().add(btnProviderManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 320, 120));
+        getContentPane().add(btnProviderManagement, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 330, 120));
 
         btnStorageMonitoring.setBackground(new java.awt.Color(204, 204, 204));
         btnStorageMonitoring.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
@@ -188,6 +199,15 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnProviderManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderManagementActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnProviderManagementActionPerformed
+
+    private void btnOutputManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutputManagementMouseClicked
+        new OutputHistoryJFrame().setVisible(true);
+    }//GEN-LAST:event_btnOutputManagementMouseClicked
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        new Login().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLogoutMouseClicked
 
     /**
      * @param args the command line arguments

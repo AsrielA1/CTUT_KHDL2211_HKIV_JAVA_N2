@@ -32,6 +32,7 @@ public class UpdateIDDeviceJDialog extends javax.swing.JDialog {
         
         viewInit(_deviceId, _deviceNum);
         isView = true;
+        hiddenLayer.setVisible(false);
     }
     
     private void viewInit(String _deviceId, int _deviceNum){
@@ -67,46 +68,77 @@ public class UpdateIDDeviceJDialog extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
         lblDeviceNum = new javax.swing.JLabel();
         tfDeviceNum = new javax.swing.JTextField();
+        hiddenLayer = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(670, 750));
+        setMinimumSize(new java.awt.Dimension(670, 750));
+        setPreferredSize(new java.awt.Dimension(670, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(690, 750));
+        jPanel1.setMaximumSize(new java.awt.Dimension(680, 750));
+        jPanel1.setMinimumSize(new java.awt.Dimension(680, 750));
+        jPanel1.setPreferredSize(new java.awt.Dimension(680, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 150, -1));
-        jPanel1.add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 150, 30));
-        jPanel1.add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 200, 180));
+        jPanel1.add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, 350, 50));
+        jPanel1.add(tfStorageId, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 350, 50));
+        jPanel1.add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, 350, 70));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Mã thiết bị");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 70));
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setText("Mã kho");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 418, -1, 60));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("Ghi chú");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 528, -1, 50));
 
+        btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
+        btnConfirm.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm_1.png"))); // NOI18N
         btnConfirm.setText("Xác nhận");
+        btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConfirmMouseClicked(evt);
             }
         });
-        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 618, -1, -1));
+        jPanel1.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 650, 150, 50));
 
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát_1.png"))); // NOI18N
         btnCancel.setText("Hủy");
+        btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCancelMouseClicked(evt);
             }
         });
-        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 618, -1, -1));
+        jPanel1.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 650, 150, 50));
 
+        lblDeviceNum.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblDeviceNum.setText("Số thứ tự");
-        jPanel1.add(lblDeviceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
-        jPanel1.add(tfDeviceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, -1, -1));
+        jPanel1.add(lblDeviceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, 60));
+        jPanel1.add(tfDeviceNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 350, 50));
+        jPanel1.add(hiddenLayer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 660, 90));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
+        jLabel4.setText("CHI TIẾT MÃ THIẾT BỊ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/DeviceDetail/AddTagForDeviceJFrame.png"))); // NOI18N
+        jLabel5.setMaximumSize(new java.awt.Dimension(680, 720));
+        jLabel5.setMinimumSize(new java.awt.Dimension(680, 720));
+        jLabel5.setPreferredSize(new java.awt.Dimension(680, 720));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 680, 720));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 680, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,9 +224,12 @@ public class UpdateIDDeviceJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JPanel hiddenLayer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblDeviceNum;
     private javax.swing.JTextField tfDeviceId;

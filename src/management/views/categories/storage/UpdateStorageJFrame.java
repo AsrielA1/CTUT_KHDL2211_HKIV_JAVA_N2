@@ -128,7 +128,6 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
     private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
         if (isViewFrame){
             if (firstPress){                
-                tfWeightMax.setEditable(true);
                 tfStorageNote.setEditable(true);
                 
                 btnConfirm.setText("Xác nhận");
@@ -146,9 +145,9 @@ public class UpdateStorageJFrame extends javax.swing.JFrame {
             if (success){
                 JOptionPane.showMessageDialog(rootPane, "Thêm thành công");
                 
-                tfStorageId.setEditable(false);
-                tfWeightMax.setEditable(false);
-                tfStorageNote.setEditable(false);
+                tfStorageId.setText("");
+                tfWeightMax.setText("");
+                tfStorageNote.setText("");
                 
                 tfStorageId.requestFocus();
             }
