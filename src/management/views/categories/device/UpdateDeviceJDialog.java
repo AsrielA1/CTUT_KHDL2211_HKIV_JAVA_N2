@@ -45,85 +45,57 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tfDeviceNote = new javax.swing.JTextField();
-        btnCancel = new javax.swing.JButton();
-        btnConfirm = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        tfDeviceName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        allPanel = new javax.swing.JPanel();
         tfDeviceId = new javax.swing.JTextField();
+        tfDeviceName = new javax.swing.JTextField();
+        tfDeviceNote = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnConfirm = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(680, 750));
-        setMinimumSize(new java.awt.Dimension(680, 750));
-        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 380, 100));
 
-        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
-        btnCancel.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thoát.png"))); // NOI18N
-        btnCancel.setText("Hủy");
-        btnCancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCancelMouseClicked(evt);
-            }
-        });
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 640, 150, 50));
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
+        allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnConfirm.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfirm.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
-        btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
-        btnConfirm.setText("Xác nhận");
-        btnConfirm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnConfirmMouseClicked(evt);
-            }
-        });
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 640, 150, 50));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setText("Ghi chú");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 486, -1, 50));
-        getContentPane().add(tfDeviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 380, 40));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel2.setText("Tên thiết bị");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 406, -1, 40));
-
-        tfDeviceId.setVerifyInputWhenFocusTarget(false);
         tfDeviceId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDeviceIdActionPerformed(evt);
             }
         });
-        getContentPane().add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 380, 40));
+        allPanel.add(tfDeviceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, 113, -1));
+        allPanel.add(tfDeviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 180, 70));
+        allPanel.add(tfDeviceNote, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, 210, 80));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Mã thiết bị");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 296, -1, 50));
+        allPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
-        jLabel5.setText("CHI TIẾT THIẾT BỊ");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 66, -1, 90));
+        jLabel2.setText("Tên thiết bị");
+        allPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DeviceDetail/UpdateDeviceJFrame.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+        jLabel3.setText("Ghi chú");
+        allPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
+
+        btnConfirm.setText("Xác nhận");
+        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 683, -1, -1));
+
+        btnCancel.setText("Hủy");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 683, -1, -1));
+
+        getContentPane().add(allPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,14 +143,6 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDeviceIdActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelActionPerformed
-
-    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConfirmActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -223,13 +187,12 @@ public class UpdateDeviceJDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel allPanel;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField tfDeviceId;
     private javax.swing.JTextField tfDeviceName;
     private javax.swing.JTextField tfDeviceNote;

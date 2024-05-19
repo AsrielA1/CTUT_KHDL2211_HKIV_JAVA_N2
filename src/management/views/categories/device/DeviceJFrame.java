@@ -23,24 +23,21 @@ public class DeviceJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        allPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDevice = new javax.swing.JTable();
-        btnRefresh = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         tfSearchBar = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnView = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(680, 750));
-        setMinimumSize(new java.awt.Dimension(680, 750));
-        setPreferredSize(new java.awt.Dimension(680, 750));
-        setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        allPanel.setPreferredSize(new java.awt.Dimension(690, 750));
+        allPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblDevice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -55,90 +52,73 @@ public class DeviceJFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblDevice);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 323, 680, -1));
+        allPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 323, 690, -1));
+        allPanel.add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 287, 155, -1));
 
-        btnRefresh.setBackground(new java.awt.Color(204, 204, 204));
-        btnRefresh.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/làm mới.png"))); // NOI18N
-        btnRefresh.setText("Làm mới");
-        btnRefresh.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 150, 50));
-
-        btnView.setBackground(new java.awt.Color(204, 204, 204));
-        btnView.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xem chi tiết.png"))); // NOI18N
-        btnView.setText("Xem");
-        btnView.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnViewMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 50));
-
-        btnDelete.setBackground(new java.awt.Color(204, 204, 204));
-        btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/xóa.png"))); // NOI18N
-        btnDelete.setText("Xóa");
-        btnDelete.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 150, 50));
-
-        btnAdd.setBackground(new java.awt.Color(204, 204, 204));
-        btnAdd.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/thêm.png"))); // NOI18N
-        btnAdd.setText("Thêm");
-        btnAdd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 150, 50));
-
-        btnUpdate.setBackground(new java.awt.Color(204, 204, 204));
-        btnUpdate.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/icons8-update-file-24.png"))); // NOI18N
-        btnUpdate.setText("Sửa");
-        btnUpdate.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnUpdateMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 150, 50));
-        getContentPane().add(tfSearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 190, -1));
-
-        btnSearch.setBackground(new java.awt.Color(204, 204, 204));
-        btnSearch.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Icon/tìm.png"))); // NOI18N
         btnSearch.setText("Tìm");
-        btnSearch.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSearchMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 120, 30));
+        allPanel.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 245, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 48)); // NOI18N
-        jLabel2.setText("DANH MỤC THIẾT BỊ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
+        btnAdd.setText("Thêm");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DeviceDetail/DeviceJFrame.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setMaximumSize(new java.awt.Dimension(680, 720));
-        jLabel1.setMinimumSize(new java.awt.Dimension(680, 720));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 720));
+        btnView.setText("Xem");
+        btnView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, -1, -1));
+
+        btnDelete.setText("Xóa");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+
+        btnRefresh.setText("Làm mới");
+        btnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRefreshMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+
+        btnUpdate.setText("Sửa");
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseClicked(evt);
+            }
+        });
+        allPanel.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(allPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(allPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,14 +196,13 @@ public class DeviceJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel allPanel;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDevice;
     private javax.swing.JTextField tfSearchBar;

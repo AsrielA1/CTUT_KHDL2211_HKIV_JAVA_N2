@@ -163,7 +163,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnDeviceManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeviceManagementMouseClicked
         try{            
-            new DeviceJFrame().setVisible(true);
+            DeviceJFrame frame = new DeviceJFrame();
+            frame.setVisible(true);
         } catch (Exception e){
             System.out.println(e);
         }
